@@ -1,6 +1,6 @@
 baseURL = "https://zikkas.github.io/imm/"
 languageCode = "en-us"
-title = "IMM 2025-2026 Promotion Resources"
+title = "IMM 2025/2026 Promotion"
 theme = "github.com/McShelby/hugo-theme-relearn"
 markup.goldmark.parser.attribute.block = true
 

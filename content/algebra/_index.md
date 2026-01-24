@@ -1,6 +1,6 @@
 +++
 date = '2026-01-22T18:59:39+01:00'
-draft = false
+draft = true
 title = 'Advanced Algebra'
 description = "This is the course description for the Commutative Algebra"
 +++
