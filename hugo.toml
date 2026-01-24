@@ -1,4 +1,4 @@
-baseURL = "https://zikkas.github.io/imm"
+baseURL = "https://zikkas.github.io/imm/"
 languageCode = "en-us"
 title = "IMM 2025-2026 Promotion Resources"
 theme = "github.com/McShelby/hugo-theme-relearn"
