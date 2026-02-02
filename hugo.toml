@@ -1,12 +1,25 @@
 baseURL = "https://zikkas.github.io/imm/"
 languageCode = "en-us"
-title = "IMM 2025/2026 Promotion"
+title = "IMM 2025 Hub"
 theme = "github.com/McShelby/hugo-theme-relearn"
 markup.goldmark.parser.attribute.block = true
 
 [params]
 math = true
 collapsibleMenu = true
+disableSearch = false
+showVisitedLinks = true
 disableLandingPageButton = false
 themeVariant = ["auto", "zen-light", "zen-dark"]
 mathJaxInitalize = "{ \"tex\": { \"inlineMath\": [ [ \"$\", \"$\" ], [ \"\\\\(\", \"\\\\)\" ] ], \"displayMath\": [ [ \"$$\", \"$$\" ], [ \"\\\\[\", \"\\\\]\" ] ] } }"
+editURL = "https://github.com/zikkas/imm/edit/main/content/"
+
+[[menu.shortcuts]]
+name = "<i class='fab fa-github'></i> GitHub Repo"
+url = "https://github.com/zikkas/imm"
+weight = 10
+
+[[menu.shortcuts]]
+name = "<i class='fas fa-graduation-cap'></i> IMM Website"
+url = "https://internationalmathematicsmaster.org/"
+weight = 20
