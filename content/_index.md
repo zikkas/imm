@@ -14,7 +14,7 @@ This site serves as a central repository for resources, lecture notes, and summa
 
 ---
 
-### {{% icon "fas fa-info-circle" %}} About This Project
+### <i class="fas fa-info-circle"></i> About This Project
 
 {{% notice note "Maintainer's Note" %}}
 **This is an individual initiative.**
