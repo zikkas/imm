@@ -3,11 +3,11 @@ languageCode = "en-us"
 title = "IMM 2025 Hub"
 theme = "github.com/McShelby/hugo-theme-relearn"
 markup.goldmark.parser.attribute.block = true
+search.disable = false
 
 [params]
 math = true
 collapsibleMenu = true
-disableSearch = false
 showVisitedLinks = true
 disableLandingPageButton = false
 themeVariant = ["auto", "zen-light", "zen-dark"]
