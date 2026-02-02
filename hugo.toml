@@ -2,6 +2,7 @@ baseURL = "https://zikkas.github.io/imm/"
 languageCode = "en-us"
 title = "IMM 2025 Hub"
 theme = "github.com/McShelby/hugo-theme-relearn"
+enableGitInfo = true
 
 [params]
 math = true
