@@ -3,7 +3,6 @@ date = '2026-02-02T07:57:40+01:00'
 draft = false
 hidden = true
 title = 'Number Theory'
-description = "Covering Analytic, Algebraic, and Geometric methods."
 weight = 10
 +++
 
