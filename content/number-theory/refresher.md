@@ -35,7 +35,7 @@ The analytic section behaves like a complex analysis course disguised as number 
 
 ---
 
-## Recommended Review Materials
+## Recommended Review
 
 ### Quick Refresher Videos
 
