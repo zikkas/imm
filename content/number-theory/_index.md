@@ -47,18 +47,18 @@ One will be provided later.
 
 ### Part I: Analytic (Prof. Salah Eddine Rihane)
 
-- **Primary Text:** "Introduction to Analytic Number Theory" by Apostol
-- **Supplementary:** "Multiplicative Number Theory" by Davenport
+- **Primary Text:** "Introduction to Analytic Number Theory" by Tom M. Apostol
+- **Supplementary:** "Multiplicative Number Theory" by Harold Davenport
 
-### Part II: Algebraic (Prof. Peter Stevenhagen)
+### Part II: Algebraic
 
 Some will be provided
 
-### Part III: Geometric (Prof. Francesco Campagna)
+### Part III: Geometric
 
 Some will be provided
 
 {{% notice tip "Contribute Resources" %}}
-**Missing a book?**
-If a professor mentions a specific paper or book, please click the **Edit** button to add it here.
+**Missing a book or any other resource?**
+If a professor mentions a specific paper ,book, or any other resource please click the **Edit** button to add it here.
 {{% /notice %}}

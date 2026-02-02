@@ -19,15 +19,15 @@ You must have good command of the language of rings and fields.
 - **Modules:** Basics of modules over a PID (structure theorem).
 - **Group Theory:** Finite abelian groups and structure theorems.
 
-## 2. Analysis (For Analytic NT)
+## 2. Analysis (For Analytic Number Thoery)
 
 The analytic section behaves like a complex analysis course disguised as number theory.
 
 - **Complex Analysis:** Holomorphic functions, contour integration, Cauchy's residue theorem.
-- **Series & Products:** Convergence of infinite series and products (essential for Euler products).
+- **Series and Products:** Convergence of infinite series and products (essential for Euler products).
 - **Asymptotics:** Big-O notation and asymptotic growth of functions.
 
-## 3. Linear Algebra & Geometry (For Geometric NT)
+## 3. Linear Algebra & Geometry (For Geometric Number Thoery)
 
 - **Vector Spaces:** Basis, dimension, and linear transformations.
 - **Inner Product Spaces:** Norms, orthogonality, and Gram-Schmidt process.
