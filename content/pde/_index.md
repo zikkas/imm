@@ -7,29 +7,24 @@ weight = 20
 
 # Partial Differential Equations
 
-_Note: This structure is based on standard graduate curricula and is subject to change by the professors._
-
-This course offers a rigorous treatment of Differential Equations (specially Partial Differential Equations) using the framework of Functional Analysis and Semi-Groups. It will focuses on existence, uniqueness, and regularity of solutions for broad classes of equations. We view PDEs as evolution equations in infinite-dimensional spaces, allowing us to treat the Heat Equation, Wave Equation, and Schrödinger Equation under a single mathematical theory.
+This course tackles topics on the existence, uniqueness, and regularity of solutions for differential equations from a mathematical view-point. This will be done through 2 big topics. First through Operator Theory, specifically unbounded operators (since differentition and integration are unbounded). Second through Operators Semi-Groups Theory, since all differential equations have flows and those flows generate semi-groups. After finishing with those two topics, the course will cover how to use both of those topics to solve Differential Equations in general and PDEs (Partial Differential Equation) specifically.
 
 ## Course Syllabus
 
-### Part I: Foundations
+### Part 0: Motivation
 
-- **Banach & Hilbert Spaces:** Review of core tools (completeness, dual spaces).
-- **Unbounded Operators:** Domains, closed operators, and the spectrum.
-- **The Abstract Cauchy Problem:** Formulating PDEs as Ordinary Differential Equations (ODEs) in Banach spaces ($u_t = Au$).
+- ODEs (Ordinary Differential Equations) as Linear Operators.
+- Flow of ODE
+- Infinite Dimension
 
-### Part II: Parabolic Equations (Heat Type)
+### Part 1: Introduction to (Unbounded) Operator Theory
 
-- **Analytic Theory:** Smoothing effects and regularity of solutions.
-- **Applications:** The Heat Equation in bounded and unbounded domains.
-- **Asymptotic Behavior:** Decay rates and stability of solutions as $t \to \infty$.
+- Resolvent and Spectrum of an Operator.
+- Dual Operator $A^*$
 
-### Part III: Hyperbolic Equations (Wave Type)
+### Part 2: Operators Semi-Group Theory
 
-- **Hyperbolicity conditions:** Energy methods and conservation laws.
-- **The Wave Equation:** Existence of solutions and finite speed of propagation.
-- **Perturbation Theory:** Handling lower-order terms and boundary conditions.
+### Part 3: Applications to PDEs
 
 ---
 

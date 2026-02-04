@@ -7,27 +7,27 @@ weight = 10
 
 # Mathematical Background
 
-This course will depend on two concepts: unbounded linear operators on infinite-dimensional spaces (Functional Analysis) and the Semi-Groups of operators. It will also be helpful to know how to solve ODEs and PDEs and why the solution exists and is unique. Some classical examples and their solution will be provided below (later).
+This course will depend on two concepts: unbounded linear operators on infinite-dimensional spaces and the semi-groups of operators. It will also be helpful to know how to solve ODEs and PDEs and why the solution exists and is unique. Some classical examples and their solution will be provided below (later).
 
 ## 1. $L^p$ Spaces
 
 ### Key Concepts
 
-- **Completeness:** Understand that $L^p$ is a Banach space (limits of Cauchy sequences stay in the space).
+- **Completeness:** $L^p$ is a Banach space (limits of Cauchy sequences stay in the space).
 - **Norms & Convergence:**
   - Difference between pointwise convergence ($f_n(x) \to f(x)$) and norm convergence ($\|f_n - f\|_p \to 0$).
   - **Dominated Convergence Theorem:** When can you swap limits and integrals?
 - **Inequalities:**
-  - **Cauchy-Schwarz:** $|\langle f, g \rangle| \leq \|f\| \|g\|$ (Vital for $L^2$).
-  - **Hölder's Inequality:** The generalization of Cauchy-Schwarz for $L^p$.
-- **Density:** Knowing that smooth functions ($C_c^\infty$) are dense in $L^p$ (allows us to prove things for nice functions and extend by limits).
+  - **Cauchy-Schwarz:** $|\langle f, g \rangle| \leq \|f\| \|g\|$.
+  - **Hölder's Inequality:** $\left\lvert{fg}\right\rvert_1 \le \left\lvert{f}\right\rvert_p \left\lvert{g}\right\rvert_q$ where $\dfrac{1}{p} + \dfrac{1}{q} = 1$
+- **Density of Smooth Functions:** Smooth functions ($C_c^\infty$) are dense in $L^p$.
 
 ## 2. Functional Analysis
 
 ### Bounded vs. Unbounded
 
-- **Bounded Operators:** Continuous linear maps (like matrices).
-- **Unbounded Operators:** Differential operators (like $\Delta$ or $\partial_x$) are _not_ bounded. You must understand the concept of a **Domain** $D(A) \subset X$.
+- **Bounded Operators:** Continuous linear maps.
+- **Unbounded Operators:** Differential operators are not bounded. You must understand the concept of a **Domain** $D(A) \subset X$.
 
 ### The Big Theorems
 
