@@ -1,14 +1,13 @@
 +++
 date = '2026-02-02T15:34:39+01:00'
 draft = false
-hidden = true
 title = "Prerequisites and Refresher"
 weight = 10
 +++
 
 # Mathematical Background
 
-PDE is built on two pillars: the geometry of infinite-dimensional spaces (Functional Analysis) and the theory of integration (Lebesgue/$L^p$ spaces).
+This course will depend on two concepts: unbounded linear operators on infinite-dimensional spaces (Functional Analysis) and the Semi-Groups of operators. It will also be helpful to know how to solve ODEs and PDEs and why the solution exists and is unique. Some classical examples and their solution will be provided below (later).
 
 ## 1. $L^p$ Spaces
 
@@ -58,3 +57,8 @@ Some will be provided later
 ### Cheat Sheets
 
 Some will be provided later
+
+{{% notice tip "Contribute" %}}
+**Missing anything or can it be improved?**
+If you find anything that you think might be helpful/useful (sheets, resources, videos, etc..) please click the **Edit** button to add it here or tell me, I will gladly discuss it with you and add it.
+{{% /notice %}}
