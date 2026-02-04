@@ -10,7 +10,7 @@ weight = 10
 
 This course provides a comprehensive introduction to modern number theory, bridging the gap between algebraic structures, analytic estimates, and geometric intuition.
 
-## Course Structure & Syllabus
+## Course Syllabus
 
 _Note: This syllabus is provisional and based on standard graduate curricula. It will be updated as the course progresses._
 
@@ -38,9 +38,9 @@ _Note: This syllabus is provisional and based on standard graduate curricula. It
 
 ---
 
-## Recommended Textbooks & Resources
+## Recommended Textbooks
 
-### General References
+### General Text
 
 One will be provided later.
 
