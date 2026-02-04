@@ -44,24 +44,24 @@ jobs:
 
       - name: Compile LaTeX to PDF
         run: |
-          # Find all .tex files in 'content' and compile them in their own directory
+          PROJECT_ROOT=$(pwd)
+
+          export TEXMFHOME=$PROJECT_ROOT/content/tex-assets
+          export TEXINPUTS=.:$PROJECT_ROOT/content/tex-assets/:
+
           find content -name "*.tex" -type f | while read file; do
+
             dir=$(dirname "$file")
             filename=$(basename "$file")
+
             echo "Compiling $filename in $dir..."
-            
-            # Switch to directory to handle relative image paths correctly
+
             cd "$dir"
-            
-            # Compile using pdflatex (run twice for cross-references)
-            # -interaction=nonstopmode ensures it doesn't hang on errors
+
             pdflatex -interaction=nonstopmode "$filename" || true
             pdflatex -interaction=nonstopmode "$filename" || true
-            
-            # Clean up auxiliary files
+
             rm -f *.aux *.log *.out *.toc *.fdb_latexmk *.fls
-            
-            # Go back to root
             cd -
           done
 
