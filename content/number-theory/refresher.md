@@ -3,7 +3,7 @@ date = '2026-02-02T08:01:27+01:00'
 draft = false
 hidden = true
 title = 'Prerequisites and Refresher'
-weight = 5
+weight = 10
 +++
 
 # Preparing for Advanced Number Theory

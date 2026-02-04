@@ -3,7 +3,7 @@ date = '2026-02-02T15:34:39+01:00'
 draft = false
 hidden = true
 title = "Prerequisites and Refresher"
-weight = 5
+weight = 10
 +++
 
 # Mathematical Background
