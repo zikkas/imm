@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: Deploy Pages
 
 on:
   push:
@@ -29,13 +29,51 @@ jobs:
         with:
           submodules: recursive
           fetch-depth: 0
+
+      - name: Install TeX Live
+        run: |
+          sudo apt-get update
+          # We need extra packages for tikz, tcolorbox, and math fonts
+          sudo apt-get install -y \
+            texlive-latex-base \
+            texlive-latex-extra \
+            texlive-fonts-recommended \
+            texlive-pictures \
+            texlive-science \
+            latexmk
+
+      - name: Compile LaTeX to PDF
+        run: |
+          # Find all .tex files in 'content' and compile them in their own directory
+          find content -name "*.tex" -type f | while read file; do
+            dir=$(dirname "$file")
+            filename=$(basename "$file")
+            echo "Compiling $filename in $dir..."
+            
+            # Switch to directory to handle relative image paths correctly
+            cd "$dir"
+            
+            # Compile using pdflatex (run twice for cross-references)
+            # -interaction=nonstopmode ensures it doesn't hang on errors
+            pdflatex -interaction=nonstopmode "$filename" || true
+            pdflatex -interaction=nonstopmode "$filename" || true
+            
+            # Clean up auxiliary files
+            rm -f *.aux *.log *.out *.toc *.fdb_latexmk *.fls
+            
+            # Go back to root
+            cd -
+          done
+
       - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v3
+        uses: peaceiris/actions-hugo@v2
         with:
           hugo-version: "latest"
           extended: true
-      - name: Build
+
+      - name: Build with Hugo
         run: hugo --minify
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
