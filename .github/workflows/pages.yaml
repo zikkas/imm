@@ -56,11 +56,6 @@ jobs:
           PROJECT_ROOT=$(pwd)
           export TEXINPUTS=.:$PROJECT_ROOT/content/tex-assets/:
 
-          PROJECT_ROOT=$(pwd)
-
-          export TEXMFHOME=$PROJECT_ROOT/content/tex-assets
-          export TEXINPUTS=.:$PROJECT_ROOT/content/tex-assets//:
-
           find content -name "*.tex" -type f | while read file; do
             dir=$(dirname "$file")
             filename=$(basename "$file")
@@ -68,7 +63,6 @@ jobs:
             
             cd "$dir"
             
-            # Compile twice for cross-references
             pdflatex -interaction=nonstopmode "$filename" || true
             pdflatex -interaction=nonstopmode "$filename" || true
             
