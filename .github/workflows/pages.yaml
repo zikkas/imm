@@ -62,17 +62,16 @@ jobs:
           export TEXINPUTS=.:$PROJECT_ROOT/content/tex-assets//:
 
           find content -name "*.tex" -type f | while read file; do
-
             dir=$(dirname "$file")
             filename=$(basename "$file")
-
             echo "Compiling $filename in $dir..."
-
+            
             cd "$dir"
-
+            
+            # Compile twice for cross-references
             pdflatex -interaction=nonstopmode "$filename" || true
             pdflatex -interaction=nonstopmode "$filename" || true
-
+            
             rm -f *.aux *.log *.out *.toc *.fdb_latexmk *.fls
             cd -
           done
