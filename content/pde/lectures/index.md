@@ -5,6 +5,12 @@ title = 'Lectures'
 weight = 20
 +++
 
-# Lectures
-
 - [Lecture 01](./2026-02-04.pdf)
+
+{{% notice note "Maintainer's Note" %}}
+**This is an individual initiative.**
+
+Those notes takes much to type and check properly, any contributions in terms of writing, preparing or checking is welcomed and appreciated.
+
+If you find a mistake, have a better proof for a statement, something that can be improved or want to suggest a change to the structure, please reach out or open an issue on the repository. Your feedback is vital to making this a reliable resource for all of us.
+{{% /notice %}}
