@@ -40,6 +40,7 @@ jobs:
             texlive-fonts-recommended \
             texlive-pictures \
             texlive-science \
+            texlive-pstricks \
             latexmk
 
       - name: Compile LaTeX to PDF
@@ -47,11 +48,11 @@ jobs:
           RAW_PATH=$(kpsewhich -var-value=TEXMFLOCAL)
 
           TEXMFLOCAL=${RAW_PATH%//}
-          TEXMFLOCAL=${TEXMFLOCAL%/}
+          TEXMFLOCAL=${RAW_PATH%/}
 
           sudo unzip -o content/tex-assets/mtp2lite.zip -d "$TEXMFLOCAL"
 
-          sudo texhash "$TEXMFLOCAL"
+          sudo texhash "$RAW_PATH"
 
           PROJECT_ROOT=$(pwd)
           export TEXINPUTS=.:$PROJECT_ROOT/content/tex-assets/:
