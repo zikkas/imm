@@ -7,7 +7,7 @@ weight = 20
 
 This is a rolling notes that include the notes up to a certain lecture. Currently, it includes the notes up to the second lecture which was on the 5th of February 2026.
 
-[Notes](./PDE.pdf)
+[Notes](/imm/pde/lectures/PDE.pdf)
 
 {{% notice note "Maintainer's Note" %}}
 **This is an individual initiative.**
