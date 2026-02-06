@@ -4,17 +4,17 @@ draft = false
 title = '2025 Promotion Resources'
 +++
 
-# Welcome to the 2025 Promotion Hub
+## Welcome
 
 This site serves as a central repository for resources, lecture notes, and summaries dedicated to the 2025 Promotion. The goal is to consolidate our learning materials into one easily accessible location.
 
-## Course Catalog
+### Course Catalog
 
 {{% children type="list" description="false" icon="fas fa-book-open" %}}
 
 ---
 
-### About This Project
+#### About This Project
 
 {{% notice note "Maintainer's Note" %}}
 **This is an individual initiative.**

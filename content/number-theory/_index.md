@@ -6,8 +6,6 @@ title = 'Number Theory'
 weight = 10
 +++
 
-# Number Theory
-
 This course provides a comprehensive introduction to modern number theory, bridging the gap between algebraic structures, analytic estimates, and geometric intuition.
 
 ## Course Syllabus

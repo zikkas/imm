@@ -5,7 +5,9 @@ title = 'Lectures'
 weight = 20
 +++
 
-- [Lecture 01](./2026-02-04.pdf)
+This is a rolling notes that include the notes up to a certain lecture. Currently, it includes the notes up to the second lecture which was on the 5th of February 2026.
+
+[Notes](./PDE.pdf)
 
 {{% notice note "Maintainer's Note" %}}
 **This is an individual initiative.**

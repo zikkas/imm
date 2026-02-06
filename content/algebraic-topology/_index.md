@@ -6,11 +6,9 @@ hidden = true
 weight = 30
 +++
 
-# Algebraic Topology
+_Note: This structure is based on standard graduate curricula and is subject to change by the professors._
 
 ## Course Syllabus
-
-_Note: This structure is based on standard graduate curricula and is subject to change by the professors._
 
 ### Part I: The Fundamental Group
 

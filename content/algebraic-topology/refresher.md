@@ -6,8 +6,6 @@ title = "Prerequisites and Refresher"
 weight = 10
 +++
 
-# Mathematical Background
-
 Algebraic Topology is based on two big subjects (as the name suggests), General Topology and Abstract Algebra.
 
 ## 1. General Topology

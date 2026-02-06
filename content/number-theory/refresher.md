@@ -6,9 +6,7 @@ title = 'Prerequisites and Refresher'
 weight = 10
 +++
 
-# Preparing for Advanced Number Theory
-
-Advanced Number Theory draws heavily from several other branches of mathematics. To survive this course, you should be comfortable with the following foundations.
+Advanced Number Theory combines a number of other branches of mathematics. The following foundations is helpful to have.
 
 ## 1. Algebra (Essential)
 
