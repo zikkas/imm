@@ -5,7 +5,7 @@ title = 'Partial Differential Equations'
 weight = 20
 +++
 
-This course tackles topics on the existence, uniqueness, and regularity of solutions for differential equations from a mathematical view-point. This will be done through 2 big topics. First through Operator Theory, specifically unbounded operators (since differentition and integration are unbounded). Second through Operators Semi-Groups Theory, since all differential equations have flows and those flows generate semi-groups. After finishing with those two topics, the course will cover how to use both of those topics to solve Differential Equations in general and PDEs (Partial Differential Equation) specifically.
+This course tackles topics on the existence, uniqueness, and regularity of solutions for differential equations from a mathematical view-point. This will be done through 2 big topics. First through Operator Theory, specifically unbounded operators (since differentiation is unbounded) compact operators (since integration is compact). Second through Operators Semi-Groups Theory, since all differential equations have flows and those flows generate semi-groups. After finishing with those two topics, the course will cover how to use both of those topics to solve Differential Equations in general and PDEs (Partial Differential Equation) specifically.
 
 ## Course Syllabus
 
@@ -18,9 +18,17 @@ This course tackles topics on the existence, uniqueness, and regularity of solut
 ### Part 1: Introduction to (Unbounded) Operator Theory
 
 - Resolvent and Spectrum of an Operator.
-- Dual Operator $A^*$
+- Compact Operators.
+- Symmetric Operators: Adjoint and Self Adjoint Operators.
+- Dissipative Operators.
 
 ### Part 2: Operators Semi-Group Theory
+
+- Semi-Group of Bounded Linear Operators.
+- Strongly Continuous Semi-Groups.
+- Strong and Weak Solutions.
+- The Hille-Yosida Theorem.
+- Characterisation of Semi-Group.
 
 ### Part 3: Applications to PDEs
 

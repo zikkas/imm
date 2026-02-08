@@ -5,9 +5,14 @@ title = 'Lectures'
 weight = 20
 +++
 
-This is a rolling notes that include the notes up to a certain lecture. Currently, it includes the notes up to the second lecture which was on the 5th of February 2026.
+### Prof Yacine Chitour
 
-[Notes](/imm/pde/lectures/PDE.pdf)
+- _Lecture 01 (04-Feb-2026)_: Motivation for the course, flows of linear and non-linear ODEs, flows of PDEs, resolvent operators, dual operators.
+- _Lecture 02 (05-Feb-2026)_: Compact operators on Banach and Hilbert spaces, Riesz's lemma, Fredholm alternative, adjoint operators, symmetric and self-adjoint operators, Fredrich's extension.
+
+_**Note:**_ This is a rolling notes that include the notes up to a certain lecture.
+
+[Notes](/imm/pde/lectures/PDE.pdf) (Up to the 2nd Lecture. Last updated: 5-Feb-2026)
 
 {{% notice note "Maintainer's Note" %}}
 **This is an individual initiative.**
