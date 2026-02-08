@@ -9,6 +9,7 @@ weight = 20
 
 - _Lecture 01 (04-Feb-2026)_: Motivation for the course, flows of linear and non-linear ODEs, flows of PDEs, resolvent operators, dual operators.
 - _Lecture 02 (05-Feb-2026)_: Compact operators on Banach and Hilbert spaces, Riesz's lemma, Fredholm alternative, adjoint operators, symmetric and self-adjoint operators, Fredrich's extension.
+- _Lecture 03 (08-Feb-2026)_: Dissipative operators, definition of numerical range, homework problem 1, definition of semi-group of bounded linear operators (SG-BLO), definition of infinitesimal generator, additional conditions on SG-BLO, uniformal continuity of the SG family.
 
 _**Note:**_ This is a rolling notes that include the notes up to a certain lecture.
 
