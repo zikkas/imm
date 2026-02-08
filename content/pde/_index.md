@@ -20,7 +20,7 @@ This course tackles topics on the existence, uniqueness, and regularity of solut
 - Resolvent and Spectrum of an Operator.
 - Compact Operators.
 - Symmetric Operators: Adjoint and Self Adjoint Operators.
-- Dissipative Operators.
+- Dissipative Operators and Numerical Range.
 
 ### Part 2: Operators Semi-Group Theory
 
