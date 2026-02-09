@@ -14,7 +14,7 @@ _Note: This syllabus is provisional and based on standard graduate curricula. It
 
 ### Part I: Analytic Number Theory
 
-- **Arithmetic Functions:** Dirichlet convolution, Mobius inversion.
+- **Arithmetic Functions:** Dirichlet convolution, Mobius inversion, Euler's Multipliers.
 - **Distribution of Primes:** Chebyshev's estimates and the Prime Number Theorem.
 - **L-Functions:** The Riemann Zeta function $\zeta(s)$, Dirichlet characters, and Dirichlet L-functions.
 - **Analytic Continuation:** Functional equations and critical strips.
