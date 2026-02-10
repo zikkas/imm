@@ -1,14 +1,11 @@
 +++
 date = '2026-02-02T08:01:27+01:00'
 draft = false
-hidden = true
 title = 'Prerequisites and Refresher'
 weight = 10
 +++
 
-Advanced Number Theory combines a number of other branches of mathematics. The following foundations is helpful to have.
-
-## 1. Algebra (Essential)
+## 1. Algebra
 
 You must have good command of the language of rings and fields.
 
@@ -24,12 +21,6 @@ The analytic section behaves like a complex analysis course disguised as number 
 - **Complex Analysis:** Holomorphic functions, contour integration, Cauchy's residue theorem.
 - **Series and Products:** Convergence of infinite series and products (essential for Euler products).
 - **Asymptotics:** Big-O notation and asymptotic growth of functions.
-
-## 3. Linear Algebra & Geometry (For Geometric Number Thoery)
-
-- **Vector Spaces:** Basis, dimension, and linear transformations.
-- **Inner Product Spaces:** Norms, orthogonality, and Gram-Schmidt process.
-- **Topology:** Basic point-set topology (compactness, open/closed sets) in $\mathbb{R}^n$.
 
 ---
 

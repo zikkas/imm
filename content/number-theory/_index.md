@@ -1,18 +1,13 @@
 +++
 date = '2026-02-02T07:57:40+01:00'
 draft = false
-hidden = true
 title = 'Number Theory'
 weight = 10
 +++
 
-This course provides a comprehensive introduction to modern number theory, bridging the gap between algebraic structures, analytic estimates, and geometric intuition.
-
 ## Course Syllabus
 
-_Note: This syllabus is provisional and based on standard graduate curricula. It will be updated as the course progresses._
-
-### Part I: Analytic Number Theory
+### Part I: Analytic Number Theory (Prof. Salah Eddine Rihane)
 
 - **Arithmetic Functions:** Dirichlet convolution, Mobius inversion, Euler's Multipliers.
 - **Distribution of Primes:** Chebyshev's estimates and the Prime Number Theorem.
@@ -27,13 +22,6 @@ _Note: This syllabus is provisional and based on standard graduate curricula. It
 - **Unit Theory:** Dirichlet's Unit Theorem.
 - **Valuation Theory:** $p$-adic numbers and local fields.
 
-### Part III: Geometric Number Theory
-
-- **Lattices:** Bases, fundamental domains, and volume.
-- **Minkowski's Theorems:** Convex bodies and lattice points.
-- **Applications:** Finiteness of the class group and Dirichlet's Unit Theorem (Geometric proofs).
-- **Sphere Packing:** Introduction to lattice packing problems.
-
 ---
 
 ## Recommended Textbooks
@@ -42,16 +30,12 @@ _Note: This syllabus is provisional and based on standard graduate curricula. It
 
 One will be provided later.
 
-### Part I: Analytic (Prof. Salah Eddine Rihane)
+### Part I: Analytic
 
 - **Primary Text:** "Introduction to Analytic Number Theory" by Tom M. Apostol
 - **Supplementary:** "Multiplicative Number Theory" by Harold Davenport
 
 ### Part II: Algebraic
-
-Some will be provided
-
-### Part III: Geometric
 
 Some will be provided
 
