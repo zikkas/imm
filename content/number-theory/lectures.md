@@ -7,7 +7,10 @@ weight = 20
 
 ### Prof Salah Eddine Rihane
 
-- [_Lecture 01 (05-Feb-2026)_](/imm/number-theory/lectures/nt_05-02-26.pdf): Arithmetic functions, multiplicative and completely multiplicative functions, examples, charactarization of multiplicative functions, Dirichlet convolution, arithmetic functions ring, multiplicative functions subgroup. Last update at: 10-02-2026
+- [_Lecture 01 (05-Feb-2026)_](/imm/number-theory/lectures/nt_05-02-26.pdf): Arithmetic functions, multiplicative and completely multiplicative functions, examples, charactarization of multiplicative functions, Dirichlet convolution, arithmetic functions ring, multiplicative functions subgroup. Notes last update at: 10-02-2026
+- [_Lecture 02 (10-Feb-2026)_](/imm/number-theory/lectures/nt_10-02-26.pdf): Exercises, inverse of completely multiplicative function, computational examples. Notes last update at: 10-02-2026
+
+_**Note:**_ Solutions to exercises will be posted later.
 
 {{% notice note "Maintainer's Note" %}}
 **This is an individual initiative.**
