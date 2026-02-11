@@ -11,11 +11,11 @@ weight = 20
 - _Lecture 02 (05-Feb-2026)_: Compact operators on Banach and Hilbert spaces, Riesz's lemma, Fredholm alternative, adjoint operators, symmetric and self-adjoint operators, Fredrich's extension.
 - _Lecture 03 (08-Feb-2026)_: Dissipative operators, definition of numerical range, homework problem 1, definition of semi-group of bounded linear operators (SG-BLO), definition of infinitesimal generator, additional conditions on SG-BLO, uniformal continuity of the SG family.
 - _Lecture 04 (09-Feb-2026)_: Strongly continuous semigroups, bound on SC-SG, continuity of SC-SG, properties of SC-SG's IG, Hille-Yosida Theorem, proof of the only-if direction, some lemma to proof the if ($\implies$) direction.
-- _Lecture 05 (11-Feb-2026)_: Proof of the only if direction ($\impliedby$) of Hille-Yosida, Hille-Yosida for the case of $(1, \omega)$, additional lemma for the resolvent operator, renorming lemma, Hille-Yosida for the case of $(M, \omega)$.
+- _Lecture 05 (11-Feb-2026)_: Proof of the only if direction ($\impliedby$) of Hille-Yosida, Hille-Yosida for the case of $(1, \omega)$ with proof, additional lemma for the resolvent operator, renorming lemma, Hille-Yosida for the case of $(M, \omega)$ without proof.
 
 _**Note:**_ This is a rolling notes that include the notes up to a certain lecture.
 
-[Notes](/imm/pde/lectures/PDE.pdf) (Up to the 4th Lecture. Last updated: 9-Feb-2026)
+[Notes](/imm/pde/lectures/PDE.pdf) (Up to the 5th Lecture. Last updated: 11-Feb-2026)
 
 {{% notice note "Maintainer's Note" %}}
 **This is an individual initiative.**
