@@ -47,14 +47,13 @@ jobs:
 
       # - name: Compile LaTeX to PDF
       #   run: |
-      #     RAW_PATH=$(kpsewhich -var-value=TEXMFLOCAL)
+      #     RAW_PATH = $(kpsewhich -var-value=TEXMFLOCAL)
       #
-      #     TEXMFLOCAL=${RAW_PATH%//}
-      #     TEXMFLOCAL=${RAW_PATH%/}
+      #     sudo unzip -o content/tex-assets/mtp2lite.zip "mtp2lite/texmf/*" -d "$RAW_PATH"
+      #     sudo mv "$RAW_PATH"/mtp2lite/texmf/* $RAW_PATH
+      #     sudo rm -rf "$RAW_PATH"/mtp2lite
       #
-      #     sudo unzip -o content/tex-assets/mtp2lite.zip -d "$TEXMFLOCAL"
-      #
-      #     sudo texhash "$RAW_PATH"
+      #     sudo texhash
       #
       #     PROJECT_ROOT=$(pwd)
       #     export TEXINPUTS=.:$PROJECT_ROOT/content/tex-assets/:
