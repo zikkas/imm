@@ -1,0 +1,175 @@
+\documentclass[12pt, letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb, amsthm, bbm}
+\usepackage{geometry}
+\usepackage{hyperref}
+
+\geometry{margin=1in}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}{Definition}
+
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}
+\newtheorem{example}{Example}
+\newtheorem{exercise}{Exercise}
+
+\newcommand{\N}{\mathbb{N}}
+
+\title{Analytical Number Theory: Lecture 02}
+\date{10 Feb 2026}
+\author{}
+
+\begin{document}
+
+\maketitle
+
+\section{Additional Properties}
+
+\begin{corollary}
+Let $f$ and $g$ be arithmetic functions. If both $g$ and $f \ast g$ are multiplicative, then $f$ is multiplicative.
+\end{corollary}
+
+\begin{proof}
+Since $g$ is multiplicative, then $g$ is Dirichlet invertible. Furthermore, the inverse $g^{-1}$ is also multiplicative.
+We can express $f$ as:
+$$
+f = f \ast u = f \ast (g \ast g^{-1}) = (f \ast g) \ast g^{-1}
+$$
+We are given that $f \ast g$ is multiplicative. Since the convolution of two multiplicative functions is multiplicative, and both $f \ast g$ and $g^{-1}$ are multiplicative, their convolution $f$ must be multiplicative.
+\end{proof}
+
+\begin{theorem} \label{cm:inv}
+Let $f$ be a multiplicative function. Then $f$ is completely multiplicative if and only if
+$$
+f^{-1}(n) = \mu(n)f(n) \quad \forall n \ge 1
+$$
+\end{theorem}
+
+\begin{proof}
+$\Rightarrow$ Assume $f$ is completely multiplicative. \\
+We want to verify that the inverse is given by $(\mu \cdot f)$. We compute the convolution $(\mu \cdot f) \ast f$ evaluated at $n$:
+\begin{align*}
+((\mu \cdot f) \ast f)(n) &= \sum_{d|n} (\mu \cdot f)(d) f\left(\frac{n}{d}\right) \\
+&= \sum_{d|n} \mu(d)f(d)f\left(\frac{n}{d}\right) \\
+&= \sum_{d|n} \mu(d)f(n) && \text{since } f \, \text{is completely multiplicative}\\
+&= f(n) \sum_{d|n} \mu(d) && f(n) \, \text{does not depend on the sum} \\
+&= f(n) \cdot u(n) && \text{by the identity} \, \sum_{d|n} \mu(d) = u(n) \\
+&= u(n)
+\end{align*}
+Thus, $(\mu \cdot f) \ast f = u$, which implies $f^{-1} = \mu \cdot f$.
+
+\bigskip
+
+$\Leftarrow$ Assume $f^{-1} = \mu \cdot f$. \\
+Since $f^{-1}$ is the product of two multiplicative functions ($\mu$ and $f$), and $f$ is multiplicative, we need to show complete multiplicativity. It is enough to show that for any prime $p$ and positive integer $k$:
+\[
+f(p^k) = [f(p)]^k.
+\]
+We use the definition of the inverse: $(f \ast f^{-1})(n) = u(n)$. For $n = p^k$ with $k \ge 1$, we have:
+\[
+0 = u(p^k) = (f \ast f^{-1})(p^k) = \sum_{d|p^k} f(d)f^{-1}\left(\frac{p^k}{d}\right).
+\]
+Substitute $f^{-1}(m) = \mu(m)f(m)$:
+\[
+\sum_{j=0}^k f(p^j) \mu(p^{k-j}) f(p^{k-j}) = 0.
+\]
+In this sum, $\mu(p^{k-j})$ is non-zero only when the exponent is 0 or 1.
+\begin{itemize}
+    \item When $j=k$: The term is $f(p^k)\mu(1)f(1) = f(p^k) \cdot 1 \cdot 1 = f(p^k)$.
+    \item When $j=k-1$: The term is $f(p^{k-1})\mu(p)f(p) = f(p^{k-1})(-1)f(p) = -f(p^{k-1})f(p)$.
+\end{itemize}
+All other terms vanish because $\mu(p^r) = 0$ for $r \ge 2$. Thus:
+\[
+f(p^k) - f(p^{k-1})f(p) = 0 \implies f(p^k) = f(p^{k-1})f(p).
+\]
+By induction on $k$, this implies $f(p^k) = [f(p)]^k$. Therefore, $f$ is completely multiplicative.
+\end{proof}
+
+\begin{example}
+The Liouville function $\lambda(n) = (-1)^{\Omega(n)}$ is a completely multiplicative function. Therefore, by theorem \ref{cm:inv}:
+$$
+\lambda^{-1}(n) = \mu(n)\lambda(n)
+$$
+Calculating the values:
+$$
+\lambda^{-1}(n) = \mu(n)(-1)^{\Omega(n)} = (-1)^{\omega(n)}(-1)^{\Omega(n)}
+$$
+For square-free $n$, $\omega(n) = \Omega(n)$, so $(-1)^{2\omega(n)} = 1 = \mu^2(n)$. If $n$ has a square factor, $\mu(n)=0$. Thus:
+$$
+\lambda^{-1}(n) = \mu^2(n)
+$$
+\end{example}
+
+\begin{example}
+We know that $\varphi = \mu \ast Id$.
+Taking the inverse:
+\[
+\varphi^{-1} = (\mu \ast \text{Id})^{-1} = \mu^{-1} \ast \text{Id}^{-1}.
+\]
+We know $\mu^{-1} = \mathbbm{1}$. Since $\text{Id}$ is completely multiplicative, $\text{Id}^{-1}(n) = \mu(n)\text{Id}(n) = (Id\mu)(n)$.
+Therefore:
+\[
+\varphi^{-1}(n) = ((Id\mu) \ast \mathbbm{1})(n) = (\mathbbm{1} \ast (Id\mu))(n) = \sum_{d|n} d\mu(d)
+\]
+\end{example}
+
+\begin{theorem}
+If $f$ is completely multiplicative, and $g, h$ are arithmetic functions, then:
+\[
+f \cdot (g \ast h) = (f \cdot g) \ast (f \cdot h).
+\]
+\end{theorem}
+
+\begin{proof}
+We evaluate the right-hand side at $n$:
+\begin{align*}
+((f \cdot g) \ast (f \cdot h))(n) &= \sum_{d|n} (f \cdot g)(d) (f \cdot h)\left(\frac{n}{d}\right) \\
+&= \sum_{d|n} f(d)g(d) f\left(\frac{n}{d}\right)h\left(\frac{n}{d}\right).
+\end{align*}
+Since $f$ is completely multiplicative, $f(d)f(n/d) = f(n)$. We factor this out:
+\begin{align*}
+&= f(n) \sum_{d|n} g(d)h\left(\frac{n}{d}\right) \\
+&= f(n) (g \ast h)(n) \\
+&= (f \cdot (g \ast h))(n).
+\end{align*}
+\end{proof}
+
+\begin{remark}
+	This theorem does not prevent the equality if we don't have all the conditions for example take $f = \mu, g = u, \, h \, \text{any arithmetic function}$ then we have:
+	$$
+		\mu \cdot (u \ast h) = \mu \cdot h
+	$$
+	And
+	$$
+	(\mu \cdot u) \ast (\mu \cdot h) = u \ast (\mu \cdot h) = \mu \cdot h
+	$$
+\end{remark}
+
+\section{Exercises}
+
+\begin{exercise}
+If $f$ is multiplicative, prove that:
+\[
+f^{-1}(n) = \mu(n)f(n)
+\]
+for every square-free integer $n$.
+\end{exercise}
+
+\begin{exercise}
+If $f$ is multiplicative, prove that for a prime $p$:
+\[
+f^{-1}(p^2) = f(p)^2 - f(p^2).
+\]
+\end{exercise}
+
+\begin{exercise}
+Let $f$ be a completely multiplicative function and $g$ be an invertible arithmetic function. Show that:
+\[
+(f \cdot g)^{-1} = f \cdot g^{-1}.
+\]
+\end{exercise}
+
+\end{document}
