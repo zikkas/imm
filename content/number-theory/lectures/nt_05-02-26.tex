@@ -420,7 +420,7 @@ Consider $((f * g) * h)(n)$:
 \[
 ((f * g) * h)(n) = \sum_{d|n} (f * g)(d) h\left(\frac{n}{d}\right) = \sum_{d|n} \left[ \sum_{k|d} f(k)g\left(\frac{d}{k}\right) \right] h\left(\frac{n}{d}\right)
 \]
-Let $d = km$. Then $n/d = n/(km)$. The condition $d|n$ and $k|d$ is equivalent to $kmn = n$ for integers $k, m, r$ where $r = n/d$. Effectively, we sum over all triples $(a, b, c)$ such that $abc = n$:
+Let $d = km$. Then $n/d = n/(km)$. The condition $d|n$ and $k|d$ is equivalent to $kmr = n$ for integers $k, m, r$ where $r = n/d$. Effectively, we sum over all triples $(a, b, c)$ such that $abc = n$:
 \[
 = \sum_{abc=n} f(a)g(b)h(c)
 \]
