@@ -60,6 +60,8 @@
 
 \newcommand{\norm}[1]{\left\lVert#1\right\rVert}
 \newcommand{\A}{\mathscr{A}}
+\newcommand{\B}{\mathscr{B}}
+\renewcommand{\L}{\mathscr{L}}
 	
 	\date{}
 	\pagestyle{plain}
@@ -600,7 +602,7 @@ $\mathscr{A}:D(\mathscr{A})\subset \mathscr{H}\to \mathscr{H}$ UBLO, $\overline{
 D(\mathscr{A}^{\circ})=\left\{x\in \mathscr{H}:v\mapsto \langle \mathscr{A}v,x\rangle_{\mathscr{H}}: D(\mathscr{A})\rightarrow \mathbb{C}\ \text{bdd operator}\right\}.
 \]
 If $x\in D(\mathscr{A}^{\circ})$, then there exists uniquely $z\in \mathscr{H}$ such that $\langle v,z\rangle_{\mathscr{H}}=\langle\mathscr{A}v,x\rangle_{\mathscr{H}}$ for all \\$v\in D(\mathscr{A})$.\\
-Observe, with Riesz representation and the fact that $\overline{D(\mathscr{A})}=\mathscr{H}$, we have that $z:=\mathscr{A}^{\circ}x$ and $\langle v,\mathscr{A}^{\circ}\rangle_{\mathscr{H}}=\langle \mathscr{A}v,x\rangle_{\mathscr{H}}$ for all $v\in D(\mathscr{A})$.
+Observe, with Riesz representation and the fact that $\overline{D(\mathscr{A})}=\mathscr{H}$, we have that $z:=\mathscr{A}^{\circ}x$ and $\langle v,\mathscr{A}^{\circ}x\rangle_{\mathscr{H}}=\langle \mathscr{A}v,x\rangle_{\mathscr{H}}$ for all $v\in D(\mathscr{A})$.
 \end{definition}
 \begin{remark}
 Let $\mathscr{H}$ be a Hilbert space,
@@ -625,7 +627,7 @@ Let $(\mathscr{H},\langle,\rangle)$ be a Hilbert space and $\mathscr{A}: D(\math
 \begin{exercise}{}{}
 \begin{itemize}
 	\item [1.]Let $\mathscr{H}$ be a Hilbert space, $\mathscr{A}:D(\mathscr{A})\subset \mathscr{H}\to \mathscr{H}$, $\overline{D(\mathscr{A})}=\mathscr{H}$. If $\mathscr{A}$ is closed, then $\overline{D(\mathscr{A}^{\circ})}=\mathscr{H}$.
-	\item [2.] Let $\mathscr{H}$ be a Hilbert space, $\mathscr{A}:D(\mathscr{A})\subset \mathscr{H}\to \mathscr{H}$, $\overline{D(\mathscr{A})}=\mathscr{H}$. Suppose $\mathscr{A}$ is symmetric and if $0\in\sigma_{p}(\mathscr{A})$, then prove that $\lambda\in\mathbb{R}$ and
+	\item [2.] Let $\mathscr{H}$ be a Hilbert space, $\mathscr{A}:D(\mathscr{A})\subset \mathscr{H}\to \mathscr{H}$, $\overline{D(\mathscr{A})}=\mathscr{H}$. Suppose $\mathscr{A}$ is symmetric and if $\lambda \in \sigma_{p}(\mathscr{A})$, then prove that $\lambda\in\mathbb{R}$ and
 	\[
 	\inf_{\|x\|=1,x\in D(\mathscr{A})}\langle \mathscr{A}x,x\rangle
 	\le \lambda \le
@@ -1401,9 +1403,9 @@ $T(t)=e^{t\mathscr{A}}$.
 
 \begin{definition}\label{def:sc-sg}
 	The SG-BLO $(T(t))_{t \ge 0}$ is strongly continous (SC or $C_0$) if $\forall x \in X$
-	\begin{equation}
+	$$
 		\norm{T(t)x - x}_{X} \xrightarrow{t \to 0^+} 0
-	\end{equation}
+	$$
 \end{definition}
 
 \begin{theo}\label{thm:sc-bdd}
@@ -1465,13 +1467,13 @@ $$
 By the continuity (corollary \ref{sc:cont}) of the map $s \mapsto T(s)x$, for any $\epsilon > 0$, there exists a $\delta > 0$ such that for all $s$ satisfying $|s - t| < \delta$, we have $\norm{T(s)x - T(t)x} < \epsilon$.
 
 Taking $0 < h < \delta$, we can estimate the norm of the integral:
-\begin{equation*}
+$$
 	\norm{\frac{1}{h} \int_{t}^{t+h} [T(s)x - T(t)x] \, ds } \le \frac{1}{h} \int_{t}^{t+h} \norm{T(s)x - T(t)x} \, ds < \frac{1}{h} \cdot h\epsilon = \epsilon \text{}
-\end{equation*}
+$$
 Then
-\begin{equation*}
+$$
     \lim_{h \to 0} \frac{1}{h} \int_{t}^{t+h} T(s)x \, ds = T(t)x \text{}
-\end{equation*}
+$$
 \end{proof}
 
 \begin{proof}[Proof of \ref{sc:img}]
@@ -1529,16 +1531,16 @@ Thus, $T(t)x = S(t)x$ for all $x \in D(\A)$. Since $D(\A)$ is dense in $X$ and $
 
 \begin{theo}
 Let $\A$ be the IG of a $C_0$-SG $\{T(t)\}_{t \ge 0}$ on a Banach space $X$. Then the subspace
-\begin{equation*}
+$$
 	X = \overline{\bigcap_{n \ge 1} D(\A^n)}
-\end{equation*}
+$$
 \end{theo}
 
 \begin{proof}
 Let $\mathscr{D} = \left\{\varphi:\mathbb{R} \to \mathbb{C} | \, \varphi \, \text{has compact support in } \mathbb{R}^{*}_{+} \, \text{and is smooth }C^{\infty} \right\}$. Let $x \in X$ and consider a test function $\varphi \in \mathscr{D}$. Define
-\begin{equation*}
+$$
     x_\varphi = \int_0^\infty \varphi(s) T(s)x \, ds
-\end{equation*}
+$$
 
 First, we show that $x_\varphi \in D(\A)$. Consider
 \begin{align*}
@@ -1547,25 +1549,25 @@ First, we show that $x_\varphi \in D(\A)$. Consider
     &= \int_0^\infty \frac{\varphi(u-h) - \varphi(u)}{h} T(u)x \, du
 \end{align*}
 As $h \to 0$, the quotient $\frac{\varphi(u-h) - \varphi(u)}{h}$ converges uniformly to $-\varphi'(u)$ because $\varphi$ is $C^{\infty}$ and has compact support. Thus:
-\begin{equation*}
+$$
     \A x_\varphi = - \int_0^\infty \varphi'(s) T(s)x \, ds
-\end{equation*}
+$$
 Since $\varphi' \in C_c^\infty(0, \infty)$, we can repeat this process inductively. For any $n \ge 1$, we find:
-\begin{equation*}
+$$
     \A^n x_\varphi = (-1)^n \int_0^\infty \varphi^{(n)}(s) T(s)x \, ds
-\end{equation*}
+$$
 This proves that $x_\varphi \in D(\A^n)$ for all $n$.
 
 To prove density, suppose $\overline{\bigcap_{n \ge 1} D(\A^n)} \neq X$. By the Hahn-Banach Theorem, there exists a non-zero functional $x^* \in X^*$ such that $\langle x^*, y \rangle = 0$ for all $y \in \bigcap_{n \ge 1} D(\A^n)$. Specifically, for any $x \in X$ and $\varphi \in C_c^\infty(0, +\infty)$:
-\begin{equation*}
+$$
 	\langle x^*, x_\varphi \rangle = \int_0^{+\infty} \varphi(s) \langle x^*, T(s)x \rangle \, ds = 0
-\end{equation*}
+$$
 This identity holds for all $C^{\infty}$ functions $\varphi$ with compact support. Then $\langle x^*, T(s)x \rangle$ must be zero for all $s > 0$. 
 
 By the strong continuity of the semigroup at $s=0$:
-\begin{equation*}
+$$
     \langle x^*, x \rangle = \lim_{s \to 0^+} \langle x^*, T(s)x \rangle = 0
-\end{equation*}
+$$
 Since this holds for all $x \in X$, it implies $x^* = 0$, which contradicts our assumption that $x^*$ was non-zero. Thus, $\bigcap_{n \ge 1} D(\A^n)$ must be dense in $X$.
 \end{proof}
 
@@ -1587,7 +1589,7 @@ A $C_0$-SG $\{T(t)\}_{t \ge 0}$ is called uniformly bounded semigroup if $\exist
 A $C_0$-SG $\{T(t)\}_{t \ge 0}$ is called a contraction semigroup if $\norm{T(t)} \le 1$ for all $t \ge 0$.
 \end{definition}
 
-\begin{theo}[Hille-Yosida Theorem]
+\begin{theo}[Hille-Yosida Theorem (Contraction Case)]
 A linear unbounded operator $\A: D(\A) \subset X \to X$ is the IG of a $C_0$-SG of contractions if and only if:
 \begin{enumerate}[label=(\roman*)]
 	\item \label{hy:close} $\A$ is closed and $\overline{D(\A)} = X$.
@@ -1694,9 +1696,9 @@ Since $\A_\lambda x = \lambda R(\lambda, \A)\A x$, and we just showed $\lambda R
 \end{lemma}
 \begin{proof}
 Since $\A_\lambda = \lambda^2 R(\lambda, \A) - \lambda I$, we have:
-\begin{equation*}
+$$
 	\norm{e^{t\A_\lambda}} = \norm{e^{-t\lambda} e^{t\lambda^2 R(\lambda, \A)}} \le e^{-t\lambda} e^{t\lambda^2 \norm{R(\lambda, \A)}} \le e^{-t\lambda} e^{t\lambda^2 \frac{1}{\lambda}} = e^{-t\lambda} e^{t\lambda} = 1
-\end{equation*}
+$$
 This confirms the contraction property for the approximating semigroups.
 \end{proof}
 
@@ -1779,7 +1781,7 @@ Thus, $x \in D(\mathscr{B})$ and $\mathscr{B}x = \A x$, implying $\A \subset \ma
 Since $\mathscr{B}$ is the generator of a $C_0$-semigroup of contractions, $1 \in \rho(\mathscr{B})$. By hypothesis, $1 \in \rho(\A)$. Since $\A \subset \mathscr{B}$ and both $(I-\A)$ and $(I-\mathscr{B})$ are surjective (mapping onto $X$), it follows that $\A = \mathscr{B}$.
 \end{proof}
 
-\begin{coro}
+\begin{coro} \label{ya:limit}
 Let $\A$ be the IG of a $C_0$-SG of contractions $(T(t))_{t \ge 0}$. Then for every $x \in X$, the semigroup is given by the limit:
 $$
 T(t)x = \lim_{\lambda \to +\infty} e^{t \A_\lambda} x
@@ -1857,10 +1859,9 @@ We now consider the general case where the semigroup is not necessarily a contra
 
 \begin{theo}
 A linear operator $\A$ generates a $C_0$-semigroup $T(t)$ satisfying $\norm{T(t)} \le M e^{\omega t}$ if and only if:
-\begin{enumerate}
+\begin{enumerate}[label=(\roman*)]
     \item $A$ is closed and densely defined.
-    \item $(\omega, +\infty) \subset \rho(\A)$.
-    \item For all $\lambda > \omega$ and $n \ge 1$:
+    \item $(\omega, +\infty) \subset \rho(\A)$ and for all $\lambda > \omega$ and $n \ge 1$:
     $$
     \norm{R(\lambda, A)^n} \le \frac{M}{(\lambda - \omega)^n}.
     $$
@@ -1874,10 +1875,9 @@ Now we have the following corollary:
 
 \begin{coro}[Hille-Yosida for $(1, \omega)$]
 A linear operator $\A$ is the IG of a $C_0$-SG satisfying $\norm{T(t)} \le e^{\omega t}$ if and only if:
-\begin{enumerate}
+\begin{enumerate}[label=(\roman*)]
     \item $\A$ is closed and $\overline{D(\A)} = X$.
-    \item $\rho(\A) \supset (\omega, +\infty)$.
-    \item For all $\lambda > \omega$, the following estimate holds:
+    \item $\rho(\A) \supset (\omega, +\infty)$ and for all $\lambda > \omega$, the following estimate holds:
     $$
     \norm{R(\lambda, \A)} \le \frac{1}{\lambda - \omega}.
     $$
@@ -1924,7 +1924,7 @@ $$
 This corollary provides us with a method to rescale the bound. Thus, we focus on the case $(M, 0)$, i.e., $\norm{T(t)} \le M$.
 The condition on the resolvent becomes $\norm{R(\lambda,\A)^n} \le \dfrac{M}{\lambda^n}$.
 
-\begin{lemma}
+\begin{lemma} \label{sc:mnbound}
 	Let $(T(t))_{t \ge 0}$ be a $C_0$-semigroup satisfying $\norm{T(t)} \le M$ for all $t \ge 0$. Let $\A$ be its infinitesimal generator. Then for all $\lambda > 0$ and all integers $n \ge 0$:
 $$
 \norm{R(\lambda, \A)^n} \le \frac{M}{\lambda^n}
@@ -1976,7 +1976,7 @@ Thus, $\norm{R(\lambda, \A)^n} \le \dfrac{M}{\lambda^n}$.
 \subsection{Renorming Lemma}
 The idea is to construct an equivalent norm on $X$ under which $\A$ becomes dissipative (generating a contraction semigroup), allowing us to apply the contraction case result.
 
-\begin{lemma}
+\begin{lemma} \label{re:norm}
 	Let $A: D(A) \subset X \to X$ be a linear operator with $\rho(A) \supset \mathbb{R}_{+}^{*}$ such that for all $\lambda > 0$ and $n \ge 0$, $\|\lambda^n R(\lambda, A)^n\| \le M$.
 Then, there exists a norm $\|\cdot\|_\mu$ on $X$ such that:
 \begin{enumerate}
@@ -2035,5 +2035,247 @@ $$
 Thus, $\norm{\lambda R(\lambda, A)x}_\mu \le \norm{x}_\mu$ for $0 < \lambda \le \mu$.
 Since this holds for any sufficiently large $\mu$, and the definition of the norm can be adjusted, this property extends to all $\lambda > 0$.
 \end{proof}
+
+\begin{remark}
+In equivalent norm, the following are presarved:
+\begin{enumerate}
+	\item The closeness of an operator.
+	\item The density of the image of an operator.
+	\item The strong continuity of the $C_0$-SG.
+\end{enumerate}
+\end{remark}
+
+\begin{theo}[Hille-Yosida for $(M, 0)$] \label{thm:HY_M0}
+	Let $\A: D(\A) \subset X \to X$ be a linear operator on a Banach space $X$. Then $\A$ is the IG of a $C_0$-SG $T(t)$ satisfying $\norm{T(t)} \le M$ for all $t \ge 0$ if and only if:
+\begin{enumerate}[label=(\roman*)]
+	\item \label{hym0:closed} $\A$ is closed and ($\overline{D(\A)} = X$).
+	\item \label{hym0:bound} $\rho(\A) \supset (0, \infty)$ and for every $\lambda > 0$:
+    $$
+	    \norm{(\lambda^n R(\lambda, \A))^n} \le M, \quad \forall n \in \mathbb{N}
+    $$
+\end{enumerate}
+\end{theo}
+
+\begin{proof}
+$\Rightarrow$ \\
+Let $\A$ be the generator of a $C_0$-semigroup $T(t)$ with $\norm{T(t)} \le M$. By theorem \ref{sc:dense} part \ref{hym0:closed} is done.
+
+For part \ref{hym0:bound} is direct from lemma \ref{sc:mnbound}
+
+\bigskip
+
+\noindent $\Leftarrow$ \\
+By using lemma \ref{re:norm} and apply it on the space the assumptions change to the following:
+\begin{enumerate}[label=(\roman*)]
+	\item $\A$ is closed and $\overline{D(\A)} = X$.
+	\item $\mathbb{R}^*_+ \subset \rho(\A)$ and $\norm{R(\lambda, \A)} \le \frac{1}{\lambda}$ for all $\lambda > 0$.
+\end{enumerate}
+Which are just the conditions on Hille-Yosida for contractions and we get the desired result.
+\end{proof}
+
+\begin{theo}[Hille-Yosida for the Generale Case $(M, \omega)$] \label{thm:hy_mo}
+	Let $\A: D(\A) \subset X \to X$ be a linear operator on a Banach space $X$. Then $\A$ is the IG of a $C_0$-SG $T(t)$ satisfying $\norm{T(t)} \le M\cdot e^{\omega t}$ for all $t \ge 0$ if and only if:
+\begin{enumerate}[label=(\roman*)]
+	\item $\A$ is closed and ($\overline{D(\A)} = X$).
+	\item $\rho(\A) \supset (0, \infty)$ and for every $\lambda > 0$:
+    $$
+	    \norm{(\lambda^n R(\lambda, \A))^n} \le M, \quad \forall n \in \mathbb{N}
+    $$
+\end{enumerate}
+\end{theo}
+
+\begin{theo}
+	Let $\A: D(\A) \subset X \to X$ be a UBLO and the IG of a $C_0$-SG $T(t)_{t \ge 0}$ then for all $x \in X$:
+	$$
+	T(t)x = \lim_{\lambda \to +\infty}{e^{t\A_{\lambda}}x}
+	$$
+	Where $\A_{\lambda}$ is the Yosida Approximation of $\A$.
+\end{theo}
+
+\begin{proof}
+	This can have 2 cases depending on $\omega$.
+
+	First case, let $\omega = 0$. Then by applying lemma \ref{re:norm} we get a contraction and it is direct by corollary \ref{ya:limit}
+
+	\bigskip
+
+	Second case, let $\omega > 0$. We want to get a bound on the approximation.
+	\begin{align*}
+		\norm{e^{t \A_{\lambda}}} &= \norm{e^{t (\lambda^2 R(\lambda, \A) - \lambda I)}} \\
+					  &= e^{-\lambda t} \norm{e^{t \lambda^2 R(\lambda, \A)}} \\
+					  &\le e^{-\lambda t} \sum_{k=0}^\infty \frac{(t \lambda^2)^k}{k!} \norm{R(\lambda, \A)^k} \\
+					  &\le e^{-\lambda t} M \sum_{k=0}^\infty \frac{1}{k!} \left( \frac{t \lambda^2}{\lambda - \omega} \right)^k && \text{since } \norm{R(\lambda, \A)^k} \le \dfrac{M}{(\lambda - \omega)^k}\\
+    &= M e^{-\lambda t} \exp\left( \frac{t \lambda^2}{\lambda - \omega} \right) \\
+    &= M \exp\left( -\lambda t + \frac{t \lambda^2}{\lambda - \omega} \right)
+\end{align*}
+We can do the following calculation in the exponent:
+\begin{align*}
+	-\lambda + \frac{\lambda^2}{\lambda - \omega} &= \left( \frac{-\lambda(\lambda - \omega) + \lambda^2}{\lambda - \omega} \right) \\
+						      & = \frac{\lambda \omega}{\lambda - \omega}\\
+						      &= \omega \left( \frac{\lambda - \omega + \omega}{\lambda - \omega} \right)\\
+						      &= \omega \left( 1 + \frac{\omega}{\lambda - \omega} \right)\\
+						      &= \omega + \frac{\omega^2}{\lambda - \omega}
+\end{align*}
+Now for all $\lambda \ge 2 \omega$ we have $\lambda - \omega \ge \omega > 0$ and $\frac{1}{\lambda - \omega} \le \frac{1}{\omega}$, hence:
+$$
+\omega + \frac{\omega^2}{\lambda - \omega} \le \omega + \frac{\omega^2}{\omega} = 2 \omega
+$$
+And we get the bound:
+\begin{equation} \label{hy:general_bound}
+\norm{e^{t\A_{\lambda}}} \le M \cdot e^{2t\omega} \tag{*}
+\end{equation}
+
+Let $S(t) = e^{-\omega t}T(t)$, this $C_0$-SG is generated by $\A - \omega I$ (rescaling of $T(t)$).
+
+Since $S(t)$ is $(M, 0)$ then by the first case we have:
+$$
+\forall{t} \ge 0, \, \forall{x} \in X \quad S(t)x = \lim_{\lambda \to +\infty}{e^{t(\A - \lambda I)_{\lambda}}}
+$$
+
+Equivalently:
+
+$$
+e^{- \omega t} T(t)x = \lim_{\lambda \to +\infty}{e^{t(\A - \lambda I)_{\lambda}}}
+$$
+
+Now we have to show that $\forall t \ge 0, \forall x \in X$ the following:
+
+$$
+e^{t[(\A - \omega I)_{\lambda} + \omega I]}x - e^{t \A_{\lambda}}x = 0
+$$
+
+We have the following:
+
+\begin{align*}
+	e^{t[(\A - \omega I)_{\lambda} + \omega I]}x - e^{t \A_{\lambda}}x &= e^{t[(\A - \omega I)_{\lambda} + \omega I - \A_{\lambda} + \A_{\lambda}]}x - e^{t \A_{\lambda}}x \\
+									   &= e^{t (A_\lambda + H(\lambda))} x - e^{t A_\lambda} x && \text{by setting} \, H(\lambda) := (\A - \omega I)_{\lambda} + \omega I - \A_{\lambda} \\
+    &= e^{t A_\lambda} e^{t H(\lambda)} x - e^{t A_\lambda} x \\
+    &= e^{t A_\lambda} \left( e^{t H(\lambda)} - I \right) x  && \A_{\lambda} \, \text{and} \, H(\lambda) \, \text{commutes (why?)}
+\end{align*}
+
+\noindent Now, we aim to show that for any fixed $x \in D(A)$, $H(\lambda)x \to 0$ as $\lambda \to +\infty$.
+
+By theorem \ref{hy:yosida_conv} we have:
+\begin{align*}
+    \lim_{\lambda \to \infty} H(\lambda)x &= \lim_{\lambda \to \infty} \left( (A - \omega I)_\lambda x + \omega x - A_\lambda x \right) \\
+    &= (Ax - \omega x) + \omega x - Ax \\
+    &= 0
+\end{align*}
+Thus, $H(\lambda)x \to 0$ for all $x \in D(A)$.
+
+Now we have:
+$$
+e^{t[(\A - \omega I)_{\lambda} + \omega I]}x - e^{t \A_{\lambda}}x = e^{t A_\lambda} \left( e^{t H(\lambda)} - I \right) x
+$$
+
+By taking the norm:
+$$
+\norm{e^{t[(\A - \omega I)_{\lambda} + \omega I]}x - e^{t \A_{\lambda}}x} \le \norm{e^{t A_\lambda}} \norm{\left( e^{t H(\lambda)} - I \right) x}
+$$
+
+From \eqref{hy:general_bound}, we have that $\norm{e^{t A_\lambda}}$ is uniformaly bounded hence we need to work on $\norm{\left( e^{t H(\lambda)} - I \right) x}$.
+
+Note that $e^{tH(\lambda)} = e^{t(B_\lambda + \omega I)} e^{-tA_\lambda}$. From the bound estimates shown earlier, both $\|e^{s(B_\lambda + \omega I)}\|$ and $\|e^{-sA_\lambda}\|$ are uniformly bounded for $s$ in a compact interval $[0, T]$ and sufficiently large $\lambda$. Let $C$ be this bound. Then:
+\[ \| (e^{t H(\lambda)} - I) x \| \le t \cdot C \cdot \| H(\lambda)x \| \]
+Since we proved that $\lim_{\lambda \to \infty} \|H(\lambda)x\| = 0$, it follows immediately that:
+\[ \lim_{\lambda \to \infty} \| (e^{t H(\lambda)} - I) x \| = 0 \]
+Finally, combining this with the uniform bound on $\|e^{t A_\lambda}\|$, we obtain:
+\[ \lim_{\lambda \to \infty} \| e^{t (B_\lambda + \omega I)} x - e^{t A_\lambda} x \| = 0 \]
+This proves that the limit is the same, regardless of the shift. This completed our proof.
+\end{proof}
+
+\section{Inverse Laplace Transform and Resolvent Formula}
+
+We have established that for a $C_0$-SG $\left(T(t)\right)_{t \ge 0}$ with $\norm{T(t)} \le Me^{t\omega}$, the resolvent is given using the following formula:
+$$
+R(\lambda,\A)x = \int_0^\infty e^{-\lambda t} T(t)x \, dt \quad \text{for } \text{Re}(\lambda) > \omega.
+$$
+which is just the Laplace Tranfrom of the semigroup.
+
+A major problem in semigroup theory is recovering $T(t)$ from $R(\lambda,\A)x$ (Inverting the Laplace Transform).
+
+\begin{lemma}
+	Let $X$ be BS and $\B \in \L(X)$ then $\forall \gamma > \norm{\B}$ we have:
+	\begin{align*}
+	e^{t\B} &= \frac{1}{2 \pi i} \int_{\gamma - i\infty}^{\gamma + i\infty} e^{\lambda t} R(\lambda, \B) d\lambda \\
+		&= \frac{1}{2 \pi i} \int_{- \infty}^{+ \infty} e^{(\gamma + is)t} R(\gamma + is, \B) i ds
+	\end{align*}
+\end{lemma}
+
+\begin{proof}
+	To make sense and motivate this proof we start by showing that this is correct for the scalar case. Let $b \in \mathbb{C}$ and the exponential function $f(t) = e^{tb}$. The Laplace transform of $f(t)$ is:
+	$$
+\mathcal{L}\{e^{tb}\}(\lambda) = \int_0^\infty e^{-\lambda t} e^{tb} \, dt = \frac{1}{\lambda - b}, \quad \text{for } \Re(\lambda) > \Re(b)
+	$$
+	Now if we choose $\left|\lambda\right| > \left|b\right|$. We can expand $(\lambda - b)^{-1}$ as a convergent geometric series:
+	Now if we choose $\gamma$ such that $\Re(\gamma) > \left| b \right|$. Let show that:
+	$$
+		e^{tb} = \frac{1}{2\pi i} \int_{\gamma - i\infty}^{\gamma + i\infty} e^{\lambda t} \frac{1}{\lambda - b} \, d\lambda
+	$$
+	For a circle $C(0, r)$ with radius $r > |b|$, we can expand the term $(\lambda - b)^{-1}$ as a geometric series for $|\lambda| > |b|$:
+	$$
+	\frac{1}{\lambda - b} = \frac{1}{\lambda(1 - \frac{b}{\lambda})} = \frac{1}{\lambda} \sum_{k = 0}^{\infty}{\frac{b^k}{\lambda^k}} = \sum_{k = 0}^{\infty}{\frac{b^k}{\lambda^{k+1}}}
+	$$
+	Plugging this into the formula above we get:
+	\begin{align*}
+		\frac{1}{2\pi i} \int_{\gamma - i\infty}^{\gamma + i\infty} e^{\lambda t} \frac{1}{\lambda - b} \, d\lambda
+		&= \frac{1}{2\pi i} \int_{\gamma - i\infty}^{\gamma + i\infty} e^{\lambda t} \sum_{k = 0}^{\infty}{\frac{b^k}{\lambda^{k+1}}} \, d\lambda && (\text{the choice of} \, \gamma \, \text{allow for this}) \\
+		&= \frac{1}{2\pi i} \sum_{k = 0}^{\infty} b^k \int_{\gamma - i\infty}^{\gamma + i\infty} \frac{e^{\lambda t}}{\lambda^{k+1}} \, d\lambda && \left(\text{The sum is uniformly convergent}\right) \\
+		&= \frac{1}{2\pi i} \sum_{k = 0}^{\infty} 2\pi i \frac{b^k \, t^k}{k!} && \left(\text{Cauchy Integral Formula}\right) \\
+		&= e^{bt}
+	\end{align*}
+	This shows that the formula works for the scalar case.
+
+	\bigskip
+
+	The case of the operator follows the same steps and same resoning.
+
+	Again let $C(0,r)$ with radius $r$ such that $r > \norm{\B}$ For any $\lambda \in C(0,r)$, we have $|\lambda| > \norm{\B}$, which implies $\|\frac{\B}{\lambda}\| < 1$.
+
+In this region, the resolvent $R(\lambda, \B) = (\lambda I - \B)^{-1}$ admits a uniformly convergent Neumann series expansion:
+$$
+R(\lambda, \B) = \frac{1}{\lambda} \left( I - \frac{\B}{\lambda} \right)^{-1} = \sum_{k=0}^\infty \frac{\B^k}{\lambda^{k+1}}.
+$$
+We substitute this series into the contour integral over $C(0, r)$:
+\begin{align*}
+\frac{1}{2\pi i} \int_{C(0,r)} e^{\lambda t} R(\lambda,\B) \, d\lambda 
+&= \frac{1}{2\pi i} \int_{C{0,r}} e^{\lambda t} \left( \sum_{k=0}^\infty \frac{\B^k}{\lambda^{k+1}} \right) d\lambda \\
+&= \frac{1}{2\pi i} \sum_{k=0}^\infty \B^k \left[ \int_{C_r} \frac{e^{\lambda t}}{\lambda^{k+1}} \, d\lambda \right] \\
+&= \frac{1}{2\pi i} \sum_{k=0}^\infty \B^k \left[2\pi i \frac{t^k}{k!} \right] \\
+&= \sum_{k=0}^\infty \frac{t^k \B^k}{k!} \\
+&= e^{t\B}
+\end{align*}
+\end{proof}
+
+% After this we note that this only works when we are working with bounded operators, but turns out this will work for unbounded operators as well.
+
+\section{Spectral Mapping Theorem}
+Let $\left( T(t) \right)_{t \ge 0}$ be $C_0$-SG with $\A$ as its IG, then what is the relation betweem $\sigma(T(t))$ and $\sigma(\A)$ ?
+
+\begin{exercise}{}{}
+	Let $\left( T(t) \right)_{t \ge 0}$ be UC-SG with $\A$ as its IG then $e^{t\sigma(\A)} = \sigma(T(t))$.
+\end{exercise}
+
+\begin{exercise}{}{}
+	Take $X = \left\{f:[0,1] \to \mathbb{C} \mid f \, \text{is continuous and } f(1) = 0 \right\}$ then ($X, \norm{\cdot}_{\infty})$ is BS. Define:
+	$$
+	T(t)f(x) = \begin{cases*}
+		\, $f(x + t)$ & $x + t \le 1$ \\
+		\, $0$ & $x + t > 1$
+                   \end{cases*}
+	$$
+	Then:
+	\begin{enumerate}
+		\item $\left(T(t)\right)_{t \ge 0}$ is a $C_0$-SG.
+		\item $\A$ the IG and $\A f = f^{'}$. Determine $D(\A)$.
+		\item Check $\forall \lambda \in \mathbb{C}$, $\exists ! f \in X$ such that $(\lambda I - \A)f = g$ for all $g \in X$.
+		\item $\sigma(\A) = \emptyset$.
+		\item $\sigma(T(t)) \neq \emptyset$.
+	\end{enumerate}
+\end{exercise}
+
+% \begin{lemma}[Preparatory Lemma]
+% 	Let $(T(t))_{t \ge 0}
+% \end{lemma}
 
 \end{document}
