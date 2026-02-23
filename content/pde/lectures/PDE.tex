@@ -131,7 +131,7 @@ Note that $G(\mathscr{A})=\left\{(x,\mathscr{A}x)\big|x\in D(\mathscr{A})\right\
 \begin{exercise}{}{}
 	\begin{itemize}
 		\item [1.] Prove that if it exists, $\tilde{\mathscr{A}}$ is unique, it then denoted by $\overline{\mathscr{A}}$ called closure of $\mathscr{A}$.
-		\item [2.] Let $\mathscr{A}_{\ell}=\frac{d}{dx}$ with $(X=C^0([a,b],\mathbb{R}),\|.\|=\sup|f(x)|)$ and $D(\mathscr{A}_{\ell})=C^{\ell}([a,b],\mathbb{R})$. Prove $\overline{\mathscr{A}_{\ell}}=\mathscr{A}_1$.
+		\item [2.] Let $\mathscr{A}_{\ell}=\frac{d}{dx}$ with $(X=C^0([a,b],\mathbb{R}),\norm{\cdot}_{\infty}=\sup|f(x)|$ and $D(\mathscr{A}_{\ell})=C^{\ell}([a,b],\mathbb{R})$. Prove $\overline{\mathscr{A}_{\ell}}=\mathscr{A}_1$.
 	\end{itemize}
 \end{exercise}		
 \begin{lemma}
@@ -149,7 +149,7 @@ Note that $G(\mathscr{A})=\left\{(x,\mathscr{A}x)\big|x\in D(\mathscr{A})\right\
 	\end{coro}
 \begin{exercise}{}{}
 	Let $$X=\ell^2(\mathbb{C})=\left\{(x_n)_{n\geq 0}:\sum_n |x_n|^2<\infty\right\},$$
-with $(\mathscr{A}x_n)_{n\geq 1}=\left(\frac{x_n}{1+n}\right)_{n\geq 0}$. Prove that $\mathscr{A}$ is a BLO, injective, $\overline{\text{Rg}(\mathscr{A})}=X$ and $\text{Rg}(\mathscr{A})\subsetneq X$.
+with $(\mathscr{A}x_n)_{n\geq 0}=\left(\frac{x_n}{1+n}\right)_{n\geq 0}$. Prove that $\mathscr{A}$ is a BLO, injective, $\overline{\text{Rg}(\mathscr{A})}=X$ and $\text{Rg}(\mathscr{A})\subsetneq X$.
 \end{exercise}	
 	\begin{theo}
 	If $\mathscr{A}$ is a closed UBLO then $\rho(\mathscr{A})$ is open. If $\mu\in \rho(\mathscr{A})$, then for all $\lambda\in \mathbb{C}$ with $r:=|\mu-\lambda|, \|(\mu I-\mathscr{A})^{-1}\|<1$ then $\lambda\in \rho(\mathscr{A})$ and
@@ -885,8 +885,8 @@ for all $\lambda > 0$,
 \medskip
 
 \begin{itemize}
-	\item surj: Assumption,
-	\item inj: Lemma \ref{lem1.4.1}.
+	\item Surjective: Assumption,
+	\item Injective: Lemma \ref{lem1.4.1}.
 \end{itemize}
 
 Hence,
@@ -1118,16 +1118,7 @@ $
 
 \medskip
 
-Linear algebra in finite dimension $\mathscr{A} \in \mathcal{M}_n(\mathbb{K})$, we have that
-$
-W(\mathscr{A})
-=
-\left\{
-\langle x, \mathscr{A}x \rangle
-\; \middle| \;
-\|x\| = 1
-\right\}.
-$
+Linear algebra in finite dimension $\mathscr{A} \in \mathcal{M}_n(\mathbb{K})$, we have that $W(\A) = \left\{ \langle x, \A x \rangle \; \middle| \; \norm{x} = 1 \right\}$.
 
 \end{definition}
 
@@ -1399,7 +1390,7 @@ $T(t)=e^{t\mathscr{A}}$.
 	\textcolor{blue}{The proofs above are from the recommended text (Semigroups of Linear Operators and Applications to Partial Differential Equations) Page 3. [Theorem 1.3 and Corollary 1.4].}
 \end{remark}
 
-\section{Strongly Continuos Semigroups ($C_0$-Semigroups)}
+\section{\texorpdfstring{Strongly Continuous Semigroups ($C_0$-Semigroups)}{Strongly Continuous Semigroups}}
 
 \begin{definition}\label{def:sc-sg}
 	The SG-BLO $(T(t))_{t \ge 0}$ is strongly continous (SC or $C_0$) if $\forall x \in X$
@@ -1868,8 +1859,8 @@ A linear operator $\A$ generates a $C_0$-semigroup $T(t)$ satisfying $\norm{T(t)
 \end{enumerate}
 \end{theo}
 
-\subsection{Reduction to the Case $\omega = 0$}
-If $\norm{T(t)} \le M e^{\omega t}$, consider the rescaled semigroup $S(t) = e^{-\omega t}T(t)$. The generator of $S(t)$ is $\A - \omega I$, and $\norm{S(t)} \le M$. Conversely, if we prove the theorem for $\omega = 0$, the general case follows by applying the result to $\A - \omega I$.
+\subsection{\texorpdfstring{Reduction to the Case $\omega = 0$}{Reduction to the case of uniformly bounded}}
+If $\norm{T(t)} \le M e^{\omega t}$, consider the rescaled semigroup $S(t) = e^{-\omega t}T(t)$. The generator of $S(t)$ is $\A - \omega I$ where $\A$ is the IG of $\left(T(t)\right)_{t \ge 0}$, and $\norm{S(t)} \le M$. Conversely, if we prove the theorem for $\omega = 0$, the general case follows by applying the result to $\A - \omega I$.
 
 Now we have the following corollary:
 
@@ -2247,8 +2238,6 @@ We substitute this series into the contour integral over $C(0, r)$:
 \end{align*}
 \end{proof}
 
-% After this we note that this only works when we are working with bounded operators, but turns out this will work for unbounded operators as well.
-
 \section{Spectral Mapping Theorem}
 Let $\left( T(t) \right)_{t \ge 0}$ be $C_0$-SG with $\A$ as its IG, then what is the relation betweem $\sigma(T(t))$ and $\sigma(\A)$ ?
 
@@ -2274,8 +2263,180 @@ Let $\left( T(t) \right)_{t \ge 0}$ be $C_0$-SG with $\A$ as its IG, then what i
 	\end{enumerate}
 \end{exercise}
 
-% \begin{lemma}[Preparatory Lemma]
-% 	Let $(T(t))_{t \ge 0}
-% \end{lemma}
+\begin{lemma}\label{spec:prep}[Preparatory Lemma]
+	Let $(T(t))_{t \ge 0}$ be a $C_0$-SG and let $\A$ be its IG. For all $t \ge 0$ and for all $x \in X$ define:
+	$$
+	\B_{\lambda}(t)x = \int\limits_{0}^{t} e^{\lambda(t-s)}T(s) \, x \, ds
+	$$
+	then $(\lambda I - \A)\B_{\lambda}(t)x = e^{\lambda t}x - T(t)x$.
+\end{lemma}
+
+\begin{proof}
+	It is enough to show that:
+	$$
+	\A \B_{\lambda}(t)x = T(t)x  + \lambda \B_{\lambda}(t)x - e^{\lambda t}x
+	$$
+	Recall that:
+	$$
+	\A = \lim\limits_{h \to 0^{+}} \frac{T(h) - Id}{h}
+	$$
+	Then we have:
+	\begingroup
+	\allowdisplaybreaks
+	\begin{align*}
+		\frac{T(h) - Id}{h} B_{\lambda}(t)x &= \frac{1}{h} \int\limits_{0}^{t} e^{\lambda(t-s)}\left(T(h)T(s) - T(s)\right) \, x \, ds \\
+						    &= \frac{1}{h} \left[\int\limits_{0}^{t} e^{\lambda(t-s)} T(s + h)\, x \, ds - \int\limits_{0}^{t} e^{\lambda(t-s)} T(s) \, x \, ds\right] \\
+						    &= \frac{1}{h} \left[\int\limits_{h}^{t + h} e^{\lambda(t-s + h)} T(s)\, x \, ds - \int\limits_{0}^{t} e^{\lambda(t-s)} T(s) \, x \, ds\right] \\
+						    &= \frac{1}{h} \left[e^{\lambda h}\int\limits_{h}^{t + h} e^{\lambda(t - s)} T(s)\, x \, ds - \int\limits_{0}^{t} e^{\lambda(t-s)} T(s) \, x \, ds\right] \\
+						    &= \frac{1}{h} \left[\left(e^{\lambda h} - 1\right)\int\limits_{h}^{t + h} e^{\lambda(t - s)} T(s)\, x \, ds + \int\limits_{h}^{t + h} e^{\lambda(t - s)} T(s)\, x \, ds - \int\limits_{0}^{t} e^{\lambda(t-s)} T(s) \, x \, ds\right] \\
+						    &= \frac{1}{h} \left[\left(e^{\lambda h} - 1\right)\int\limits_{h}^{t + h} e^{\lambda(t - s)} T(s)\, x \, ds + \int\limits_{t}^{t + h} e^{\lambda(t - s)} T(s)\, x \, ds - \int\limits_{0}^{h} e^{\lambda(t-s)} T(s) \, x \, ds\right]
+	\end{align*}
+	Now taking $\lim\limits_{h \to 0^{+}}$ we get:
+	$$
+	\A \B_{\lambda}(t)x = \lambda \B_{\lambda}(t)x + T(t)x - e^{\lambda t}x
+	$$
+	\endgroup
+\end{proof}
+
+\begin{remark}
+	In the lemma above $\A$ commutes if $x \in D(\A)$, and we get:
+	$$
+\B_{\lambda}(t)(\lambda I - \A)x = (\lambda I - \A)\B_{\lambda}(t)x = e^{\lambda t}x - T(t)x
+	$$
+	This is true because of the fact that $\A$ is the limit.
+\end{remark}
+
+\begin{theo}
+	Let $\left(T(t)\right)_{t \ge 0}$ be a $C_0$-SG generated by $\A$. Then for all $t \ge 0$:
+	$$
+		e^{t \sigma(A)} \subset \sigma(T(t))
+	$$
+\end{theo}
+
+\begin{proof}
+We prove the equivalent statement: if $e^{\lambda t} \in \rho(T(t))$, then $\lambda \in \rho(\A)$.
+
+Assume $e^{\lambda t} \in \rho(T(t))$. Then the operator $(e^{\lambda t} I - T(t))$ is invertible with a bounded inverse $Q = (e^{\lambda t} I - T(t))^{-1} \in \mathcal{L}(X)$.
+
+From Lemma \ref{spec:prep}, we have:
+$$
+(\lambda I - \A) \B_\lambda(t) = e^{\lambda t} I - T(t).
+$$
+
+\begin{claim}
+	$Q$ and $\B_{\lambda}(t)$ commute. (Prove it)
+\end{claim}
+Multiplying by $Q$ on the right:
+$$
+(\lambda I - \A) \B_\lambda(t) Q = I.
+$$
+Similarly, for $x \in D(\A)$:
+$$
+Q \B_\lambda(t) (\lambda I - \A) x = x.
+$$
+Defining $R(\lambda) = \B_\lambda(t) Q$, we see that $R(\lambda)$ acts as a two-sided inverse for $(\lambda I - A)$. Since $B_\lambda(t)$ and $Q$ are bounded, $R(\lambda)$ is bounded. Thus $\lambda \in \rho(\A)$.
+
+By contraposition, $\lambda \in \sigma(\A) \implies e^{\lambda t} \in \sigma(T(t))$.
+\end{proof}
+
+\pagebreak
+
+While the full spectral mapping theorem fails, a precise relationship holds for the point spectrum $\sigma_p$ and the residual spectrum $\sigma_r$.
+
+Recall the decomposition of the spectrum:
+$$
+\sigma(\A) = \sigma_p(\A) \cup \sigma_c(\A) \cup \sigma_r(\A)
+$$
+where $\sigma_p$ denotes point spectrum (eigenvalues), $\sigma_c$ continuous spectrum, and $\sigma_r$ residual spectrum.
+
+\begin{theo}
+	Let $\left(T(t)\right)_{t \ge 0}$ be a $C_0$-SG generated by $\A$. Then:
+$$
+e^{t \sigma_p(\A)} \subseteq \sigma_p(T(t)) \subseteq e^{t \sigma_p(\A)} \cup \left\{0\right\}
+$$
+Precisely, if $e^{\lambda t} \in \sigma_p\left(T(t)\right)$, then there exists $k \in \mathbb{Z}$ such that:
+$$
+\lambda_k = \lambda + \frac{2\pi i k}{t} \in \sigma_p(\A)
+$$
+\end{theo}
+
+\begin{proof}
+First inclusion, $\lambda \in \sigma_p(\A) \implies e^{\lambda t} \in \sigma_p(T(t))$.
+
+Let $\lambda \in \sigma_p(\A)$. Then there exists $x_0 \neq 0$ such that $\A x_0 = \lambda x_0$ and by lemma \ref{spec:prep} we have:
+$$
+\B_{\lambda}(t) (\lambda I - \A) x = \left(e^{\lambda t} I - T(t)\right)x \quad\quad \forall x \in D(\A)
+$$
+Now take $x = x_0$ and note the fact that $(\lambda I - \A) x_0 = 0$:
+$$
+\left(e^{\lambda t} I - T(t)\right)x_0 = 0
+$$
+Hence $\ker{\left(e^{\lambda t} I - T(t)\right)} \neq \left\{ 0 \right\}$ then $e^{\lambda t} \in \sigma_p(T(t))$.
+
+For the second inclusion, let $\mu \in \sigma_p(T(t))$ with $\mu \neq 0$. Write $\mu = e^{\lambda t}$ for some $\lambda \in \mathbb{C}$.
+
+There exists $x_0 \neq 0$ such that $T(t)x_0 = e^{\lambda t}x_0$.
+
+Consider the function $\phi_{x_0}(s)$ defined by:
+$$
+\phi_{x_0}(s) = e^{-\lambda s} T(s) x_0
+$$
+Clearly:
+$$
+\phi_{x_0}(0) = x_0 = \phi_{x_0}(t)
+$$
+We check if $\phi_{x_0}$ is periodic with period $t$.
+$$
+\phi_{x_0}(s+t) = e^{-\lambda(s+t)} T(s+t)x_0 = e^{-\lambda s} e^{-\lambda t} T(s) T(t) x_0
+$$
+Using the eigen-property $T(t)x_0 = e^{\lambda t}x_0$:
+$$
+\phi_{x_0}(s+t) = e^{-\lambda s} e^{-\lambda t} T(s) (e^{\lambda t} x_0) = e^{-\lambda s} T(s) x_0 = \phi_{x_0}(s)
+$$
+Since $\phi_{x_0}(s)$ is a $t$-periodic continuous function (and assuming $x_0 \in X$), we can expand it into a Fourier series. The $k$-th Fourier coefficient is:
+$$
+\hat{x}_k = \frac{1}{t} \int_0^t e^{-2\pi i k s / t} \phi_{x_0}(s) \, ds
+$$
+Substituting $\phi_{x_0}(s) = e^{-\lambda s} T(s) x_0$:
+$$
+\hat{x}_k = \frac{1}{t} \int_0^t e^{-(\lambda + \frac{2\pi i k}{t}) s} T(s) x_0 \, ds
+$$
+Let $\lambda_k = \lambda + \frac{2\pi i k}{t}$. Since $\phi_{x_0}$ is not identically zero (as $\phi_{x_0}(0) = x_0 \neq 0$), at least one coefficient $\hat{x}_k$ must be non-zero.
+
+We will show that if $\hat{x}_k \neq 0$, then $\lambda_k \in \sigma_p(\A)$.
+
+We use the resolvent formula. For $\Re(\gamma)$ sufficiently large, $R(\gamma, \A) = \int_0^\infty e^{-\gamma s} T(s) ds$. Applying this to $x_0$:
+$$
+R(\gamma, \A)x_0 = \int_0^\infty e^{-\gamma s} T(s) x_0 \, ds
+$$
+Decompose the integral over intervals $[nt, (n+1)t]$:
+\begin{align*}
+R(\gamma, \A)x_0 &= \sum_{n=0}^\infty \int_{nt}^{(n+1)t} e^{-\gamma s} T(s) x_0 \, ds \\
+&= \sum_{n=0}^\infty \int_0^t e^{-\gamma(nt + \tau)} T(nt + \tau) x_0 \, d\tau \quad (\text{let } s = nt + \tau)
+\end{align*}
+Using the semigroup property $T(nt+\tau)x_0 = T(\tau)T(t)^n x_0 = T(\tau) e^{n \lambda t} x_0$:
+\begin{align*}
+R(\gamma, \A)x_0 &= \sum_{n=0}^\infty e^{-n \gamma t} e^{n \lambda t} \int_0^t e^{-\gamma \tau} T(\tau) x_0 \, d\tau \\
+&= \left( \sum_{n=0}^\infty e^{-n(\gamma - \lambda)t} \right) \int_0^t e^{-\gamma \tau} T(\tau) x_0 \, d\tau
+\end{align*}
+The geometric series converges if $\Re(\gamma) > \Re(\lambda)$:
+$$
+\sum_{n=0}^\infty (e^{-(\gamma - \lambda)t})^n = \frac{1}{1 - e^{-(\gamma - \lambda)t}}
+$$
+Thus:
+$$
+R(\gamma, \A)x_0 = \frac{1}{1 - e^{(\lambda - \gamma)t}} \int_0^t e^{-\gamma \tau} T(\tau) x_0 \, d\tau
+$$
+The function $\gamma \mapsto R(\gamma, \A)x_0$ is meromorphic. The poles of the resolvent indicate the spectrum. The denominator vanishes when:
+$$
+e^{(\lambda - \gamma)t} = 1 \iff (\lambda - \gamma)t = 2\pi i k \iff \gamma = \lambda - \frac{2\pi i k}{t}
+$$
+Let $\mu_k = \lambda + \frac{2\pi i k}{t}$. The resolvent has a pole at $\mu_k$.
+Specifically, the residue near the pole relates to the existence of an eigenvector. If we analyze the limit:
+$$
+\lim_{\gamma \to \lambda_k} (\gamma - \lambda_k) R(\gamma, \A) x_0 \neq 0 \implies \lambda_k \in \sigma_p(\A).
+$$
+This confirms that the eigenvalues of $\A$ are exactly the logarithms of the eigenvalues of $T(t)$ (modulo $2\pi i / t$).
+\end{proof}
 
 \end{document}

@@ -18,7 +18,7 @@ weight = 20
 
 _**Note:**_ This is a rolling notes that include the notes up to a certain lecture.
 
-[Notes](/PDE.pdf) The notes of the last 3 lectures will be a bit late compared to the rest. (Up to the 6th Lecture(Missing Spectral Mapping Theorem). Last updated: 16-Feb-2026)
+[Notes](/PDE.pdf) The notes of the last 2 lectures will be a bit late compared to the rest. (Up to the 6th Lecture. Last updated: 23-Feb-2026)
 
 {{% notice note "Maintainer's Note" %}}
 **This is an individual initiative.**
