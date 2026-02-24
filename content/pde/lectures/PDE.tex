@@ -2439,4 +2439,235 @@ $$
 This confirms that the eigenvalues of $\A$ are exactly the logarithms of the eigenvalues of $T(t)$ (modulo $2\pi i / t$).
 \end{proof}
 
+\chapter{Applications to Partial Differential Equations}
+
+Let $X$ be a Banach space and $A: D(A) \subset X \rightarrow X$ be a linear operator. We define the homogeneous and inhomogeneous abstract Cauchy problems as follows:
+
+\begin{itemize}
+    \item Homogeneous Cauchy Problem $h-(CP)_{0, x_0}$: 
+    $$ \frac{du}{dt} = Au, \quad t \ge 0 $$ 
+    $$ u(0) = x_0 $$ 
+    
+    \item Inhomogeneous Cauchy Problem $inh-(CP)_{0,x_0}$: 
+    $$ \frac{du}{dt} = Au + f(t), \quad t \ge 0 $$ 
+    $$ u(0) = x_0 $$ 
+    where $f: \mathbb{R}_+ \rightarrow X$. 
+\end{itemize}
+
+\section{The Cauchy Problem}
+
+\begin{definition}
+We distinguish three types of solutions for the Cauchy problem:
+\begin{enumerate}
+    \item \textbf{Strong Solution:} A function $x(\cdot) \in C^1(\mathbb{R}_+, D(\A))$ such that for all $t \ge 0$, $x(t) \in D(\A)$ and $\frac{dx}{dt} = \A x(t)$. 
+    
+    \item \textbf{Mild Solution:} A function $x(\cdot) \in C^0\left(\mathbb{R}_+, D(\A)\right) \cap C^1(\mathbb{R}_+^*, D(\A))$ with $x(0) = x_0$, and for all $t > 0$, $x(t) \in D(\A)$ such that $\frac{dx}{dt} = \A x(t)$. 
+    
+    \item \textbf{Weak Solution:} A function $x(\cdot) \in C^0(\mathbb{R}_+, X)$ such that $x(0) = x_0$, and for all $x^* \in D(A^*)$, the map $t \mapsto \langle x^*, x(t) \rangle$ is $C^1$ and satisfies:
+    $$
+    \frac{d}{dt} \langle x^*, x(t) \rangle = \langle A^* x^*, x(t) \rangle
+    $$
+\end{enumerate}
+\end{definition}
+
+\begin{remark} Some properties of the solutions and constraints on the initial value:
+\begin{enumerate}
+    \item If $x_0 \notin D(A)$, there is no valid strong solution for $(CP)_{0,x_0}$. 
+    \item For all $x_0 \in X$, $t \mapsto T(t)x_0$ is the unique solution of $(CP)_{0,x_0}$. 
+\end{enumerate}
+\end{remark}
+
+\begin{example}
+Consider the transport equation:
+$$
+u_t = u_x \quad\quad x \in [0,1], \; t \ge 0
+$$
+subject to boundary conditions at $t=0$, $u(0, \cdot) = u_0(\cdot) \in X$.
+
+We associate this problem with the operator $\A$ defined by $\A u = \frac{du}{dx}$. To define the weak solution, we need to determine the action of the adjoint operator $\A^*$.
+
+Let $\varphi$ be a test function (of $D(A^*)$). We compute the pairing $\langle \A u, \varphi \rangle$ using the inner product in $L^2([0,1])$:
+
+$$ \langle \A u, \varphi \rangle = \int_0^1 (\A u)(x) \varphi(x) \, dx = \int_0^1 \frac{du}{dx}(x) \varphi(x) \, dx $$
+
+By integration by parts:
+$$ \int_0^1 u'(x) \varphi(x) \, dx = \left[ u(x)\varphi(x) \right]_0^1 - \int_0^1 u(x) \varphi'(x) \, dx $$
+
+Using the Dirichlet boundary conditions ($u(t,1) = u(t,0) = 0$), the boundary term $\left[ u(x)\varphi(x) \right]_0^1$ vanishes. Thus, we obtain:
+$$ \langle \A u, \varphi \rangle = - \int_0^1 u(x) \varphi'(x) \, dx = \int_0^1 u(x) \left( -\frac{d\varphi}{dx} \right) \, dx $$
+
+This can be rewritten in terms of the inner product as:
+$$ \langle \A u, \varphi \rangle = \langle u, -\varphi' \rangle $$
+
+From the definition of the adjoint operator $\langle \A u, \varphi \rangle = \langle u, \A^* \varphi \rangle$, we identify:
+$$ \A^* \varphi = -\frac{d\varphi}{dx} $$
+
+Therefore, the condition for $u(t)$ to be a weak solution:
+$$ \frac{d}{dt} \langle \varphi, u(t) \rangle = \langle A^* \varphi, u(t) \rangle $$
+becomes:
+$$ \frac{d}{dt} \int_0^1 u(t,x) \varphi(x) \, dx = -\int_0^1 u(t,x) \varphi'(x) \, dx $$
+\end{example}
+
+\pagebreak
+
+\begin{theo}
+Let $\A$ be the IG of a $C_0$-SG $(T(t))_{t \ge 0}$, then: 
+\begin{enumerate}
+	\item \label{app:stg} For all $x_0 \in D(\A)$, there exists a unique strong solution of $(CP)_{0,x_0}$ given by $u(t) = T(t)x_0$, which is also a mild and weak solution. 
+	\item \label{app:weak} For all $x_0 \in X$, $t \mapsto T(t)x_0$ is a weak solution of $(CP)_{0,x_0}$. 
+\end{enumerate}
+\end{theo}
+
+\begin{proof} The proof of part \ref{app:stg} is direct.
+
+\bigskip
+
+For part \ref{app:weak}: Let $x_0 \in X$ and choose a sequence $x_n \in D(\A)$ such that $x_n \rightarrow x_0$ (why is this possible?). For all $x^* \in D(\A^*)$ and $t \ge 0$, the function $t \mapsto \langle x^*, T(t)x_n \rangle$ is $C^1$, and we have:
+$$
+\frac{d}{dt} \langle x^*, T(t)x_n \rangle = \langle x^*, \A T(t)x_n \rangle = \langle \A^* x^*, T(t)x_n \rangle
+$$
+Integrating yields:
+$$ \langle x^*, T(t)x_n \rangle = \langle x^*, x_n \rangle + \int_0^t \langle A^* x^*, T(s)x_n \rangle ds $$ 
+By passing to the limit as $n \rightarrow \infty$ (show how), we extend this formula for all $x_0 \in X$, showing $t \mapsto T(t)x_0$ is a weak solution. 
+
+\bigskip
+
+Now to show the uniqueness of the solution, consider two weak solutions $x_1(\cdot)$ and $x_2(\cdot)$ of $(CP)_{0,x_0}$. 
+Set $u = x_1 - x_2$. 
+Then $u$ is a weak solution of the problem with initial condition $0$. 
+For all $t \ge 0$ and $x^* \in D(A^*)$, we have:
+$$
+\langle x^*, u(t) \rangle = \int_0^t \langle A^* x^*, u(s) \rangle ds
+$$
+
+Let $U(t) = \int_0^t u(s)ds$, with $U(0) = 0$. 
+Then, $\langle x^*, u(t) \rangle = \langle A^* x^*, U(t) \rangle$, which implies:
+\begin{equation}\label{sol:weak:uniq}
+\frac{d}{dt} \langle x^*, U(t) \rangle = \langle A^* x^*, U(t) \rangle \tag{***}
+\end{equation}
+
+\begin{claim}
+	If $\left( T(t) \right)_{t \ge 0}$ is a $C_0$-SG with $\A$ as its IG then $T(t)^* D(\A^*) \subset D(\A^*)$ and $T(t)^*\, \text{and } \A^*$ commute, that is:
+	$$
+		T(t)^* \A^* = \A^* T(t)^*
+	$$
+\end{claim}
+
+\begin{proof}[Proof of claim]
+We have to show that $\forall{x^*} \in D(\A^*), \forall{x} \in D(\A), \forall{t} \ge 0$, the follwing:
+$$
+\exists{\xi^*} \in X^*, \langle T(t)^* x^*, \A x \rangle = \langle \xi^*, x \rangle 
+$$
+We have the following:
+\begin{align*}
+	\langle T(t)^* x^*, \A x \rangle 
+	&= \langle x^*, T(t) \A x \rangle \\
+	&= \langle x^*, \A T(t) x \rangle \\
+	&= \langle \A^* x^*, T(t) x \rangle \\
+	&= \langle T(t)^* \A^* x^*, x \rangle
+\end{align*}
+Then $T(t)^* \A^* x^* \in D(\A^*)\, \text{and } T(t)^* \A^* = \A^* T(t)^*$.
+\end{proof}
+
+Apply \eqref{sol:weak:uniq} replacing $x^*$ with $T^*(t^* - t)x^*$, where $0 \le t \le t^*$: 
+$$ \frac{d}{dt} \langle T^*(t^* - t)x^*, U(t) \rangle = \langle -\A^* T^*(t^* - t)x^*, U(t) \rangle + \langle T^*(t^* - t)x^*, u(t) \rangle $$ 
+Since $\langle T^*(t^* - t)x^*, u(t) \rangle = \langle \A^* T^*(t^* - t)x^*, U(t) \rangle$, the derivative is $0$. 
+
+Integrating from $t=0$ to $t=t^*$ yields:
+$$
+\langle x^*, U(t^*) \rangle - \langle T^*(t^*)x^*, U(0) \rangle = 0
+$$
+Since $U(0) = 0$, we get $\langle x^*, U(t^*) \rangle = 0$ for all $t^* \ge 0$. Since this holds for all $x^* \in D(\A^*)$ and $D(\A^*)$ is weak*-dense, $U(t) \equiv 0$.
+
+Differentiating gives $u(t) = 0$, proving uniqueness. 
+\end{proof}
+
+\begin{theo} \label{sol:mild}
+	Let $\A: D(\A) \subset X \rightarrow X$ be a closed, densely defined operator. If there exists $\omega$ such that for $\lambda > \omega$, $\lambda \in \rho(\A)$ and $\norm{R(\lambda, \A)} = o(e^{\sigma \lambda})$, 
+then $(CP)_{0,x_0}$ admits a unique mild solution. 
+\end{theo}
+
+We first prove a necessary lemma for uniqueness:
+\begin{lemma} \label{sol:mild:uniq:lemma}
+Let $u: [0, T] \rightarrow X$ be continuous with $u(0)=0$. Assume there exists $M \ge 0$ such that for all $n \ge 0$,
+$$
+\norm{\int_0^T e^{ns} u(s) ds} \le M
+$$
+Then $u(t) = 0$ for all $t \in [0, T]$. 
+\end{lemma}
+
+\begin{proof}
+	For any $x^* \in X^*$, define the continuous function $\varphi(s) := \langle x^*, u(s) \rangle$. By assumption, $\norm{\int_0^T e^{ns} \varphi(s) ds} \le M$ for all $n$. 
+Define the sequence of functions:
+$$ \psi_n(t) = \sum_{k \ge 1} \frac{(-1)^{k+1}}{k!} e^{knt} = 1 - e^{-e^{nt}} $$ 
+We consider the integral:
+$$ \int_0^T \psi_n(t - T + s) \varphi(s) ds $$ 
+By substituting the sum definition of $\psi_n$ and using the bound on $\varphi$, we have:
+\begin{align*}
+\norm{\int_0^T \sum_{k \ge 1} \frac{(-1)^{k+1}}{k!} e^{kn(t - T + s)} \varphi(s) ds}
+&\le \sum_{k \ge 1} \frac{1}{k!} e^{kn(t - T)} \norm{\int_0^T e^{kns} \varphi(s) ds} \\
+&\le M \sum_{k \ge 1} \frac{(e^{n(t-T)})^k}{k!}\\
+&= M (e^{e^{n(t-T)}} - 1)
+\end{align*}
+
+For $t < T$, as $n \rightarrow \infty$, $n(t-T) \rightarrow -\infty$, thus $e^{n(t-T)} \rightarrow 0$, meaning the integral evaluates to $0$. 
+
+On the other hand, analyzing the behavior of $\psi_n(t - T + s)$ directly as $n \rightarrow \infty$:
+\begin{itemize}
+    \item If $s > T - t$, then $t - T + s > 0$, so $\psi_n \rightarrow 1$. 
+    \item If $s < T - t$, then $t - T + s < 0$, so $\psi_n \rightarrow 0$. 
+\end{itemize}
+By the Lebesgue Dominated Convergence Theorem, 
+$$ \lim_{n \rightarrow \infty} \int_0^T \psi_n(t - T + s) \varphi(s) ds = \int_{T-t}^T \varphi(s) ds $$ 
+Equating the two limits, we deduce $\int_{T-t}^T \varphi(s) ds = 0$ for all $t$. 
+Differentiating with respect to $t$ gives $\varphi(T-t) = 0$, implying $\varphi \equiv 0$, and thus $u \equiv 0$. 
+\end{proof}
+
+\begin{proof}[Proof of theorem \ref{sol:mild}]
+	Without loss of generality we can assume $\omega = 0$ since if it is not then the transform $\A \mapsto \A - zI$, shifts the coefficient by $e^{zt}$, and:
+	$$
+	\frac{du_z}{dt} = (\A +zI)u_z
+	$$
+	$$
+	\frac{du}{dt} = \A u
+	$$
+
+
+Assume $u$ is a mild solution of $(CP)_{0,0}$, meaning $u(0)=0$ and $\frac{du}{dt} = \A u$. For $\lambda > 0$, define $v(t) = R(\lambda, \A)u(t)$. Since
+$$
+\frac{d}{dt} R(\lambda, \A)u(t) = R(\lambda, \A) \A u(t) = R(\lambda, \A)(\A - \lambda I + \lambda I)u(t) = -u(t) + \lambda R(\lambda, \A)u(t)$$
+we get $\frac{dv}{dt} - \lambda v(t) = -u(t)$. 
+Solving this ODE yields:
+$$
+R(\lambda, \A)u(t) = \int_0^t e^{\lambda(t-s)} u(s) ds
+$$
+Multiplying by $e^{- \sigma \lambda}$, we get:
+$$
+e^{- \sigma \lambda}R(\lambda, \A)u(t) = \int_0^t e^{\lambda(t - \sigma - s)} u(s) ds
+$$
+
+\begin{claim}
+	$\lim\limits_{\lambda \to +\infty} \int_0^t e^{\lambda(t - \sigma - s)} u(s) ds = 0$.
+\end{claim}
+
+\begin{proof}
+	Do it. \textcolor{blue}{(Hint: use the bond from the assumption and lemma \ref{sol:mild:uniq:lemma})}
+\end{proof}
+
+By the claim we get $u \equiv 0$.
+\end{proof}
+
+\begin{exercise}{Homework}{}
+Let $X$ be a Hilbert Space and $\A$ be defined by 
+$$
+\A y = \sum \lambda_n \langle y, e_n \rangle e_n
+$$
+over an orthonormal basis $\{e_n\}$, with real numbers $\lambda_n \nearrow +\infty$. Its domain is ${D(\A) = \{ y \in X \mid \sum \lambda_n^2 \langle y, e_n \rangle^2 < +\infty \}}$. 
+\begin{enumerate}
+    \item Prove $\A$ is self-adjoint.
+    \item Prove it generates a $C_0$-SG.
+\end{enumerate}
+\textcolor{blue}{(Hint: $\lambda I - \A$ is formally bounded iff $\lim\limits_{n \ge 1} \left| \lambda - \lambda_n \right| > 0$ )}
+\end{exercise}
+
 \end{document}
