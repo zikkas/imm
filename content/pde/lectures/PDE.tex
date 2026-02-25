@@ -2510,7 +2510,9 @@ $$ \frac{d}{dt} \int_0^1 u(t,x) \varphi(x) \, dx = -\int_0^1 u(t,x) \varphi'(x) 
 
 \pagebreak
 
-\begin{theo}
+\section{Homogeneous Cauchy Problem}
+
+\begin{theo} \label{app:sol}
 Let $\A$ be the IG of a $C_0$-SG $(T(t))_{t \ge 0}$, then: 
 \begin{enumerate}
 	\item \label{app:stg} For all $x_0 \in D(\A)$, there exists a unique strong solution of $(CP)_{0,x_0}$ given by $u(t) = T(t)x_0$, which is also a mild and weak solution. 
@@ -2667,7 +2669,168 @@ over an orthonormal basis $\{e_n\}$, with real numbers $\lambda_n \nearrow +\inf
     \item Prove $\A$ is self-adjoint.
     \item Prove it generates a $C_0$-SG.
 \end{enumerate}
-\textcolor{blue}{(Hint: $\lambda I - \A$ is formally bounded iff $\lim\limits_{n \ge 1} \left| \lambda - \lambda_n \right| > 0$ )}
+\textcolor{blue}{(Hint: $\lambda I - \A$ is formally bounded if and only if $\lim\limits_{n \ge 1} \left| \lambda - \lambda_n \right| > 0$ )}
 \end{exercise}
+
+What can we say without $\A$ being the IG of some $C_0$-SG?
+
+\begin{theo}[Existence of Solution]
+Let $\A: D(\A) \subset X \to X$ be a UBLO with $\overline{D(\A)} = X$ such that $\rho(\A) \supset (\lambda_0, \infty)$, $\lambda_0 \in \mathbb{R}$ and
+$$
+\lim\limits_{\lambda \to \infty} \frac{1}{\lambda} \ln \norm{R(\lambda, \A)} = 0
+$$
+then $\forall x \in X \; (CP)_{0, x}$ admits a mild solution.
+\end{theo}
+
+Note the difference between the assumption here and Hille-Yosida assumption, so one can not use Hille-Yosida directly.
+
+\begin{lemma} \label{app:sol:dense}
+	Let $\A: D(\A) \supset X \to X$ be a UBLO then:
+	\begin{enumerate}
+		\item $\forall{\lambda} \in \rho(\A)\, D(\A^2) = \left(\lambda I - \A\right)^{-1} D(\A)$.
+		\item If $\rho(\A) \neq \emptyset$ and $\overline{D(\A)} = X$ then $\overline{D(\A^2)} = X$.
+	\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+	Left as an exercise.
+\end{proof}
+
+\begin{theo}[Uniqueness of Solution]
+	Let $\A: D(\A)\subset X \to X$ be a UBLO with ${\overline{D(\A)} = X}$ and $\rho(\A) \neq \emptyset$. $\forall x \in D(\A)$, $(CP)_{0,x}$ admits a mild solution if and only if $\A$ is the IG of some $C_0$-SG.
+\end{theo}
+
+\begin{proof}
+	Let's start with ($\impliedby$). Assume $\A$ is the IG of some $C_0$-SG then by theorem \ref{app:sol} part \ref{app:stg} we have a unique strong solution which is also mild.
+
+	\bigskip
+
+	For ($\implies$). We need to construct a $C_0$-SG with $\A$ as it IG. For this we use the flow of the solution. For all $x \in D(\A)$ we have:
+	\begin{align*}
+		\frac{du}{dt} &= \A u \\
+		u(0) &= x
+	\end{align*}
+	Since $u$ is the unique mild solutions of $(CP)_{0, x}$ (actually it is a strong solution as well, why?). Then the mapping:
+	\begin{align*}
+		u: \mathbb{R}_+ \times D(\A) &\to D(\A) \\
+		(t, x) &\mapsto u(t, x)
+	\end{align*}
+	is well degined. We can now consider the flow associated with $(CP)_{0,x}$. For each $t \ge 0$, define the operator $T(t): D(\A) \to D(\A)$ by:
+	$$
+		T(t)x = u(t,x)
+	$$
+	We must prove that the family $\left(T(t)\right)_{t \ge 0}$ forms a $C_0$-SG.
+	\begin{enumerate}
+	    \item Identity: $T(0)x = u(0,x) = x$. Thus, $T(0) = Id_{D(\A)}$.
+	    \item Linearity: The operator $T(t)$ is linear due to the linearity of the derivative and the operator $\A$.
+	    \item Semigroup Property: We need to show $T(t+s) = T(t)T(s)$.
+	\end{enumerate}
+
+	    By definition, $T(t)T(s)x = u(t, T(s)x)$, which is the solution evaluated at time $t$ for the initial value problem starting at $T(s)x$. Similarly, $T(t+s)x = u(t+s, x)$, which is the solution evaluated at time $t+s$ for the initial value problem starting at $x$. Due to the time-invariance of the equation $\frac{du}{dt} = Au$ and the uniqueness of the mild solution, advancing the flow by $s$ and then by $t$ is equivalent to advancing it by $t+s$. Hence, $T(t+s) = T(t)T(s)$.
+
+	    \bigskip
+
+	    Now we need to find the bound on $T(t)$ to show it is $C_0$-SG. To do this we need to equip the domain $D(\A)$ with a suitable Banach space structure (put a complete norm on it).
+
+	We put the graph norm on $D(\A)$:
+$$
+|x|_G = \norm{x} + \norm{\A x}
+$$
+With this and the fact that $\A$ is closed (why?), $(D(\A), |\cdot|_G)$ is a Banach space. This will be denoted by $\left[D(\A)\right]$.
+
+Let $t_0 > 0$, define $X_{t_0}$ as follows:
+$$
+X_{t_0} = C^0([0, t_0], [D(\A)])
+$$
+Clearly, $(X_{t_0}, \norm{\cdot}_{\infty})$ is a Banach space.
+
+Define the operator $S_{t_0}$ by:
+\begin{align*}
+	S_{t_0}: [D(A)] &\to X_{t_0} \\
+	x &\mapsto (t \mapsto u(t,x) = T(t)x)
+\end{align*}
+$S_{t_0}$ is well-defined and linear because of the uniqueness of solutions of $(CP)_{0,x}$.
+
+\begin{claim}
+    The operator $S_{t_0}$ is closed.
+\end{claim}
+
+\begin{proof}
+    Suppose $x_n \to x$ in $[D(\A)]$ and $S_{t_0}(x_n) \to v$ in $X_{t_0}$. We aim to show that $S_{t_0}(x) = v$.
+
+    By definition, $S_{t_0}(x_n) = u(\cdot, x_n)$. The convergence in $X_{t_0}$ implies:
+    $$ ||S_{t_0}(x_n) - v||_{\infty} = \sup_{t \in [0, t_0]} |u(t, x_n) - v(t)|_G \to 0 \quad \text{as } n \to \infty $$
+    Because the map is continuous, and $u$ is the unique solution, we must have $v(t) = u(t,x)$. Therefore, $S_{t_0}(x) = v$.
+\end{proof}
+
+Because $S_{t_0}$ is a closed operator acting between two Banach spaces, the Closed Graph Theorem implies that $S_{t_0}$ is bounded. Thus, there exists a constant $C_{t_0} > 0$ such that for all $x \in [D(\A)]$:
+$$ \norm{S_{t_0}(x)}_{\infty} \le C_{t_0} |x|_G $$
+
+Consequently, for all $t \in [0, t_0]$, we have $|T(t)x|_G \le C_{t_0} |x|_G$. This demonstrates that ${T(t) \in \mathcal{L}([D(\A)])}$, meaning $\left(T(t)\right)_{t \ge 0}$ is a $C_0$-SG on $[D(\A)]$.
+
+Now, we prove that the semigroup commutes with its generator on appropriate domains.
+
+\begin{claim}
+    For all $y \in D(\A^2)$, $T(t)\A y = \A T(t)y$.
+\end{claim}
+
+\begin{proof}
+    Let $y \in D(\A^2)$. We define the function $w(t)$:
+    $$
+    w(t) = y + \int_0^t u(s, \A y) ds
+    $$
+    Since $u(s, \A y)$ is continuous, $w(t)$ is continuously differentiable ($C^1$) with respect to $t$, and:
+    $$ w'(t) = u(t, \A y) $$
+    We can also pull the closed operator $\A$ outside the integral (since $u(s, \A y) \in D(\A)$):
+    $$
+    w'(t) = \A y + \int_0^t \frac{d}{ds} u(s, \A y) ds = \A \left[ y + \int_0^t u(s, \A y) ds \right] = Aw(t)
+    $$
+    At $t=0$, $w(0) = y$.
+    
+    This shows that $w(t)$ is a mild solution to $(CP)_{0,y}$. Because solutions are unique, it must coincide with our defined flow:
+    $$ \forall t \ge 0, \quad w(t) = u(t,y) = T(t)y $$
+    Differentiating both sides with respect to $t$ yields:
+    $$ w'(t) = \frac{d}{dt} [u(t,y)] = \A u(t,y) = \A T(t)y $$
+    However, from our earlier calculation, we also know $w'(t) = u(t, \A y) = T(t)\A y$. Equating the two expressions for $w'(t)$ gives the desired result:
+    $$ T(t)\A y = \A T(t)y $$
+\end{proof}
+
+Now since $\rho(\A) \neq \emptyset$, then $\exists \lambda_0 \in \rho(\A), \forall y \in D(\A^2)$ set $x = (\lambda_0 I - \A)y$ then:
+$$
+T(t)x = T(t)(\lambda_0 I - \A)y = (\lambda_0 I - \A)T(t)y
+$$
+then
+$$
+\norm{T(t)x} \le |\lambda_0| \norm{T(t)y} + \norm{\A T(t)y} \le C_{\lambda_0} \norm{T(t)y} \le C_{\lambda_0} M e^{\omega t} |y|_G
+$$
+Where
+\begin{align*}
+	|y|_G = \norm{y} + \norm{\A y} &= \norm{y} + \norm{(\A -\lambda_0 I)y + \lambda_0 y} \\
+				       &\le C_1 \norm{x} + \norm{x} + |\lambda_0| C_2 \norm{x} \\
+				       &\le C_3 \norm{x}
+\end{align*}
+Finally we get:
+$$
+\norm{T(t)x} \le M^{'} e^{\omega t} \norm{x}
+$$
+
+Now by lemma \ref{app:sol:dense} and the fact that $\rho(\A) \neq \emptyset$ this bound can be extended to all $X$. And the operator commutes as well.
+
+Finally, we need to show that $\A$ is the IG of $\left(T(t)\right)_{t \ge 0}$. Let $\A_1$ be the IG of $\left(T(t)\right)_{t \ge 0}$ then by definition of $T(t)$ we have $T(t)x = u(t, x)$ $\forall x \in D(\A)$ then:
+$$
+\frac{d}{dt} T(t)x = \A T(t)x \quad\quad \text{for } \; t \ge 0
+$$
+Which means in particular that $\frac{d}{dt} T(t)x\mid_{t = 0} = \A x$ then $\A_1 \supset \A$.
+
+Let $\Re(\lambda) > \omega$ and let $y \in D(\A^2)$. Then:
+$$
+e^{-\lambda t} \A T(t) y = e^{-\lambda t} T(t) \A y = e^{-\lambda t} T(t) \A_1 y
+$$
+By integrating both sides from $0$ to $\infty$ we get:
+$$
+\A R(\lambda, \A_1) y = R(\lambda, \A_1) \A y = \A_1 R(\lambda, \A_1) y
+$$
+Since $R(\lambda, \A_1) \A_1 y = \A_1 R(\lambda, \A_1) y$ then $R(\lambda, \A_1) \A y = R(\lambda, \A_1) \A_1 y \; \forall y \in D(\A^2)$. Since $R(\lambda, \A_1) \A_1$ is uniformly bounded, $\A$ is closed and $\overline{D(\A^2)} = X$ we get $R(\lambda, \A_1) \A y = R(\lambda, \A_1) \A_1 y \; \forall y \in X$. This implies that $D(\A) \supset Rg(R(\lambda, \A_1)) = D(\A_1)$ hence $\A_1 \subset \A$ then $\A_1 = \A$ and the proof is complete.
+\end{proof}
 
 \end{document}
