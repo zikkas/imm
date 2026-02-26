@@ -1,0 +1,213 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb, amsthm, bbm}
+\usepackage{hyperref}
+\usepackage{geometry}
+\usepackage{mathtools}
+\usepackage{relsize}
+
+\geometry{a4paper, margin=1in}
+
+\newtheorem{thm}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{cor}{Corollary}
+\newtheorem{exmp}{Example}
+\newtheorem{ex}{Exercise}
+\newtheorem{defn}{Definition}
+
+\title{}
+\author{}
+\date{}
+
+\begin{document}
+
+\section{Möbius Inversion Formula}
+
+\begin{thm}
+Let $f$ and $g$ be two arithmetic functions satisfying for every integer $n \ge 1$:
+\[ g(n) = \sum_{d|n} f(d) \]
+Then, for every integer $n \ge 1$:
+\[ f(n) = \sum_{d|n} \mu(d) g\left(\frac{n}{d}\right) = (\mu * g)(n) \]
+\end{thm}
+
+\begin{proof}
+	Left as an exercise.
+\end{proof}
+
+\section{Dirichlet Series}
+
+\begin{defn}
+	Let $f$ be an arithmetic function and $s = \sigma + it \in \mathbb{C}$. The Dirichlet series associated to $f$ is defined as:
+$$
+L(f,s) = \sum_{n \ge 1} \frac{f(n)}{n^s}
+$$
+\end{defn}
+
+\begin{lemma}\label{sum:int}[Comparison of a Sum with an Integral]
+Let $M, N$ be two real numbers $M < N$. Let $x_1, x_2, \dots, x_r$ be real numbers with $M \le x_1 < x_2 < \dots < x_r \le N$. Let $a(x_i)$ be a complex number for $i=1, \dots, r$ and put:
+\[ A(t) = \sum_{x_i \le t} a(x_i) \]
+Let $g: [M, N] \to \mathbb{C}$ be a continuously differentiable function. Then:
+\[ \sum_{i=1}^{r} a(x_i)g(x_i) = A(N)g(N) - \int_{M}^{N} A(t)g'(t)dt \]
+\end{lemma}
+
+\begin{proof}
+Put $A(x_0) = 0$ if $x_0 < M$.
+\begin{align*}
+	\sum\limits_{j=1}^{r} a(x_j)g(x_j)
+	&= \sum\limits_{j=1}^{r} \left[A(x_j) - A(x_{j-1})\right] g(x_j) \\
+	&= \sum\limits_{j=1}^{r} A(x_j) g(x_j) - \sum\limits_{j=1}^{r} A(x_{j-1}) g(x_j) \\
+	&= \sum\limits_{j=1}^{r} A(x_j) g(x_j) - \sum\limits_{j=1}^{r - 1} A(x_{j}) g(x_{j + 1}) \\
+	&= A(x_r) g(x_r) - \sum\limits_{j=1}^{r - 1} A(x_{j}) \left[ g(x_{j + 1}) - g(x_j) \right] \\
+\end{align*}
+Now since $A(t) = A(x_k) \; \text{for } \, x_k \le t < x_{k + 1}$, we have:
+$$
+A(x_k) \left[ g(x_{k + 1}) - g(x_k)\right] = \int\limits_{x_k}^{x_{k + 1}} A(t) g'(t) dt
+$$
+Hence:
+\begin{align*}
+\sum\limits_{j=1}^{r} a(x_j)g(x_j)
+&= A(x_r) g(x_r) - \sum\limits_{j=1}^{r - 1} \int\limits_{x_j}^{x_{j + 1}} A(t) g'(t) dt \\
+&= A(x_r) g(x_r) - \int\limits_{x_1}^{x_r} A(t) g'(t) dt \\
+&= A(N) g(x_r) - \int\limits_{M}^{N} A(t) g'(t) dt + \int\limits_{M}^{x_1} A(t) g'(t) dt + \int\limits_{x_r}^{N} A(t) g'(t) dt \\
+\end{align*}
+
+\begin{itemize}
+	\item If $x_1 = M$ then $\int\limits_{M}^{x_1} A(t) g'(t) dt=0$
+	\item If $x_1 > M$ then $A(t) = 0 \;, M \le t < x \; \text{hence } \int\limits_{M}^{x_1} A(t) g'(t) dt=0$
+	\item If $x_r = N$ we get $\int\limits_{x_r}^{N} A(t) g'(t) dt=0$ and we get the result.
+	\item If $x_r < N$ then $A(t) = A(x_r) \; \text{for } t \ge x_r$ hence:
+		\begin{align*}
+\sum\limits_{j=1}^{r} a(x_j)g(x_j)
+&= A(N) g(x_r) - \int\limits_{M}^{N} A(t) g'(t) dt + A(N) \int\limits_{x_r}^{N} g'(t) dt \\
+&= A(N) g(N) - \int\limits_{M}^{N} A(t) g'(t) dt
+		\end{align*}
+\end{itemize}
+\end{proof}
+
+\begin{thm}\label{wei:conv}[Weierstrass's Convergence Theorem]
+Let $U \subseteq \mathbb{C}$ be a non-empty open set and $\{f_n\}$ a sequence of analytical functions $U \to \mathbb{C}$ converging pointwise to a function $f$ on $U$. Assume that for every compact subset $K$ of $U$, there is a constant $C_K$ such that $|f_n(z)| < C_K$ for all $z \in K$ and $n \ge 1$. Then:
+\begin{enumerate}
+	\item $f$ is analytical on $U$.
+	\item $f_n^{(k)} \to f^{(k)}$ pointwise on $U$ for all $k \ge 1$ and is analytical.
+\end{enumerate}
+\end{thm}
+
+\begin{thm}\label{series:conv}
+Let $f$ be an arithmetic function such that there exists a constant where $\sum_{n=1}^{N} f(n)$ is bounded for every $N \ge 1$. Then $L(s,f)$ converges for every $s \in \mathbb{C}$ with $Re(s) > 0$.
+
+More precisely, on $\{s \in \mathbb{C} | Re(s) > 0\}$, the function $L(f,s)$ is analytical and:
+$$
+L^{(k)}(f,s) = (-1)^k \sum_{n=1}^{\infty} \frac{f(n)(\ln n)^k}{n^s}
+$$
+\end{thm}
+
+\begin{proof}
+	On the half open plan $\Re(s) > 0$, we consider the partial sums:
+	\begin{align*}
+		L_N(s,f) &= \sum_{n = 1}^N \frac{f(n)}{n^s}  &&N = 1,2, \dots \\
+			 &= \sum_{n = 1}^N f(n) \exp{(-s \ln{n})}
+	\end{align*}
+	Which is analytical and:
+	$$
+	L^(k)_N(s,f) = (-1)^k \sum_{n = 1}^N \frac{f(n)(\ln(n))^k}{n^s}  \quad\quad k \ge 0
+	$$
+	Let $s \in \mathbb{C}, \Re(s) > 0$, using lemma \ref{sum:int} with $x_j = j, \; 1 \le j \le N$ define:
+	$$
+	F(t) = \sum\limits_{1 \le n \le t} f(n), \quad\quad g(t) = t^{-s}
+	$$
+	Then:
+	\begin{align*}
+		L_N(s,f) &= F(N) N^{-s} - \int\limits_1^N F(t) (-s) t^{-s-1} dt \\
+			 &= F(N) N^{-s} + s \int\limits_1^N F(t) t^{-s-1} dt
+	\end{align*}
+	Now taking the norm we find that the bound does not depend on $N$ hence $L_N(s,f)$ is uniformally bounded then by theorem \ref{wei:conv} we are done.
+\end{proof}
+
+\begin{cor}
+	Let $f$ be an arithmetic function and let $s_0$ be a complex number such that $\sum f(n)/n^{s_0}$ is converging. Then for $s \in \mathbb{C}$ with $Re(s) > Re(s_0)$, the function $L(s,f)$ converges and is analytical.
+\end{cor}
+
+\begin{proof}
+	Write $s = s' + s_0$ then if $\Re(s) > \Re(s_0) \, \text{then } \Re(s') > 0$, we have:
+	$$
+		\sum\limits_{n \ge 1} \frac{f(n)}{n^{s' + s_0}} = \sum\limits_{n \ge 1} \frac{f(n)}{n^{s'}n^{s_0}}
+	$$
+	Then this series is bounded (why?). By applying theorem \ref{series:conv}, we are done.
+\end{proof}
+
+\begin{thm}
+There exists $\sigma(f)$ with $-\infty \le \sigma(f) \le \infty$ such that $L(s,f)$ converges for all $s \in \mathbb{C}$ with $Re(s) > \sigma(f)$. $\sigma(f)$ is called the abscissa of convergence.
+Similarly, $\sigma_a(f)$ is the abscissa of absolute convergence.
+\end{thm}
+
+\begin{proof}
+	Left as an exercise.
+\end{proof}
+
+\begin{defn}
+	The number $\sigma(\left| f \right|)$ is called the abcissa of absolute convergence of $L(s,f)$ and denoted by $\sigma_a(f)$.
+\end{defn}
+
+\begin{thm}
+For any arithmetic function, we have:
+$$
+\sigma(f) \le \sigma_a(f) \le \sigma(f) + 1
+$$
+\end{thm}
+
+\begin{proof}
+	Left as an exercise.
+\end{proof}
+
+\section{Euler Product of Dirichlet Series}
+
+\begin{thm}
+Let $f$ be a multiplicative arithmetic function. If the series $L(s,f)$ converges absolutely for a complex number $s$, then:
+$$
+L(f,s) = \prod_{p \text{ prime}} \left( \sum_{k=0}^{\infty} \frac{f(p^k)}{p^{ks}} \right)
+$$
+Moreover, if $f$ is completely multiplicative, then:
+$$
+L(f,s) = \prod_{p} \left( \frac{1}{1 - f(p)p^{-s}} \right)
+$$
+\end{thm}
+
+\begin{proof}
+	Left as an exercise.
+\end{proof}
+
+\begin{exmp}
+	For $f(n)=\mathbbm{1}(n)$, $L(s, \mathbbm{1}) = \zeta(s) = \sum_{n \ge 1} 1/n^s$. Since $\mathbbm{1}$ is completely multiplicative:
+$$
+\zeta(s) = \prod_{p} \left( \frac{1}{1 - p^{-s}} \right) \text{ for } Re(s) > 1
+$$
+\end{exmp}
+
+\section{Exercises}
+\begin{ex}
+Write the following Dirichlet series in terms of the Riemann Zeta function $\zeta(s)$:
+\begin{enumerate}
+    \item $\sum\limits_{n \ge 1} \dfrac{\tau(n^2)}{n^s}$
+    \item $\sum\limits_{n \ge 1} \dfrac{\omega(n)}{n^s}$
+    \item $\sum\limits_{n \ge 1} \dfrac{2^{\omega(n)}}{n^s}$
+    \item $\sum\limits_{n \ge 1} \dfrac{2^{\omega(n)}\lambda(n)}{n^s}$
+    \item $\sum\limits_{n \ge 1} \dfrac{\kappa(n)}{n^s}$
+    \item $\sum\limits_{n \ge 1} \dfrac{3^{\omega(n)}\kappa(n)}{n^s}$
+    \item $\sum\limits_{n \ge 1} \dfrac{3^{\omega(n)}\kappa(n)\lambda(n)}{n^s}$
+\end{enumerate}
+Where:
+$$
+\kappa(n) = \begin{cases*}
+	1 &if $n = 1$ \\
+	a_1 \cdots a_k &if $n = p_1^{a_1} \cdots p_k^{a_k}$
+\end{cases*}
+$$
+\end{ex}
+
+\begin{ex}
+	If $f(n)$ is a completely multiplicative arithmetic function prove that:
+$$
+\frac{L'(f,s)}{L(f,s)} = -\sum_{n \ge 1} \frac{f(n)\Lambda(n)}{n^s}
+$$
+\end{ex}
+\end{document}
