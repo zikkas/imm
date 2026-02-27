@@ -18,7 +18,7 @@ weight = 20
 
 _**Note:**_ This is a rolling notes that include the notes up to a certain lecture.
 
-[Notes](/PDE.pdf) (Up to the 8th Lecture. Last updated: 25-Feb-2026)
+[Notes](/PDE.pdf) (Up to the 8th Lecture. Last updated: 27-Feb-2026)
 
 {{% notice note "Maintainer's Note" %}}
 **This is an individual initiative.**
