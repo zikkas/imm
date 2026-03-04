@@ -11,7 +11,7 @@ weight = 20
 - [_Lecture 02 (10-Feb-2026)_](/nt_26-02-10.pdf): Exercises, inverse of completely multiplicative function, computational examples. Notes last update at: 10-02-2026
 - [_Lecture 03 (17-Feb-2026)_](/nt_26-02-17.pdf): Möbius inversion formula, Dirichlet series definitions and general properties, comparision of a sum with an integral, Euler product of Dirichlet series.
 - _Lecture 04 (24-Feb-2026)_: Exercises, Dirichlet series of Dirichlet convolution of arithmetic functions, examples.
-- _Lecture 05 (03-Mar-2026)_: Summatory functions, Bernoulli Polynomials and Numbers, properties and formulas of Bernoulli Polynomials and Numbers, Bernoulli Functions, Euler-Maclaurin Summation Formula, Euler's Summation Formula, examples and exercises, analytical extension of Reimann Zeta to the whole complex plane through Euler-Maclaurin summation.
+- [_Lecture 05 (03-Mar-2026)_](/nt_26-03-03.pdf): Summatory functions, Bernoulli Polynomials and Numbers, properties and formulas of Bernoulli Polynomials and Numbers, Bernoulli Functions, Euler-Maclaurin Summation Formula, Euler's Summation Formula, examples and exercises, analytical extension of Reimann Zeta to the whole complex plane through Euler-Maclaurin summation.
 
 _**Note:**_ Solutions to exercises will be posted later.
 

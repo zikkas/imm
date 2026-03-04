@@ -1,0 +1,195 @@
+\documentclass{article}
+\usepackage{amsmath,amssymb,amsthm,amsfonts}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\geometry{a4paper, margin=1in}
+
+\newtheorem{thm}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{cor}{Corollary}
+\newtheorem{exmp}{Example}
+\newtheorem{ex}{Exercise}
+\newtheorem{defn}{Definition}
+
+\newenvironment{sol}
+  {\renewcommand{\qedsymbol}{}\begin{proof}[Solution]}
+  {\end{proof}}
+
+\begin{document}
+
+\section*{Summatory Function}
+
+\begin{defn}[Summatory Function]
+Let $f$ be an arithmetic function. The summatory function of $f$, denoted $S_f(x)$, is the real function defined as:
+$$
+S_f(x) = 
+\begin{cases} 
+0 & \text{if } x < 1 \\ 
+\sum\limits_{1 \le n \le x} f(n) & \text{otherwise} 
+\end{cases}
+$$
+\end{defn}
+
+\begin{defn}[Bernoulli Polynomials \& Numbers]
+The Bernoulli polynomials, $B_n(x)$, are polynomials defined by the generating function as:
+\begin{equation}\label{bern:gen:func}
+\frac{t e^{tx}}{e^t - 1} = \sum_{n=0}^{\infty} B_n(x) \frac{t^n}{n!}, \quad |t| < 2\pi
+\end{equation}
+The Bernoulli numbers, $B_n$, are defined as:
+$$
+\forall n \ge 0, \quad B_n = B_n(0)
+$$
+\end{defn}
+
+\begin{thm}[Recursive Relation]
+	The Bernoulli polynomails satisfies the recursive relation
+	$$
+	\sum\limits_{k = 1}^{n} \binom{n + 1}{k}B_k(x) = \left( n + 1 \right)x^n
+	$$
+\end{thm}
+
+\begin{proof}
+	By multipling both sides of \eqref{bern:gen:func} by $(\frac{e^t - 1}{t})$ and writing everything as sums and equality of the coefficients the result follows.
+\end{proof}
+
+From this, we can compute the first few polynomials:
+\begin{align*}
+B_0(x) &= 1 \\
+\binom{2}{0}B_0(x) + \binom{2}{1}B_1(x) &= 2x \implies B_1(x) = x - \frac{1}{2} \\
+\binom{3}{0}B_0(x) + \binom{3}{1}B_1(x) + \binom{3}{2}B_2(x) &= 3x^2 \implies B_2(x) = x^2 - x + \frac{1}{6}
+\end{align*}
+
+\medskip
+
+\begin{thm} The Bernoulli polynomails satisfies the following formulas:
+\begin{enumerate}
+    \item $B_n'(x) = n B_{n-1}(x)$
+    \item $B_n(x+1) - B_n(x) = n x^{n-1}$
+    \item $B_n(1-x) = (-1)^n B_n(x)$
+\end{enumerate}
+\end{thm}
+
+\begin{proof}
+Follows from the generating function.
+\end{proof}
+
+\smallskip
+
+\begin{defn}[Bernoulli Functions]
+The Bernoulli functions are the periodic functions with period 1 defined as:
+$$
+P_n(x) = B_n(\{x\}) = B_n(x - \lfloor x \rfloor)
+$$
+\end{defn}
+
+\begin{thm}[Euler-Maclaurin Summation Formula]
+Let $f(x)$ be a $p$-times continuously differentiable function over $[m, n]$, where $m, n \in \mathbb{N}$ are positive integers with $m < n$. Then for any such $m, n$:
+\begin{align*}
+\sum\limits_{j=m}^{n} f(j) &= \int\limits_{m}^{n} f(x) dx + \frac{f(m) + f(n)}{2} \\
+&+ \sum_{k=1}^{\lfloor p/2 \rfloor} \frac{B_{2k}}{(2k)!} \left( f^{(2k-1)}(n) - f^{(2k-1)}(m) \right) \\
+&+ (-1)^{p-1} \int_{m}^{n} \frac{B_p(\{x\})}{p!} f^{(p)}(x) dx
+\end{align*}
+This formula is called the Euler-Maclaurin summation formula up to the order $p$.
+\end{thm}
+
+\begin{proof}
+	By induction on the order p the proof follows.
+\end{proof}
+
+\smallskip
+
+\begin{exmp} Find the following sum:
+	$$
+	\sum_{n=1}^{N} \frac{1}{n}
+	$$
+\end{exmp}
+
+\begin{sol}
+We apply the Euler-Maclaurin formula for $f(x) = \frac{1}{x}$ up to order 1:
+\begin{align*}
+\sum_{n=1}^{N} \frac{1}{n} &= \int_{1}^{N} \frac{1}{x} dx + \frac{1/N + 1}{2} + \int_{1}^{N} \frac{B_1(\{x\})}{1!} \left(\frac{-1}{x^2}\right) dx \\
+			   &= \log N + \frac{N+1}{2N} - I_1
+\end{align*}
+Now we need to calculate the value of the integral $I_1$.
+\begin{align*}
+	I_1 &= \int_{1}^{N} \frac{\{x\} - 1/2}{x^2} dx \\
+	  &= \int_{1}^{N} \frac{\{x\}}{x^2} dx - \frac{1}{2} \int_{1}^{N} \frac{1}{x^2} dx \\
+	  &= I_2 + \frac{1 - N}{2N}
+\end{align*}
+For $I_2$ for $x \in [1, \infty), \, \text{we have that } \dfrac{\{x\}}{x^2} \le \dfrac{1}{x^2}$, we have:
+\begin{align*}
+	I_2 &= \int_{1}^{N} \frac{\{x\}}{x^2} dx \\
+	    &= \int_{1}^{\infty} \frac{\{x\}}{x^2} dx - \int_{N}^{\infty} \frac{\{x\}}{x^2} dx \\
+	    &\le \int_{1}^{\infty} \frac{1}{x^2} dx - \int_{N}^{\infty} \frac{1}{x^2} dx \\
+	    &\le 1 + \frac{1}{N}
+\end{align*}
+So $I_2$ is convergant and $I_2 = O(\frac{1}{N})$.
+
+Now collecting everything we get:
+$$
+\sum_{n=1}^{N} \frac{1}{n} = \log N + \gamma + O\left(\frac{1}{N}\right)
+$$
+Where $\gamma = \lim_{N \to \infty} \left( \sum_{n=1}^{N} \frac{1}{n} - \log N \right)$.
+
+This constant is called the Euler constant.
+\end{sol}
+
+\medskip
+
+\section*{Exercises}
+
+\begin{ex}
+For $x > 1$, evaluate:
+$$
+    \sum_{\substack{n \le x \\ n \text{ is odd}}} \frac{1}{n}
+$$
+\end{ex}
+
+\begin{ex}
+    Show that if $k$ is a positive integer, then:
+    $$
+    \sum_{n \le x} \frac{(\log n)^k}{n} = \frac{(\log x)^{k+1}}{k+1} + C_k + O_k\left(\frac{(\log x)^k}{x}\right)
+    $$
+    for $x \ge 1$, where $C_k$ is a constant.
+
+\end{ex}
+
+\begin{thm}[Euler's Summation Formula] For $0 < y < x$:
+    \begin{align*}
+    \sum_{y < n \le x} f(n) &= \int_{y}^{x} f(t) dt + \int_{y}^{x} (t - \lfloor t \rfloor) f'(t) dt \\
+    &\quad + f(x)(\lfloor x \rfloor - x) - f(y)(\lfloor y \rfloor - y)
+    \end{align*}
+    This formula is called the Euler's Summation Formula.
+\end{thm}
+
+\begin{proof}
+	Apply Euler Maclurain summation formula with order 1.
+\end{proof}
+
+\begin{ex}
+Show that:
+$$
+    \sum_{2 \le n \le x} \frac{1}{n \log n} = \log \log x + B + O\left(\frac{1}{x \log x}\right)
+$$
+\end{ex}
+
+\begin{ex}[Analytical Continuation of Zeta]
+	We want to extend the Zeta function by using Euler Macluarin summations.
+	\begin{enumerate}[label=(\alph*)]
+        \item By applying the Euler-Maclaurin Summation formula to $f(x) = \dfrac{1}{x^s}$, $\text{Re}(s) > 1$, show that $\zeta(s)$ admits an analytic continuation to the half plane $\text{Re}(s) > 1-2k$, except for a simple pole at $s=1$.
+        \item Deduce that $\zeta(s)$ can be analytically continued to the entire complex plane $\mathbb{C} \setminus \{1\}$ and that $\zeta(-m) = \dfrac{-B_{m+1}}{m+1}$ holds for any non-negative integer $m$.
+        \item Show that $B_{2k+1} = 0$ for all integers $k \ge 1$.
+        \item Deduce that $\zeta(-2k) = 0$ for all positive integers $k$.
+	\end{enumerate}
+\end{ex}
+
+\begin{ex}
+    Let $k$ be an arbitrary positive integer. For any $k \ge 2$, find an asymptotic formula for:
+    $$
+    \sum_{\substack{n \le x \\ \gcd(n, k) = 1}} \frac{1}{n}
+    $$
+    \textit{Hint:} use the characteristic fuctions.
+\end{ex}
+
+\end{document}
