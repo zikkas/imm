@@ -26,10 +26,15 @@ The analytic section behaves like a complex analysis course disguised as number 
 
 ## Recommended Review
 
+### Cheat Sheets
+
+Some will be provided later
+
 ### Quick Refresher Videos
 
 Some will be provided later
 
-### Cheat Sheets
-
-Some will be provided later
+{{% notice tip "Contribute" %}}
+**Missing anything or can be improved?**
+If you find anything that you think might be helpful/useful (sheets, resources, videos, etc..) please click the **Edit** button to add it here or tell me, I will gladly discuss it with you and add it.
+{{% /notice %}}
