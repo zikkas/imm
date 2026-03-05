@@ -1,7 +1,6 @@
 +++
 date = '2026-02-02T15:34:39+01:00'
 draft = false
-hidden = true
 title = "Prerequisites and Refresher"
 weight = 10
 +++
@@ -34,8 +33,6 @@ You need to know how to manipulate the algebra.
 - **Abelian Groups:** Structure theorem for Finitely Generated Abelian Groups.
 
 ### Exact Sequences
-
-This might be new to you. It is the engine of Homology.
 
 - **Definition:** A sequence $A \xrightarrow{f} B \xrightarrow{g} C$ is exact if $\text{Im}(f) = \text{Ker}(g)$.
 - **Short Exact Sequences:** $0 \to A \to B \to C \to 0$.
