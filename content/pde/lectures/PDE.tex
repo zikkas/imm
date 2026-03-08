@@ -2149,40 +2149,47 @@ $$
 We have the following:
 
 \begin{align*}
-	e^{t[(\A - \omega I)_{\lambda} + \omega I]}x - e^{t \A_{\lambda}}x &= e^{t[(\A - \omega I)_{\lambda} + \omega I - \A_{\lambda} + \A_{\lambda}]}x - e^{t \A_{\lambda}}x \\
-									   &= e^{t (A_\lambda + H(\lambda))} x - e^{t A_\lambda} x && \text{by setting} \, H(\lambda) := (\A - \omega I)_{\lambda} + \omega I - \A_{\lambda} \\
-    &= e^{t A_\lambda} e^{t H(\lambda)} x - e^{t A_\lambda} x \\
-    &= e^{t A_\lambda} \left( e^{t H(\lambda)} - I \right) x  && \A_{\lambda} \, \text{and} \, H(\lambda) \, \text{commutes (why?)}
+	e^{t[(\A - \omega I)_{\lambda} + \omega I]}x - e^{t \A_{\lambda}}x
+	&= e^{t[(\A - \omega I)_{\lambda} + \omega I - \A_{\lambda} + \A_{\lambda}]}x - e^{t \A_{\lambda}}x \\
+	&= e^{t (\A_\lambda + H(\lambda))} x - e^{t \A_\lambda} x && \text{by setting} \, H(\lambda) := (\A - \omega I)_{\lambda} + \omega I - \A_{\lambda} \\
+	&= e^{t \A_\lambda} e^{t H(\lambda)} x - e^{t \A_\lambda} x \\
+	&= e^{t \A_\lambda} \left( e^{t H(\lambda)} - I \right) x  && \A_{\lambda} \, \text{and} \, H(\lambda) \, \text{commutes (why?)}
 \end{align*}
 
-\noindent Now, we aim to show that for any fixed $x \in D(A)$, $H(\lambda)x \to 0$ as $\lambda \to +\infty$.
+\noindent Now, we aim to show that for any fixed $x \in D(\A)$, $H(\lambda)x \to 0$ as $\lambda \to +\infty$.
 
 By theorem \ref{hy:yosida_conv} we have:
 \begin{align*}
-    \lim_{\lambda \to \infty} H(\lambda)x &= \lim_{\lambda \to \infty} \left( (A - \omega I)_\lambda x + \omega x - A_\lambda x \right) \\
-    &= (Ax - \omega x) + \omega x - Ax \\
+    \lim_{\lambda \to \infty} H(\lambda)x &= \lim_{\lambda \to \infty} \left( (\A - \omega I)_\lambda x + \omega x - \A_\lambda x \right) \\
+    &= (\A x - \omega x) + \omega x - \A x \\
     &= 0
 \end{align*}
-Thus, $H(\lambda)x \to 0$ for all $x \in D(A)$.
+Thus, $H(\lambda)x \to 0$ for all $x \in D(\A)$.
 
 Now we have:
 $$
-e^{t[(\A - \omega I)_{\lambda} + \omega I]}x - e^{t \A_{\lambda}}x = e^{t A_\lambda} \left( e^{t H(\lambda)} - I \right) x
+e^{t[(\A - \omega I)_{\lambda} + \omega I]}x - e^{t \A_{\lambda}}x = e^{t \A_\lambda} \left( e^{t H(\lambda)} - I \right) x
 $$
 
 By taking the norm:
 $$
-\norm{e^{t[(\A - \omega I)_{\lambda} + \omega I]}x - e^{t \A_{\lambda}}x} \le \norm{e^{t A_\lambda}} \norm{\left( e^{t H(\lambda)} - I \right) x}
+\norm{e^{t[(\A - \omega I)_{\lambda} + \omega I]}x - e^{t \A_{\lambda}}x} \le \norm{e^{t \A_\lambda}} \norm{\left( e^{t H(\lambda)} - I \right) x}
 $$
 
-From \eqref{hy:general_bound}, we have that $\norm{e^{t A_\lambda}}$ is uniformaly bounded hence we need to work on $\norm{\left( e^{t H(\lambda)} - I \right) x}$.
+From \eqref{hy:general_bound}, we have that $\norm{e^{t \A_\lambda}}$ is uniformaly bounded hence we need to work on $\norm{\left( e^{t H(\lambda)} - I \right) x}$.
 
-Note that $e^{tH(\lambda)} = e^{t(B_\lambda + \omega I)} e^{-tA_\lambda}$. From the bound estimates shown earlier, both $\|e^{s(B_\lambda + \omega I)}\|$ and $\|e^{-sA_\lambda}\|$ are uniformly bounded for $s$ in a compact interval $[0, T]$ and sufficiently large $\lambda$. Let $C$ be this bound. Then:
-\[ \| (e^{t H(\lambda)} - I) x \| \le t \cdot C \cdot \| H(\lambda)x \| \]
-Since we proved that $\lim_{\lambda \to \infty} \|H(\lambda)x\| = 0$, it follows immediately that:
-\[ \lim_{\lambda \to \infty} \| (e^{t H(\lambda)} - I) x \| = 0 \]
-Finally, combining this with the uniform bound on $\|e^{t A_\lambda}\|$, we obtain:
-\[ \lim_{\lambda \to \infty} \| e^{t (B_\lambda + \omega I)} x - e^{t A_\lambda} x \| = 0 \]
+Note that $e^{tH(\lambda)} = e^{t(\B_\lambda + \omega I)} e^{-t \A_\lambda}$. From the bound estimates shown earlier, both $\norm{e^{s(\B_\lambda + \omega I)}}$ and $\norm{e^{-s \A_\lambda}}$ are uniformly bounded for $s$ in a compact interval $[0, T]$ and sufficiently large $\lambda$. Let $C$ be this bound. Then:
+$$
+\norm{(e^{t H(\lambda)} - I) x} \le t \cdot C \cdot \norm{H(\lambda)x}
+$$
+Since we proved that $\lim_{\lambda \to \infty} \norm{H(\lambda)x} = 0$, it follows immediately that:
+$$
+\lim_{\lambda \to \infty} \norm{(e^{t H(\lambda)} - I) x} = 0
+$$
+Finally, combining this with the uniform bound on $\norm{e^{t \A_\lambda}}$, we obtain:
+$$
+\lim_{\lambda \to \infty} \norm{e^{t (\B_\lambda + \omega I)} x - e^{t \A_\lambda} x} = 0
+$$
 This proves that the limit is the same, regardless of the shift. This completed our proof.
 \end{proof}
 
@@ -2194,7 +2201,7 @@ R(\lambda,\A)x = \int_0^\infty e^{-\lambda t} T(t)x \, dt \quad \text{for } \tex
 $$
 which is just the Laplace Tranfrom of the semigroup.
 
-A major problem in semigroup theory is recovering $T(t)$ from $R(\lambda,\A)x$ (Inverting the Laplace Transform).
+A major problem in semigroup theory is recovering $T(t)$ from $R(\lambda,\A)$ (Inverting the Laplace Transform).
 
 \begin{lemma}
 	Let $X$ be BS and $\B \in \L(X)$ then $\forall \gamma > \norm{\B}$ we have:
@@ -2207,7 +2214,7 @@ A major problem in semigroup theory is recovering $T(t)$ from $R(\lambda,\A)x$ (
 \begin{proof}
 	To make sense and motivate this proof we start by showing that this is correct for the scalar case. Let $b \in \mathbb{C}$ and the exponential function $f(t) = e^{tb}$. The Laplace transform of $f(t)$ is:
 	$$
-\mathcal{L}\{e^{tb}\}(\lambda) = \int_0^\infty e^{-\lambda t} e^{tb} \, dt = \frac{1}{\lambda - b}, \quad \text{for } \Re(\lambda) > \Re(b)
+\mathscr{L}\{e^{tb}\}(\lambda) = \int_0^\infty e^{-\lambda t} e^{tb} \, dt = \frac{1}{\lambda - b}, \quad \text{for } \Re(\lambda) > \Re(b)
 	$$
 	Now if we choose $\left|\lambda\right| > \left|b\right|$. We can expand $(\lambda - b)^{-1}$ as a convergent geometric series:
 	Now if we choose $\gamma$ such that $\Re(\gamma) > \left| b \right|$. Let show that:
@@ -2230,7 +2237,7 @@ A major problem in semigroup theory is recovering $T(t)$ from $R(\lambda,\A)x$ (
 
 	\bigskip
 
-	The case of the operator follows the same steps and same resoning.
+	The case of the operator follows the same steps and reasoning.
 
 	Again let $C(0,r)$ with radius $r$ such that $r > \norm{\B}$ For any $\lambda \in C(0,r)$, we have $|\lambda| > \norm{\B}$, which implies $\|\frac{\B}{\lambda}\| < 1$.
 
