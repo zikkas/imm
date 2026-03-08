@@ -61,7 +61,7 @@
 \newcommand{\norm}[1]{\left\lVert#1\right\rVert}
 \newcommand{\A}{\mathscr{A}}
 \newcommand{\B}{\mathscr{B}}
-\renewcommand{\L}{\mathscr{L}}
+\renewcommand{\L}{\mathcal{L}}
 	
 	\date{}
 	\pagestyle{plain}
@@ -104,7 +104,7 @@
 	\cleardoublepage
 	\chapter{Theory of (Unbounded) Operators}	
 	\section{Preliminaries on Operators}
-Let $(X,\|\cdot\|)$ be a Banach space and $\mathscr{L}(X)$ be the Banach space of bounded linear operators.
+Let $(X,\|\cdot\|)$ be a Banach space and $\mathcal{L}(X)$ be the Banach space of bounded linear operators.
 \begin{definition}
 An operator $\mathscr{A}:D(\mathscr{A})\longrightarrow X$ is called an \textit{unbounded linear operator (UBLO)} if $D(\mathscr{A})$ is a subspace of $X$ and $\sup_{x\neq 0}\frac{\|\mathscr{A}x\|}{\|x\|}=+\infty$
 \end{definition}
@@ -118,7 +118,7 @@ An operator $\mathscr{A}:D(\mathscr{A})\longrightarrow X$ is called an \textit{u
 	\begin{align*}
 		&\rho(\mathscr{A})=\ \text{Resolvent of $\mathscr{A}$} = \left\{\lambda\in \mathbb{C}\ \bigg| \begin{aligned}
 			&(\lambda I - \mathscr{A}) : D(\mathscr{A}) \to X \text{ is bijective, and} \\
-			&(\lambda I - \mathscr{A})^{-1} \in \mathscr{L}(X)
+			&(\lambda I - \mathscr{A})^{-1} \, \text{is bounded}
 		\end{aligned}\right\}\\
 		&\sigma(\mathscr{A})= \ \text{Spectrum of $\mathscr{A}$}= \mathbb{C}\setminus\rho(\mathscr{A}).
 	\end{align*}
@@ -135,16 +135,16 @@ Note that $G(\mathscr{A})=\left\{(x,\mathscr{A}x)\big|x\in D(\mathscr{A})\right\
 	\end{itemize}
 \end{exercise}		
 \begin{lemma}
-	If $\mathscr{A}$ an unbounded linear operator is closable, then $\rho(\overline{\mathscr{A}})=\rho(\mathscr{A})$. If $\mathscr{A}$ is closed then $\rho(\mathscr{A})=\{\lambda\in \mathbb{C}\ | \ (\lambda I-\mathscr{A})^{-1}\in \mathscr{L}(X)\}$.\\
-	\textcolor{blue}{Hints (Exercise): If $\rho(\mathscr{A})\neq \emptyset$ implies $\mathscr{A}$ is closed. (Show first that if $T$ is a UBLO with $T^{-1}\in \mathscr{L}(X)$ implies $T$ is closed)}.
+	If an unbounded linear operator $\mathscr{A}$ is closable, then $\rho(\overline{\mathscr{A}})=\rho(\mathscr{A})$. If $\mathscr{A}$ is closed then $\rho(\mathscr{A})=\{\lambda\in \mathbb{C}\ | \ (\lambda I-\mathscr{A})^{-1}\in \mathcal{L}(X)\}$.\\
+	\textcolor{blue}{Hints (Exercise): If $\rho(\mathscr{A})\neq \emptyset$ implies $\mathscr{A}$ is closed. (Show first that if $T$ is a UBLO with $T^{-1}$ bounded implies $T$ is closed)}.
 \end{lemma}		
 		
 	\begin{coro}
-		Let $\mathscr{A}:D(\mathscr{A})\subset X\longrightarrow X$ be a closed UBLO then $\sigma(\mathscr{A})=\sigma_p(\mathscr{A})\cup \sigma_r(\mathscr{A})\cup\sigma_c(\mathscr{A})$ where 
+		Let $\mathscr{A}:D(\mathscr{A})\subset X\longrightarrow X$ be a closed UBLO then $\sigma(\mathscr{A})=\sigma_p(\mathscr{A})\cup \sigma_r(\mathscr{A})\cup\sigma_c(\mathscr{A})$. Where
 		\begin{itemize}
-			\item [1.] $\sigma_p(\mathscr{A})=\left\{\lambda\in\mathbb{C}:\ker(\lambda I-\mathscr{A})\neq \{0\}\right\}$ (punctual spectrum and $\lambda$'s are the eigenvalue).
-			\item [2.] $\sigma_c(\mathscr{A})=\left\{\lambda\in\mathbb{C}:\ker(\lambda I-\mathscr{A})= \{0\},\overline{\text{Rg}(\lambda I-\mathscr{A})}\subsetneq X\right\}$ (continuous spectrum).
-			\item [3.] $\sigma_r(\mathscr{A})=\left\{\lambda\in\mathbb{C}:\lambda I-\mathscr{A} \ \text{is injective},\overline{\text{Rg}(\lambda I-\mathscr{A})}= X, \ \text{Rg}(\lambda I-\mathscr{A})\neq X\right\}$ (residual spectrum).
+			\item $\sigma_p(\mathscr{A})=\left\{\lambda\in\mathbb{C}:\ker(\lambda I-\mathscr{A})\neq \{0\}\right\}$ (punctual spectrum and $\lambda$'s are the eigenvalue).
+			\item $\sigma_c(\mathscr{A})=\left\{\lambda\in\mathbb{C}:\ker(\lambda I-\mathscr{A})= \{0\},\overline{\text{Rg}(\lambda I-\mathscr{A})}\subsetneq X\right\}$ (continuous spectrum).
+			\item $\sigma_r(\mathscr{A})=\left\{\lambda\in\mathbb{C}:\lambda I-\mathscr{A} \ \text{is injective},\overline{\text{Rg}(\lambda I-\mathscr{A})}= X, \ \text{Rg}(\lambda I-\mathscr{A})\neq X\right\}$ (residual spectrum).
 		\end{itemize}
 	\end{coro}
 \begin{exercise}{}{}
@@ -152,19 +152,19 @@ Note that $G(\mathscr{A})=\left\{(x,\mathscr{A}x)\big|x\in D(\mathscr{A})\right\
 with $(\mathscr{A}x_n)_{n\geq 0}=\left(\frac{x_n}{1+n}\right)_{n\geq 0}$. Prove that $\mathscr{A}$ is a BLO, injective, $\overline{\text{Rg}(\mathscr{A})}=X$ and $\text{Rg}(\mathscr{A})\subsetneq X$.
 \end{exercise}	
 	\begin{theo}
-	If $\mathscr{A}$ is a closed UBLO then $\rho(\mathscr{A})$ is open. If $\mu\in \rho(\mathscr{A})$, then for all $\lambda\in \mathbb{C}$ with $r:=|\mu-\lambda|, \|(\mu I-\mathscr{A})^{-1}\|<1$ then $\lambda\in \rho(\mathscr{A})$ and
+		If $\mathscr{A}$ is a closed UBLO then $\rho(\mathscr{A})$ is open. If $\mu\in \rho(\mathscr{A})$, then for all $\lambda\in \mathbb{C}$ with $r:=\left|\mu-\lambda\right| \norm{(\mu I-\mathscr{A})^{-1}} < 1$ then $\lambda\in \rho(\mathscr{A})$ and
 	\vspace{-2mm}
 	$$(\lambda I-\mathscr{A})^{-1}=\sum_{n=0}^{\infty}(\mu-\lambda)^n(\mu I-\mathscr{A})^{-(n+1)}$$
 	\textcolor{blue}{To do Question: do you need $\mathscr{A}$ closed?}
 	\end{theo}	
 \begin{theo}[Resolvent Identity]
-	Let $\mathscr{A}$ be a UBLO.
-	For $\lambda \in \rho(A)$, define the resolvent \\ operator
+	Let $\A$ be a UBLO.
+	For $\lambda \in \rho(\A)$, define the resolvent operator
 	\vspace{-2mm}
 	\[
-	R(\lambda) := (\lambda I - A)^{-1}.
+	R(\lambda) := (\lambda I - \A)^{-1}.
 	\]
-	Then for all $\lambda, \mu \in \rho(A)$,
+	Then for all $\lambda, \mu \in \rho(\A)$,
 	\[
 	R(\lambda) - R(\mu) = (\mu - \lambda) R(\mu) R(\lambda).
 	\]
@@ -174,45 +174,45 @@ with $(\mathscr{A}x_n)_{n\geq 0}=\left(\frac{x_n}{1+n}\right)_{n\geq 0}$. Prove 
 	$
 	\lambda \mapsto R(\lambda)
 	$
-	from $\rho(\mathscr{A})$ into $\mathscr{L}(X)$ is analytic. Moreover,
+	from $\rho(\A)$ into $\L(X)$ is analytic. Moreover,
 	\[
-	\frac{d^n}{d\lambda^n} (\lambda I - A)^{-1}
-	= (-1)^n n! [(\lambda I - A)^{-1}]^{(n+1)}.
+	\frac{d^n}{d\lambda^n} (\lambda I - \A)^{-1}
+	= (-1)^n n! [(\lambda I - \A)^{-1}]^{(n+1)}.
 	\]
 \end{coro}
 \subsection{Dual Operators}	
 Let $X\cong X^*$ and $\mathscr{A}$ a closed UBLO with $\overline{D(\mathscr{A})}=X$ a dense UBLO.\\
-If $X$ and $Y$ are Banach spaces with duals $X^*$ and $Y^*$, then for $x\in X$ and $x^*\in X^*$, we define the duality product as $\langle x^*,x\rangle$.
+If $X$ is a Banach space with dual $X^*$, then for $x\in X$ and $x^*\in X^*$, we define the duality product as $\langle x^*,x\rangle$.
 \begin{definition}[Dual Operator of $\mathscr{A}$]
 Let
 $
-\mathscr{A} : D(\mathscr{A}) \subset X \to Y
-$ (UBLO), be such that \\ $\overline{D(\mathscr{A})}=X$.
+\A : D(\A) \subset X \to Y
+$ (UBLO), be such that \\ $\overline{D(\A)}=X$.
 The \emph{dual operator}
 $
-\mathscr{A}^* : D(\mathscr{A}^*) \subset Y^* \to X^*
+\A^* : D(\A^*) \subset Y^* \to X^*
 $ is a UBLO
  defined as follows:
  \vspace{-3mm}
 \[
-D(\mathscr{A}^*) :=
+D(\A^*) :=
 \left\{ y^* \in Y^* \,\middle|\, 
 \exists z^* \in X^* \text{ such that }
-\langle y^*, Ax \rangle = \langle z^*, x \rangle
-\ \forall x \in D(\mathscr{A})
+\langle y^*, \A x \rangle = \langle z^*, x \rangle
+\ \forall x \in D(\A)
 \right\}.
 \]
-and $y^* \in D(\mathscr{A}^*)$, the element $z^*$ is unique and we define
+and $y^* \in D(\A^*)$, the element $z^*$ is unique and we define
 $
-A^* y^* := z^*.
+\A^* y^* := z^*.
 $	
 \end{definition}		
 \begin{lemma}
-	Let $X, Y$ be Banach spaces and let $\mathscr{A} \in \mathscr{L}(X,Y)$.
-	Then $\mathscr{A}^* \in \mathscr{L}(Y^*, X^*)$ and
+	Let $X, Y$ be Banach spaces and let $\mathscr{A} \in \mathcal{L}(X,Y)$.
+	Then $\mathscr{A}^* \in \mathcal{L}(Y^*, X^*)$ and
 	\vspace{-2mm}
 	\[
-	\|\mathscr{A}^*\|_{\mathscr{L}(Y^*,X^*)} = \|\mathscr{A}\|_{\mathscr{L}(X,Y)}.
+	\|\mathscr{A}^*\|_{\mathcal{L}(Y^*,X^*)} = \|\mathscr{A}\|_{\mathcal{L}(X,Y)}.
 	\]
 \end{lemma}		
 \begin{lemma}
@@ -259,12 +259,12 @@ For $\Re(\lambda)= 0$; show for all $f_n\in X$ with $\|f_n\|_{\ell^2}=1$ then $(
 Let $X$ and $Y$ be Banach spaces on $\mathbb{K}$.
 
 \begin{definition}
-Let $K:X\to Y$ be a BLO (in $\mathscr{L}(X,Y)$), then $K$ compact iff
+Let $K:X\to Y$ be a BLO (in $\mathcal{L}(X,Y)$), then $K$ compact iff
 $
 K(B_1^X(0))$ \text{ is relatively compact in } Y (i.e. $\overline{K(B_1^X(0))}$ compact).
 \vspace{-2mm}
 \[
-\mathcal{K}(X,Y)=\{K\in \mathscr{L}(X,Y)\mid K \text{ is compact}\}.
+\mathcal{K}(X,Y)=\{K\in \mathcal{L}(X,Y)\mid K \text{ is compact}\}.
 \]
 \end{definition}
 
@@ -273,14 +273,14 @@ Let $
 X=C([a,b],\mathbb{C})$ and $ k\in C^0([a,b]\times[c,d],\mathbb{C})
 $
 
-Define $K\in \mathscr{L}(X)$ by
+Define $K\in \mathcal{L}(X)$ by
 \[
 (Kx)(t)=\int_a^b k(t,s)x(s)\,ds.
 \]
 Show $K\in\mathcal{K}(X)$.	
 \end{exercise}
 \begin{theo}
-	$\mathcal{K}(X,Y)$ is a closed subspace of $\mathscr{L}(X,Y)$.
+	$\mathcal{K}(X,Y)$ is a closed subspace of $\mathcal{L}(X,Y)$.
 \end{theo}
 \begin{proof} We shall show this in two steps
 \begin{itemize}
@@ -301,7 +301,7 @@ Let	$X,Y$ and $Z$ be Banach spaces on $\mathbb{K}$.
 	
 	\[
 	X \xlongrightarrow{\mathscr{A}} Y \xlongrightarrow{\mathscr{B}} Z,
-	\quad \mathscr{A}\in\mathscr{L}(X,Y),\ \mathscr{B}\in\mathscr{L}(Y,Z).
+	\quad \mathscr{A}\in\mathcal{L}(X,Y),\ \mathscr{B}\in\mathcal{L}(Y,Z).
 	\]
 	\begin{itemize}
 		\item [1.] If $\mathscr{A}$ is compact or $\mathscr{B}$ is compact, then $\mathscr{B}\mathscr{A}$ is compact.
@@ -371,7 +371,7 @@ So $(\mathscr{A}x_n)$ is not Cauchy, hence a contradiction.
 \end{proof}		
 		
 \begin{exercise}{}{}
-	Let $X$ be a Banach space on $\mathbb{K}$. If $\mathscr{A}\in\mathscr{L}(X)$,
+	Let $X$ be a Banach space on $\mathbb{K}$. If $\mathscr{A}\in\mathcal{L}(X)$,
  assume $\exists\  n_0$ s.t.
 $
 \ker(\mathscr{A}^{n_0})=\ker(\mathscr{A}^{n_0+1}).
@@ -394,7 +394,7 @@ Let	$\mathscr{A}\in\mathcal{K}(X)$ and $X$ be a Banach space on $\mathbb{C}$, $\
 	Using the previous exercise and arguing by contradiction, that for all $n\geq 1$ $\ker((\lambda I-\mathscr{A})^n)\subset \ker((\lambda I-\mathscr{A})^{n+1})$ and each of them is closed.\\
 	\textbf{RL:} with $r=\frac{1}{2}$ with $(x_n)_{n\geq 1} \in X$, such that $\|x_n\|=1$. Then, $x_n\in \ker((\lambda I-\mathscr{A})^{n+1})$. Thus,
 	$$d(x_n,\ker((\lambda I-\mathscr{A})^n)))\geq \frac{1}{2}.$$
-For $n=1,x\in \ker(\lambda I-\mathscr{A})\ \Rightarrow\ x=\frac{\mathscr{A}}{\lambda}x.$
+For $n=1,x\in \ker(\lambda I-\mathscr{A})\ \implies\ x=\frac{\mathscr{A}}{\lambda}x.$
 For all $1\le m<n$,
 \begin{align*}
 	\frac{\mathscr{A}x_n}{\lambda}-\frac{\mathscr{A}x_m}{\lambda}
@@ -425,7 +425,7 @@ $ Notice,
 \dim \ker(\lambda I-\mathscr{A})=\text{geometric multiplicity}.
 \]
 
-With Proposition \ref{1.2.2} $\Rightarrow$ $\exists\, n_0$ (smallest one) such that
+With Proposition \ref{1.2.2} $\implies$ $\exists\, n_0$ (smallest one) such that
 \vspace{-2mm}
 \[
 \ker\bigl((\lambda I-\mathscr{A})^{n_0}\bigr)
@@ -444,7 +444,7 @@ Note that,
 :=\text{algebraic multiplicity of }\lambda.
 \]
 \hspace{3mm}		
-\begin{prop}[Fredholm aternative]
+\begin{prop}[Fredholm Alternative]
 Let	$\mathscr{A}\in\mathcal{K}(X)$, and let $X$ be a Banach space on $\mathbb{C}$.
 \vspace{-2mm}	
 	\[
@@ -476,7 +476,7 @@ Let us prove that $\dim X_n=n$.
 By induction: $n=1$ is OK.
 
 \[
-\dim X_n=n \ \Rightarrow\ \dim X_{n+1}=n+1.
+\dim X_n=n \ \implies\ \dim X_{n+1}=n+1.
 \]
 By contradiction, $x_{n+1}\in X_n$.
 
@@ -506,9 +506,9 @@ Since $(x_i)$ are linearly independent,
 \]
 
 which implies
-$\Rightarrow \alpha_i=0.$
+$\alpha_i=0$
 $
-\Rightarrow x_{n+1}=0, (\text{Impossible}).
+\implies x_{n+1}=0, (\text{Impossible}).
 $
 
 \medskip
@@ -576,7 +576,7 @@ Let	$\mathscr{A}\in\mathcal{K}(X)$, and let $X$ be a Banach space on $\mathbb{C}
 They appear as ``inverse'' of UBLO.
 
 \begin{definition}
-Let $\mathscr{A}:D(\mathscr{A})\subset X\to X$ UBLO, closed, $\rho(\mathscr{A})\neq\{0\}$.
+Let $\A:D(\A)\subset X\to X$ UBLO, closed, $\rho(\A) \neq \emptyset$.
 $\mathscr{A}$ is said to have compact resolvent if
 \vspace{-2mm}
 \[
@@ -629,9 +629,9 @@ Let $(\mathscr{H},\langle,\rangle)$ be a Hilbert space and $\mathscr{A}: D(\math
 	\item [1.]Let $\mathscr{H}$ be a Hilbert space, $\mathscr{A}:D(\mathscr{A})\subset \mathscr{H}\to \mathscr{H}$, $\overline{D(\mathscr{A})}=\mathscr{H}$. If $\mathscr{A}$ is closed, then $\overline{D(\mathscr{A}^{\circ})}=\mathscr{H}$.
 	\item [2.] Let $\mathscr{H}$ be a Hilbert space, $\mathscr{A}:D(\mathscr{A})\subset \mathscr{H}\to \mathscr{H}$, $\overline{D(\mathscr{A})}=\mathscr{H}$. Suppose $\mathscr{A}$ is symmetric and if $\lambda \in \sigma_{p}(\mathscr{A})$, then prove that $\lambda\in\mathbb{R}$ and
 	\[
-	\inf_{\|x\|=1,x\in D(\mathscr{A})}\langle \mathscr{A}x,x\rangle
+		\inf_{\substack{\norm{x} = 1 \\ x \in D(\A)}}\langle \A x,x\rangle
 	\le \lambda \le
-	\sup_{\|x\|=1,x\in D(\mathscr{A})}\langle \mathscr{A}x,x\rangle.
+	\sup_{\substack{\norm{x} = 1 \\ x \in D(\A)}}\langle \A x,x\rangle.
 	\]
 \end{itemize}
 \end{exercise}
@@ -640,9 +640,9 @@ Let	$(\mathscr{H},\langle\cdot,\cdot\rangle)$ be an Hilbert space over $\mathbb{
 Then $\mathscr{A}^{-1}:\mathrm{Rg}(\mathscr{A})\to \mathscr{H}$ is self-adjoint.
 \end{prop}
 \begin{proof}
-Since $\mathscr{A}$ is injective then $\mathscr{A}^{-1}$ is well defined, and since $\mathscr{A} = \mathscr{A}^{\circ}$ then $\mathscr{A}$ is closed.
+Since $\A$ is injective then $\A^{-1}$ is well defined, and since $\A = \A^{\circ}$ then $\A$ is closed.
 
-Now assume $(x_n) \subset D(\mathscr{A})$ such that $x_n \to x \in D(A)$ (because $\mathscr{A}$ is closed) and $\mathscr{A}x_n -\to y$ then for all $z\in D(\mathscr{A})$, $\langle\mathscr{A} x_n,z\rangle=\langle x_n,\mathscr{A}^{\circ}z\rangle$ which implies $\langle y,z\rangle=\langle x,\mathscr{A}^{\circ}z\rangle$ and so we have $x\in D(\mathscr{A}^{\circ})=D(\mathscr{A})$ and $y=\mathscr{A}^{\circ}$. Notice $\overline{\mathrm{Rg}(\mathscr{A})}=\ker(\mathscr{A})^{\perp}$ (because of self-adjointness).\\
+Now assume $(x_n) \subset D(\A)$ such that $x_n \to x \in D(\A)$ (because $\A$ is closed) and $\A x_n -\to y$ then for all $z\in D(\A)$, $\langle\A x_n,z\rangle=\langle x_n,\A^{\circ}z\rangle$ which implies $\langle y,z\rangle=\langle x,\mathscr{A}^{\circ}z\rangle$ and so we have $x\in D(\mathscr{A}^{\circ})=D(\mathscr{A})$ and $y=\mathscr{A}^{\circ}$. Notice $\overline{\mathrm{Rg}(\mathscr{A})}=\ker(\mathscr{A})^{\perp}$ (because of self-adjointness).\\
 Injectivity implies $\overline{\mathrm{Rg}(\mathscr{A})}=\mathscr{H}$ which implies $\overline{D(\mathscr{A}^{-1})}=\mathscr{H}$. So $\mathscr{A}^{-1}$ is densely defined.\\
 Now, observe for all $u,v\in D(\mathscr{A}^{-1})$, $u=\mathscr{A}^{\circ}x$ and $v=\mathscr{A} y$ with $x,y\in D(\mathscr{A})$. Hence,
 \vspace{-2mm}
@@ -658,7 +658,7 @@ $
 \[
 \langle \mathscr{A}^{-1}u, z \rangle
 = \langle u, w \rangle
-\Rightarrow \forall x \in D(\mathscr{A})
+\implies \forall x \in D(\mathscr{A})
 \quad
 \langle x, z \rangle
 = \langle \mathscr{A}x, w \rangle
@@ -666,7 +666,7 @@ $
 By definition $w \in D(\mathscr{A}^{\circ})$ and $\mathscr{A}^{\circ} w = z$.
 $
 \mathscr{A}w = z
-\Rightarrow
+\implies
 z \in Rg(\mathscr{A}) = D(\mathscr{A}^{-1}).
 $
 \end{proof}
@@ -681,7 +681,7 @@ $\mathscr{A}$ and $\mathscr{A}^{\circ}$ are injective. Do it only for $\mathscr{
 \quad
 0 = \langle \mathscr{A}x, y \rangle
 = \langle x, \mathscr{A}y \rangle
-\Rightarrow x \perp Rg(\mathscr{A}) = \mathscr{H}.
+\implies x \perp Rg(\mathscr{A}) = \mathscr{H}.
 \]
 which implies $x=0$.\\
 Next, we show $\mathscr{A}$ closed. 
@@ -700,12 +700,12 @@ $, which implies
 $
 \langle y, z \rangle = \langle x, \mathscr{A}z \rangle
 $ which implies $x \in D(\mathscr{A}^{\circ}) \text{ and } y = \mathscr{A}^{\circ}x$. Since
-$\mathscr{A}$ surjective $\Rightarrow \exists w \in D(\mathscr{A})$
+$\mathscr{A}$ surjective $\implies \exists w \in D(\mathscr{A})$
 s.t.\ $\mathscr{A}w = y$ and $\mathscr{A}^{\circ}x = y$.\\
 Since $\mathscr{A}$ is symmetric: $\mathscr{A}^{\circ}w = \mathscr{A}w$.
-Then $\mathscr{A}^{\circ}w = \mathscr{A}^{\circ}x$, $\mathscr{A}$ is injective $\Rightarrow w = x$.
-Hence $\mathscr{A}x = \mathscr{A}w = y \Rightarrow y = \mathscr{A}x \Rightarrow \mathscr{A}$ is closed.\\
-By closed graph theorem both $\mathscr{A}$ and $\mathscr{A}^{-1} \in \mathscr{L}(X)$. We can conclude that $\mathscr{A}$ is a self-adjoint operator.
+Then $\mathscr{A}^{\circ}w = \mathscr{A}^{\circ}x$, $\mathscr{A}$ is injective $\implies w = x$.
+Hence $\mathscr{A}x = \mathscr{A}w = y \implies y = \mathscr{A}x \implies \mathscr{A}$ is closed.\\
+By closed graph theorem both $\mathscr{A}$ and $\mathscr{A}^{-1} \in \mathcal{L}(X)$. We can conclude that $\mathscr{A}$ is a self-adjoint operator.
 \end{proof}
 \begin{exercise}{}{}
 	Let $
@@ -725,11 +725,10 @@ Similarly, if $
 
 \begin{theo}[Fredrich's Extension]
 Let $\mathscr{H}$ be a Hilbert space on $\mathbb{C}$ with $
-\mathscr{A} : D(\mathscr{A}) \subset \mathscr{H} \to \mathscr{H}$, symmetric then $\mathscr{A}$ admits a unique self adjoint extension. If either 
+\mathscr{A} : {D(\mathscr{A}) \subset \mathscr{H} \to \mathscr{H}}$, symmetric then $\mathscr{A}$ admits a unique self adjoint extension. If either 
 \begin{itemize}
-	\item [a.] $\inf_{\|x\|=1,x\in D(\mathscr{A})}\langle \mathscr{A}x,x\rangle >-\infty$
-	\item [b.] $\sup_{\|x\|=1,x\in
-	 D(\mathscr{A})}\langle\mathscr{A}x,x\rangle<+\infty$
+	\item [a.] $\inf\limits_{\substack{\norm{x}=1 \\ x \in D(\A)}} \langle \A x, x \rangle > -\infty$
+	\item [b.] $\sup\limits_{\substack{\norm{x} = 1 \\ x \in D(\A)}} \langle \A x, x \rangle < +\infty$
 	\end{itemize}
 such that, $\mathscr{A}\subset \mathscr{A}^{\circ}\subset (\mathscr{A}^{\circ})^{\circ}\subset \cdots$. If (a) or (b) holds, then; $\mathscr{A}\subset \mathscr{A}^{\circ}=(\mathscr{A}^{\circ})^{\circ}$.
 
@@ -741,14 +740,14 @@ such that, $\mathscr{A}\subset \mathscr{A}^{\circ}\subset (\mathscr{A}^{\circ})^
 	By the Hahn-Banach theorem, $J(x)\neq \emptyset$.
 \end{definition}
 \textbf{Question:} What can you say about $J(X)$ when $X$ is an Hilbert space or Reflexive?
-\begin{definition}
+\begin{definition}[Dissipative Operator]
 	A map $\mathscr{A}:D(\mathscr{A})\subset X\longrightarrow X$ (UBLO) is dissipative if for all $x\in D(\mathscr{A})$, there exists $x^*\in J(X)$ such that $Re\langle x^*,\mathscr{A}x\rangle \leq 0$.
 \end{definition}
 \begin{lemma}\label{lem1.4.1}
 	$\mathscr{A}$ is dissipative if and only if for all $\lambda> 0$, $x\in D(\mathscr{A})$ we have that \\ $\|(\lambda I-\mathscr{A})x\|\geq \lambda \|x\|$.
 \end{lemma}
 \begin{proof}
-let $x^* \in J(x)$. Then
+	$(\implies)$ let $x^* \in J(x)$. Then
 \[
 \|(\lambda I - \mathscr{A})x\| \, \|x^*\|
 \ge \left| \langle x^*, (\lambda I - \mathscr{A})x \rangle \right|
@@ -766,7 +765,7 @@ Hence, if $\|x\| \neq 0$, then
 
 \medskip
 
-$(\Leftarrow)$ Let $x \in D(\mathscr{A})$, $x \neq 0$, and $\lambda > 0$.
+$(\impliedby)$ Let $x \in D(\mathscr{A})$, $x \neq 0$, and $\lambda > 0$.
 Let $y_\lambda^* \in J((\lambda I - \mathscr{A})x)$ and set
 $
 g_\lambda^* = \frac{y_\lambda^*}{\|y_\lambda^*\|}.
@@ -870,7 +869,7 @@ Then $\mathscr{A}$ is closed, $\rho(\mathscr{A}) \supset \mathbb{R}_+^*$, and
 for all $\lambda > 0$,
 \vspace{-3mm}
 \[
-\|(\lambda I - \mathscr{A})^{-1}\|_{\mathscr{L}(X)}
+\|(\lambda I - \mathscr{A})^{-1}\|_{\mathcal{L}(X)}
 \le \frac{1}{\lambda}.
 \tag{1.4}
 \]
@@ -913,7 +912,7 @@ By Lemma \ref{lem1.4.1},
 
 Hence,
 \[
-\|(\lambda_0 I - \mathscr{A})^{-1}\|_{\mathscr{L}(X)}
+\|(\lambda_0 I - \mathscr{A})^{-1}\|_{\mathcal{L}(X)}
 \le \frac{1}{\lambda_0},
 \qquad
 \lambda_0 \in \rho(\mathscr{A}).
@@ -975,7 +974,7 @@ $
 $
 Note that since $\lambda_n \in \Lambda$, we have
 \[
-\|(\lambda_n I - \mathscr{A})^{-1}\|_{\mathscr{L}(X)}
+\|(\lambda_n I - \mathscr{A})^{-1}\|_{\mathcal{L}(X)}
 \le \frac{1}{\lambda_n}.
 \]
 We write
@@ -1143,7 +1142,7 @@ for all $x \in D(\mathscr{A})$,
 
 Moreover, if $\lambda \in \rho(\mathscr{A})$, then
 \[
-\|(\lambda I - \mathscr{A})^{-1}\|_{\mathscr{L}(X)}
+\|(\lambda I - \mathscr{A})^{-1}\|_{\mathcal{L}(X)}
 \le \frac{1}{d(\lambda, W(\mathscr{A}))}.
 \tag{$**$}
 \]
@@ -1198,7 +1197,7 @@ where $D(\mathscr{A})=\text{domain of } \mathscr{A}$.
 \begin{definition}
 	A SG--BLO on $X$, $(T(t))_{t\geq 0}$ is uniformly continuous if
 	\vspace{-3mm}
-	 $$\|T(t)-Id\|_{{\mathscr{L}}(X)}\rightarrow 0 \quad \text{as} \ t\to 0^+$$
+	 $$\|T(t)-Id\|_{{\mathcal{L}}(X)}\rightarrow 0 \quad \text{as} \ t\to 0^+$$
 \end{definition}
 \begin{lemma}\label{lem2.1}
 Let $(T(t))_{t \geq 0}$ be a SG--BLO which is uniformly continuous.
@@ -1215,8 +1214,8 @@ $
 	T(s)=T(s-t+t), \qquad s-t \geq 0.
 $
 \[
-	s \geq t \;\Rightarrow\; T(s)=T(s-t)T(t)
-	\Rightarrow\; T(s)-T(t)=T(t)\,[T(s-t)-I_d]
+	s \geq t \;\implies\; T(s)=T(s-t)T(t)
+	\implies\; T(s)-T(t)=T(t)\,[T(s-t)-I_d]
 	\]
 	\[
 	\|T(s)-T(t)\| \leq \|T(t)\|\,\|T(s-t)-I_d\|
@@ -1226,7 +1225,7 @@ For	$s \leq t$
 	
 	\[
 	T(t)=T(t-s)T(s)
-\Rightarrow
+\implies
 	T(t)-T(s)=T(s)\,[T(t-s)-I_d]
 	\]
 	
@@ -1351,7 +1350,7 @@ From the semigroup property and (1.8) it then follows that
 &=\left\|T\left(n\frac{t}{n}\right)-S\left(n\frac{t}{n}\right)\right\|\\
 &\leq\sum_{k=0}^{n-1}
 \left\|T\left((n-k)\frac{t}{n}\right)S\left(\frac{kt}{n}\right)-T\left((n-k-1)\frac{t}{n}\right)S\left(\frac{(k+1)t}{n}\right)\right\|\\
-&\leq \sum_{k=0}^{n-1}\left\|T\left((n-k-1)\frac{t}{n}\right)\right\|\left\|T\left(\frac{t}{n}\right)-S\left(\frac{t}{n}\right) \right\|\left\|S\left(\frac{t}{n}\right)\right\|\leq Cn\frac{\varepsilon}{TC}\frac{t}{n}\leq \varepsilon.
+&\leq \sum_{k=0}^{n-1}\left\|T\left((n-k-1)\frac{t}{n}\right)\right\|\left\|T\left(\frac{t}{n}\right)-S\left(\frac{t}{n}\right) \right\|\left\|S\left(k\frac{t}{n}\right)\right\|\leq Cn\frac{\varepsilon}{TC}\frac{t}{n}\leq \varepsilon.
 \end{align*}
 
 Since $\varepsilon>0$ was arbitrary $T(t)=S(t)$ for $0\leq t\leq T$
@@ -1408,7 +1407,7 @@ $T(t)=e^{t\mathscr{A}}$.
 
 	By contradiction, assume that $\sup{\norm{T(t)}} = +\infty$. Then $\exists (t_n)_{n \ge 0} \searrow 0$ such that $\norm{T(t_n)} \ge n$ or $\norm{T(t_n)} \nearrow \infty$
 
-	By Banach-Steinhaus (the contrapositive) $\exists x \in X$ such that $\sup{\norm{T(t_n)x}} = + \infty$, but this contradicts the strong convergance \ref{def:sc-sg}.
+	By Banach-Steinhaus (the contrapositive) $\exists x \in X$ such that $\sup{\norm{T(t_n)x}} = + \infty$, but this contradicts the definition of $C_0$-SG \ref{def:sc-sg}.
 
 	Now take $M := \sup{\norm{T(t)}} \ge 1$ (This is because $T(0) = Id$).
 
@@ -1416,7 +1415,7 @@ $T(t)=e^{t\mathscr{A}}$.
 	\begin{align*}
 		\norm{T(t)} &= \norm{T(k\eta + \eta_t)} \\
 			    &= \norm{\left[T(\eta)\right]^k T(\eta_t)} && \text{by the SG property} \\
-			    &= \norm{T(\eta)}^k \norm{T(\eta_t)} \\
+			    &\le \norm{T(\eta)}^k \norm{T(\eta_t)} \\
 			    &\le M \cdot M^k && \text{M is upperbound}\\
 			    &\le M \cdot M^{t/\eta} && \text{since } k \le \frac{t}{\eta} \\
 			    &= M (e^{\ln{M}})^{t/\eta} \\
@@ -1443,7 +1442,7 @@ Let $\A$ be the IG of $C_0$-SG $T(t)$, then:
 \begin{enumerate}[label=\bfseries \thesection.\arabic*, 
                  before=\setcounter{enumi}{\value{theo}}, 
                  after=\setcounter{theo}{\value{enumi}}]
-	    \item \label{sc:space_cont} $\forall x \in X, \forall t \ge 0, \; \lim_{h \to 0} \frac{1}{h} \int_t^{t+h} T(s)x \, ds = T(t)x$ for all $x \in X$.
+	    \item \label{sc:space_cont} $\forall x \in X, \forall t \ge 0, \; \lim\limits_{h \to 0} \frac{1}{h} \int_t^{t+h} T(s)x \, ds = T(t)x$ for all $x \in X$.
 	    \item \label{sc:img} $\forall x \in X, \forall t \ge 0, \; \int_0^t T(s)x \, ds \in D(\A)$ and $\A \int_0^t T(s)x \, ds = T(t)x - x$.
 	    \item \label{sc:diff_commute} $\forall x \in D(\A)$, $T(t)x \in D(\A)$ and $\frac{d}{dt} T(t)x = \A T(t)x = T(t)\A x$.
 	    \item \label{sc:ftc} $\forall x \in D(\A), \forall t \ge 0, \forall s \ge 0, \; T(t)x - T(s)x = \int_s^t T(u)\A x \, du$ for $x \in D(\A)$.
@@ -1478,7 +1477,11 @@ As $h \to 0^+$, the first term converges to $T(t)x$ and the second to $T(0)x = x
 \end{proof}
 
 \begin{proof}[Proof of \ref{sc:diff_commute}]
-If $x \in D(\A)$, then $T(t)\A x = T(t) \lim_{h \to 0} \frac{T(h)x-x}{h} = \lim_{h \to 0} \frac{T(h)T(t)x - T(t)x}{h}$. This limit exists and equals $\A(T(t)x)$, proving $T(t)x \in D(\A)$ and $T(t)\A x = \A T(t)x$. This also shows the right-derivative of $T(t)x$ is $\A T(t)x$. A similar argument for the left-derivative completes the differentiability.
+If $x \in D(\A)$, then 
+$$
+T(t)\A x = T(t) \lim_{h \to 0} \frac{T(h)x-x}{h} = \lim_{h \to 0} \frac{T(h)T(t)x - T(t)x}{h}
+$$
+This limit exists and equals $\A(T(t)x)$, proving $T(t)x \in D(\A)$ and $T(t)\A x = \A T(t)x$. This also shows the right-derivative of $T(t)x$ is $\A T(t)x$. A similar argument for the left-derivative completes the differentiability.
 \end{proof}
 
 \begin{proof}[Proof of \ref{sc:ftc}]
@@ -1492,24 +1495,24 @@ The IG $\A$ of $C_0$-SG is a closed linear operator and $\overline{D(\A)} = X$.
 \begin{proof}
 For any $x \in X$, let $x_t = \frac{1}{t} \int_0^t T(s)x \, ds$. By \ref{sc:img}, $x_t \in D(\A)$. By \ref{sc:space_cont}, $x_t \to T(0)x = x$ as $t \to 0^+$, which shows $\overline{D(\A)} = X$.
 
-Let $x_n \in D(\A)$ such that $x_n \to x$ and $\A x_n \to y$. From \ref{sc:img} take $s = 0$, we have $T(t)x_n - x_n = \int_0^t T(s)\A x_n \, ds$. Passing to the limit $n \to \infty$, we get $T(t)x - x = \int_0^t T(s)y \, ds$. Dividing by $t$ and letting $t \to 0^+$, the Right-Hand Side (RHS) converges to $y$. Thus $x \in D(\A)$ and $\A x = y$.
+Let $x_n \in D(\A)$ such that $x_n \to x$ and $\A x_n \to y$. By \ref{sc:img} we have $T(t)x_n - x_n = \int_0^t T(s)\A x_n \, ds$. Passing to the limit $n \to \infty$, we get $T(t)x - x = \int_0^t T(s)y \, ds$. Dividing by $t$ and letting $t \to 0^+$, the Right-Hand Side (RHS) converges to $y$. Thus $x \in D(\A)$ and $\A x = y$.
 \end{proof}
 
 \begin{theo}
-	Let $\{T(t)\}_{t \ge 0}$ and $\{S(t)\}_{t \ge 0}$ be two $C_0$-SG with infinitesimal generators $\A$ and $B$, respectively. If $\A = \mathscr{B}$, then $T(t) = S(t)$ for all $t \ge 0$.
+	Let $\{T(t)\}_{t \ge 0}$ and $\{S(t)\}_{t \ge 0}$ be two $C_0$-SG with infinitesimal generators $\A$ and $\B$, respectively. If $\A = \B$, then $T(t) = S(t)$ for all $t \ge 0$.
 \end{theo}
 
 \begin{proof}
-	Assume $\A = \mathscr{B}$, then $D(\A) = D(\mathscr{B})$. Let $x \in D(\A)$ be fixed, and for a fixed $t > 0$, define
+	Assume $\A = \B$, then $D(\A) = D(\B)$. Let $x \in D(\A)$ be fixed, and for a fixed $t > 0$, define
 $$
     \varphi: [0, t] \to X, \quad \varphi(s) = T(t-s)S(s)x
 $$
 Since $x \in D(\A)$, the map $\varphi$ is of class $C^1$ on $[0, t]$. We differentiate $\varphi$ with respect to $s$ using the product rule and \ref{sc:diff_commute}, we get:
 \begin{align*}
     \frac{d}{ds} \varphi(s) &= \frac{d}{ds} [T(t-s)] S(s)x + T(t-s) \frac{d}{ds} [S(s)x] \\
-    &= -\A T(t-s)S(s)x + T(t-s) B S(s)x
+    &= -\A T(t-s)S(s)x + T(t-s) \B S(s)x
 \end{align*}
-Because $T(t-s)$ commutes with its generator $\A$, and given $\A = B$, we have:
+Because $T(t-s)$ commutes with its generator $\A$, and given $\A = \B$, we have:
 $$
     \frac{d}{ds} \varphi(s) = -T(t-s)\A S(s)x + T(t-s)\A S(s)x = 0
 $$
@@ -1528,7 +1531,7 @@ $$
 \end{theo}
 
 \begin{proof}
-Let $\mathscr{D} = \left\{\varphi:\mathbb{R} \to \mathbb{C} | \, \varphi \, \text{has compact support in } \mathbb{R}^{*}_{+} \, \text{and is smooth }C^{\infty} \right\}$. Let $x \in X$ and consider a test function $\varphi \in \mathscr{D}$. Define
+Let $\mathscr{D} = \left\{\varphi:\mathbb{R} \to \mathbb{C} | \, \varphi \, \text{has compact support in } \mathbb{R}^{*}_{+} \, \text{and is smooth }(C_c^{\infty}) \right\}$. Let $x \in X$ and consider a test function $\varphi \in \mathscr{D}$. Define
 $$
     x_\varphi = \int_0^\infty \varphi(s) T(s)x \, ds
 $$
@@ -1539,7 +1542,7 @@ First, we show that $x_\varphi \in D(\A)$. Consider
     &= \frac{1}{h} \left[ \int_h^\infty \varphi(u-h) T(u)x \, du - \int_0^\infty \varphi(u) T(u)x \, du \right] \\
     &= \int_0^\infty \frac{\varphi(u-h) - \varphi(u)}{h} T(u)x \, du
 \end{align*}
-As $h \to 0$, the quotient $\frac{\varphi(u-h) - \varphi(u)}{h}$ converges uniformly to $-\varphi'(u)$ because $\varphi$ is $C^{\infty}$ and has compact support. Thus:
+As $h \to 0$, the quotient $\dfrac{\varphi(u-h) - \varphi(u)}{h}$ converges uniformly to $-\varphi'(u)$ because $\varphi$ is $C_c^{\infty}$. Thus:
 $$
     \A x_\varphi = - \int_0^\infty \varphi'(s) T(s)x \, ds
 $$
@@ -1553,7 +1556,7 @@ To prove density, suppose $\overline{\bigcap_{n \ge 1} D(\A^n)} \neq X$. By the 
 $$
 	\langle x^*, x_\varphi \rangle = \int_0^{+\infty} \varphi(s) \langle x^*, T(s)x \rangle \, ds = 0
 $$
-This identity holds for all $C^{\infty}$ functions $\varphi$ with compact support. Then $\langle x^*, T(s)x \rangle$ must be zero for all $s > 0$. 
+This identity holds for all $C_c^{\infty}$ functions $\varphi$. Then $\langle x^*, T(s)x \rangle$ must be zero for all $s > 0$. 
 
 By the strong continuity of the semigroup at $s=0$:
 $$
@@ -1580,15 +1583,18 @@ A $C_0$-SG $\{T(t)\}_{t \ge 0}$ is called uniformly bounded semigroup if $\exist
 A $C_0$-SG $\{T(t)\}_{t \ge 0}$ is called a contraction semigroup if $\norm{T(t)} \le 1$ for all $t \ge 0$.
 \end{definition}
 
-\begin{theo}[Hille-Yosida Theorem (Contraction Case)]
+\begin{theo}[Hille-Yosida Theorem (Contraction Case)]\label{thm:hy}
 A linear unbounded operator $\A: D(\A) \subset X \to X$ is the IG of a $C_0$-SG of contractions if and only if:
 \begin{enumerate}[label=(\roman*)]
 	\item \label{hy:close} $\A$ is closed and $\overline{D(\A)} = X$.
-	\item \label{hy:bound} $\mathbb{R}^*_+ \subset \rho(\A)$ and $\norm{R(\lambda, \A)} \le \frac{1}{\lambda}$ for all $\lambda > 0$.
+	\item \label{hy:bound} $\mathbb{R}^*_+ \subset \rho(\A)$ and for all $\lambda > 0$: 
+		$$
+		\norm{R(\lambda, \A)} \le \frac{1}{\lambda}
+		$$
 \end{enumerate}
 \end{theo}
 
-\begin{proof}[($\Rightarrow$)]
+\begin{proof}[Proof of ($\implies$)]
 \ref{hy:close} follows directly from \ref{sc:dense}.
 
 If $\A$ generates a contraction semigroup $\{T(t)\}_{t \ge 0}$, we define the resolvent for $\lambda > 0$ as follows
@@ -1611,7 +1617,7 @@ Extending this to the vector space we get the way of writing the resolvent opera
 
 \subsection{The Yosida Approximation}
 
-To prove if ($\Leftarrow$), we introduce a family of bounded operators that approximate the unbounded generator $A$.
+To prove ($\impliedby$), we introduce a family of bounded operators that approximate the unbounded generator $\A$.
 
 \begin{definition}
 \label{hy:yoshida_approx} For $\lambda > 0$, the Yosida Approximation of $\A$ is defined as:
@@ -1723,9 +1729,9 @@ Taking the norm and using the contraction property $\|e^{t \A_\lambda}\| \le e^{
 
 \bigskip
 
-Now let's start proving the only if direction of Hille-Yosida ($\impliedby$).
+Now let's start proving the only if direction of Hille-Yosida $(\impliedby)$.
 
-\begin{proof}
+\begin{proof}[Proof of $(\impliedby)$ of Hille-Yosida Theorem \ref{thm:hy}]
 We need the sequence $(e^{t\A_\lambda}x)_{\lambda > 0}$ to be converging. But doing so is hard, what we can do is show that it is a Cauchy sequence in $X$, since $X$ is complete.
 
 Taking $x \in D(\A)$ we have the following:
@@ -1733,14 +1739,14 @@ $$
 	\norm{e^{t\A_\lambda}x - e^{t\A_\mu}x} \le t\norm{\A_\lambda x - \A_\mu x} \le t(\norm{\A_\lambda x - \A x} + \norm{\A x - \A_\mu x}) \xrightarrow{\substack{\lambda \to +\infty \\ \mu \to +\infty}} 0
 $$
 
-This is possible because $\lim_{\lambda \to +\infty} {\A_\lambda x} = \A x$.
+This is possible because $\lim\limits_{\lambda \to +\infty} {\A_\lambda x} = \A x$.
 
 Define:
 $$
 	T(t)x = \lim_{\lambda \to +\infty} {e^{t\A_\lambda}x}
 $$
 
-This limit is well defined by the argument above for all $x \in D(\A)$. Moreover, since $D(A)$ is dense in $X$ and $\|e^{tA_\lambda}\| \le 1$, we can extend $T(t)$ to a bounded linear operator on all of $X$ by density.
+This limit is well defined by the argument above for all $x \in D(\A)$. Moreover, since $D(\A)$ is dense in $X$ and $\norm{e^{tA_\lambda}} \le 1$, we can extend $T(t)$ to a bounded linear operator on all of $X$ by density.
 
 Now we show that the family $(T(t))_{t \ge 0}$ defined above is a $C_0$-semigroup of contractions.
 
@@ -1751,10 +1757,10 @@ We verify the semigroup properties:
     $$
     T(t+s)x = \lim_{\lambda \to +\infty} e^{(t+s)\A_\lambda}x = \lim_{\lambda \to +\infty} e^{t\A_\lambda} e^{s\A_\lambda}x = T(t)T(s)x.
     $$
-\item Strong Continuity: For $x \in D(\A)$, convergence is uniform on compact intervals of $t$, because of lemma \ref{hy:uc}. Thus $t \mapsto T(t)x$ is continuous. By the density of $D(A)$ and uniform boundedness $\|T(t)\| \le 1$, continuity extends to all $x \in X$.
+\item Strong Continuity: For $x \in D(\A)$, convergence is uniform on compact intervals of $t$, because of lemma \ref{hy:uc}. Thus $t \mapsto T(t)x$ is continuous. By the density of $D(\A)$ and uniform boundedness $\norm{T(t)} \le 1$, continuity extends to all $x \in X$.
 \end{enumerate}
 
-We must show that the generator of the constructed semigroup $T(t)$ is indeed $\A$. Let $\mathscr{B}$ be the generator of $T(t)$, we show that $\A = \mathscr{B}$.
+We must show that the generator of the constructed semigroup $T(t)$ is indeed $\A$. Let $\B$ be the generator of $T(t)$, we show that $\A = \B$.
 
 For any $x \in D(\A)$, we have the identity:
 $$
@@ -1768,8 +1774,8 @@ Dividing by $t$ and taking $t \to 0^+$:
 $$
 \lim_{t \to 0^+} \frac{T(t)x - x}{t} = \lim_{t \to 0^+} \frac{1}{t} \int_0^t T(s) \A x \, ds = T(0)\A x = \A x
 $$
-Thus, $x \in D(\mathscr{B})$ and $\mathscr{B}x = \A x$, implying $\A \subset \mathscr{B}$.
-Since $\mathscr{B}$ is the generator of a $C_0$-semigroup of contractions, $1 \in \rho(\mathscr{B})$. By hypothesis, $1 \in \rho(\A)$. Since $\A \subset \mathscr{B}$ and both $(I-\A)$ and $(I-\mathscr{B})$ are surjective (mapping onto $X$), it follows that $\A = \mathscr{B}$.
+Thus, $x \in D(\B)$ and $\B x = \A x$, implying $\A \subset \B$.
+Since $\B$ is the generator of a $C_0$-semigroup of contractions, $1 \in \rho(\B)$. By hypothesis, $1 \in \rho(\A)$. Since $\A \subset \B$ and both $(I-\A)$ and $(I-\B)$ are surjective (mapping onto $X$), it follows that $\A = \B$.
 \end{proof}
 
 \begin{coro} \label{ya:limit}
@@ -1780,7 +1786,7 @@ $$
 \end{coro}
 
 \begin{proof}
-In the previous proof, we constructed a SG, let us call it $S(t)$, defined by $S(t)x = \lim_{\lambda \to +\infty} e^{t \A_\lambda}x$. We proved that the generator of $S(t)$ is exactly the operator $\A$.
+In the previous proof, we constructed a SG, let us call it $S(t)$, defined by $S(t)x = \lim\limits_{\lambda \to +\infty} e^{t \A_\lambda}x$. We proved that the generator of $S(t)$ is exactly the operator $\A$.
 
 Since $\A$ is the generator of the original semigroup $T(t)$ by hypothesis, and we know that a $C_0$-SG is uniquely determined by its generator (Uniqueness Theorem), it follows that:
 $$
@@ -1814,7 +1820,7 @@ $$
 $$
 This proves the bound $\|R(\lambda)\| \le \dfrac{1}{\Re(\lambda)}$.
 
-It remains to show that this integral operator $R(\lambda)$ is indeed the resolvent $R(\lambda, A) = (\lambda I - A)^{-1}$.
+It remains to show that this integral operator $R(\lambda)$ is indeed the resolvent ${R(\lambda, \A) = (\lambda I - \A)^{-1}}$.
 For any $x \in X$ and $h > 0$:
 \begin{align*}
 	\frac{T(h) - I}{h} R(\lambda)x &= \frac{1}{h} \int_0^{+\infty} e^{-\lambda t} T(t+h)x \, dt - \frac{1}{h} \int_0^{+\infty} e^{-\lambda t} T(t)x \, dt \\
@@ -1844,6 +1850,8 @@ Check the following:
 \end{enumerate}
 \end{exercise}
 
+\pagebreak
+
 \subsection{The General Hille-Yosida Theorem}
 
 We now consider the general case where the semigroup is not necessarily a contraction.
@@ -1851,10 +1859,10 @@ We now consider the general case where the semigroup is not necessarily a contra
 \begin{theo}
 A linear operator $\A$ generates a $C_0$-semigroup $T(t)$ satisfying $\norm{T(t)} \le M e^{\omega t}$ if and only if:
 \begin{enumerate}[label=(\roman*)]
-    \item $A$ is closed and densely defined.
+	\item $\A$ is closed and $\overline{D(\A)} = X$.
     \item $(\omega, +\infty) \subset \rho(\A)$ and for all $\lambda > \omega$ and $n \ge 1$:
     $$
-    \norm{R(\lambda, A)^n} \le \frac{M}{(\lambda - \omega)^n}.
+    \norm{R(\lambda, \A)^n} \le \frac{M}{(\lambda - \omega)^n}.
     $$
 \end{enumerate}
 \end{theo}
@@ -1876,17 +1884,17 @@ A linear operator $\A$ is the IG of a $C_0$-SG satisfying $\norm{T(t)} \le e^{\o
 \end{coro}
 
 \begin{proof}
-\noindent $(\Rightarrow)$:
+\noindent $(\implies)$:
 Suppose $\A$ generates a semigroup $T(t)$ such that $\norm{T(t)} \le e^{\omega t}$. Consider the rescaled family of operators $S(t) = e^{-\omega t} T(t)$. It is easy to verify that $S(t)$ is a $C_0$-SG. Furthermore, it is a contraction:
 $$
 \norm{S(t)} = e^{-\omega t} \norm{T(t)} \le e^{-\omega t} e^{\omega t} = 1
 $$
-Let $\mathscr{B}$ be the generator of $S(t)$. By the definition of the generator:
+Let $\B$ be the generator of $S(t)$. By the definition of the generator:
 $$
-\mathscr{B}x = \lim_{t \to 0^+} \frac{e^{-\omega t} T(t)x - x}{t} = \lim_{t \to 0^+} \left( e^{-\omega t} \frac{T(t)x - x}{t} + \frac{e^{-\omega t} - 1}{t} x \right) = \A x - \omega x
+\B x = \lim_{t \to 0^+} \frac{e^{-\omega t} T(t)x - x}{t} = \lim_{t \to 0^+} \left( e^{-\omega t} \frac{T(t)x - x}{t} + \frac{e^{-\omega t} - 1}{t} x \right) = \A x - \omega x
 $$
-Thus, $\mathscr{B} = \A - \omega I$.
-Since $\mathscr{B}$ generates a contraction semigroup, by the Hille-Yosida Theorem for contractions (Case $M=1, \omega=0$), we know that for any $\mu > 0$, $\mu \in \rho(\mathscr{B})$ and $\norm{R(\mu, \mathscr{B})} \le \dfrac{1}{\mu}$.
+Thus, $\B = \A - \omega I$.
+Since $\B$ generates a contraction semigroup, by the Hille-Yosida Theorem for contractions (Case $M=1, \omega=0$), we know that for any $\mu > 0$, $\mu \in \rho(\B)$ and $\norm{R(\mu, \B)} \le \dfrac{1}{\mu}$.
 
 Let $\lambda = \mu + \omega$. Then $\lambda > \omega$. Since $R(\mu, \mathscr{B}) = (\mu I - \mathscr{B})^{-1} = (\mu I - (\A - \omega I))^{-1} = ((\mu + \omega)I - \A)^{-1}$, we have:
 $$
@@ -1897,16 +1905,16 @@ $$
 	\norm{R(\lambda, \A)} = \norm{R(\lambda - \omega, \mathscr{B})} \le \frac{1}{\lambda - \omega}
 $$
 
-\noindent $(\Leftarrow)$:
-Conversely, suppose $\A$ satisfies conditions (1)-(3). Define $\mathscr{B} = \A - \omega I$.
-Clearly, $\mathscr{B}$ is closed and densely defined.
+\noindent $(\impliedby)$.
+Conversely, suppose $\A$ satisfies conditions (i) and (ii). Define $\B = \A - \omega I$.
+Clearly, $\B$ is closed and densely defined.
 For any $\mu > 0$, let $\lambda = \mu + \omega > \omega$. Then $\lambda \in \rho(\A)$, which implies $\mu \in \rho(\mathscr{B})$.
 The resolvent satisfies:
 $$
-	\norm{R(\mu, \mathscr{B})} = \norm{R(\mu + \omega, \A)} \le \frac{1}{(\mu + \omega) - \omega} = \frac{1}{\mu}
+	\norm{R(\mu, \B)} = \norm{R(\mu + \omega, \A)} \le \frac{1}{(\mu + \omega) - \omega} = \frac{1}{\mu}
 $$
-Thus, $\mathscr{B}$ satisfies the Hille-Yosida conditions for the contraction case ($M=1, \omega=0$). Therefore, $\mathscr{B}$ generates a contraction semigroup $S(t)$ with $\norm{S(t)} \le 1$.
-Defining $T(t) = e^{\omega t} S(t)$, we see that $T(t)$ is a $C_0$-semigroup generated by $\A = \mathscr{B} + \omega I$, and it satisfies:
+Thus, $\B$ satisfies the Hille-Yosida conditions for the contraction case ($M=1, \omega=0$). Therefore, $\B$ generates a contraction semigroup $S(t)$ with $\norm{S(t)} \le 1$.
+Defining $T(t) = e^{\omega t} S(t)$, we see that $T(t)$ is a $C_0$-semigroup generated by $\A = \B + \omega I$, and it satisfies:
 $$
 \norm{T(t)} = e^{\omega t} \norm{S(t)} \le e^{\omega t}
 $$
@@ -1968,11 +1976,14 @@ Thus, $\norm{R(\lambda, \A)^n} \le \dfrac{M}{\lambda^n}$.
 The idea is to construct an equivalent norm on $X$ under which $\A$ becomes dissipative (generating a contraction semigroup), allowing us to apply the contraction case result.
 
 \begin{lemma} \label{re:norm}
-	Let $A: D(A) \subset X \to X$ be a linear operator with $\rho(A) \supset \mathbb{R}_{+}^{*}$ such that for all $\lambda > 0$ and $n \ge 0$, $\|\lambda^n R(\lambda, A)^n\| \le M$.
-Then, there exists a norm $\|\cdot\|_\mu$ on $X$ such that:
+	Let $A: D(\A) \subset X \to X$ be a linear operator with $\rho(\A) \supset \mathbb{R}_{+}^{*}$ such that for all $\lambda > 0$ and $n \ge 0$, $\norm{\lambda^n R(\lambda, \A)^n} \le M$.
+	Then, there exists a norm $\norm{\cdot}_\mu$ on $X$ such that:
 \begin{enumerate}
-    \item The norms are equivalent: $\|x\| \le \|x\|_\mu \le M \|x\|$ for all $x \in X$.
-    \item For all $\lambda > 0$, the operator $\lambda R(\lambda, A)$ is a contraction in the new norm: $\|\lambda R(\lambda, A) x\|_\mu \le \|x\|_\mu$.
+	\item The norms are equivalent: $\norm{x} \le \norm{x}_\mu \le M \norm{x}$ for all $x \in X$.
+\item For all $\lambda > 0$, the operator $\lambda R(\lambda, \A)$ is a contraction in the new norm:
+$$
+\norm{\lambda R(\lambda, \A) x}_\mu \le \norm{x}_\mu
+$$
 \end{enumerate}
 \end{lemma}
 
@@ -2009,7 +2020,7 @@ Applying this to $x$:
 $$
 y = R(\mu, \A)x + (\mu - \lambda) R(\mu, \A)y = R(\mu, \A) [x + (\mu - \lambda)y].
 $$
-Taking the $\norm{\cdot}_\mu$ norm and using the fact that $\norm{\mu R(\mu, A) z}_\mu \le \norm{z}_\mu \implies \norm{R(\mu, A) z}_\mu \le \frac{1}{\mu} \norm{z}_\mu$:
+Taking the $\norm{\cdot}_\mu$ norm and using the fact that $\norm{\mu R(\mu, A) z}_\mu \le \norm{z}_\mu \implies {\norm{R(\mu, A) z}_\mu \le \frac{1}{\mu} \norm{z}_\mu}$:
 \begin{align*}
 	\norm{y}_\mu &= \norm{R(\mu, A) [x + (\mu - \lambda)y]}_\mu \\
 		     &\le \frac{1}{\mu} \norm{x + (\mu - \lambda)y}_\mu \\
@@ -2048,14 +2059,14 @@ In equivalent norm, the following are presarved:
 \end{theo}
 
 \begin{proof}
-$\Rightarrow$ \\
+$\implies$ \\
 Let $\A$ be the generator of a $C_0$-semigroup $T(t)$ with $\norm{T(t)} \le M$. By theorem \ref{sc:dense} part \ref{hym0:closed} is done.
 
 For part \ref{hym0:bound} is direct from lemma \ref{sc:mnbound}
 
 \bigskip
 
-\noindent $\Leftarrow$ \\
+\noindent $\impliedby$ \\
 By using lemma \ref{re:norm} and apply it on the space the assumptions change to the following:
 \begin{enumerate}[label=(\roman*)]
 	\item $\A$ is closed and $\overline{D(\A)} = X$.
@@ -2068,9 +2079,9 @@ Which are just the conditions on Hille-Yosida for contractions and we get the de
 	Let $\A: D(\A) \subset X \to X$ be a linear operator on a Banach space $X$. Then $\A$ is the IG of a $C_0$-SG $T(t)$ satisfying $\norm{T(t)} \le M\cdot e^{\omega t}$ for all $t \ge 0$ if and only if:
 \begin{enumerate}[label=(\roman*)]
 	\item $\A$ is closed and ($\overline{D(\A)} = X$).
-	\item $\rho(\A) \supset (0, \infty)$ and for every $\lambda > 0$:
+	\item $\rho(\A) \supset (\omega, \infty)$ and for every $\lambda > 0$:
     $$
-	    \norm{(\lambda^n R(\lambda, \A))^n} \le M, \quad \forall n \in \mathbb{N}
+    \norm{(R(\lambda, \A))^n} \le \frac{M}{(\lambda - \omega)^n}, \quad \forall n \in \mathbb{N}
     $$
 \end{enumerate}
 \end{theo}
