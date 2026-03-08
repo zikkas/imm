@@ -18,7 +18,7 @@
 
 \begin{document}
 
-\section*{Summatory Function}
+\section{Summatory Function}
 
 \begin{defn}[Summatory Function]
 Let $f$ be an arithmetic function. The summatory function of $f$, denoted $S_f(x)$, is the real function defined as:
@@ -120,8 +120,8 @@ Now we need to calculate the value of the integral $I_1$.
 For $I_2$ for $x \in [1, \infty), \, \text{we have that } \dfrac{\{x\}}{x^2} \le \dfrac{1}{x^2}$, we have:
 \begin{align*}
 	I_2 &= \int_{1}^{N} \frac{\{x\}}{x^2} dx \\
-	    &= \int_{1}^{\infty} \frac{\{x\}}{x^2} dx - \int_{N}^{\infty} \frac{\{x\}}{x^2} dx \\
-	    &\le \int_{1}^{\infty} \frac{1}{x^2} dx - \int_{N}^{\infty} \frac{1}{x^2} dx \\
+	    &\le \int_{1}^{N} \frac{1}{x^2} dx \\
+	    &= \int_{1}^{\infty} \frac{1}{x^2} dx - \int_{N}^{\infty} \frac{1}{x^2} dx \\
 	    &\le 1 + \frac{1}{N}
 \end{align*}
 So $I_2$ is convergant and $I_2 = O(\frac{1}{N})$.
@@ -137,7 +137,7 @@ This constant is called the Euler constant.
 
 \medskip
 
-\section*{Exercises}
+\section{Exercises}
 
 \begin{ex}
 For $x > 1$, evaluate:
