@@ -16,9 +16,11 @@ weight = 20
 - _Lecture 07 (15-Feb-2026)_: Definitions of solutions of PDEs, solutions of Initial Value (IV) homogeneous Cauchy Problem (CP) and their relation with $C_0$-SG if it exists for the strong and weak solutions, the uniqueness of the mild solution.
 - _Lecture 08 (16-Feb-2026)_: Solutions of Initial Value (IV) homogeneous Cauchy Problem (CP) and their relation with $C_0$-SG if it exists for the mild solutions.
 
-_**Note:**_ This is a rolling notes that include the notes up to a certain lecture.
+[Semigroups Notes](/semigroup-theory.pdf) (Up to the 8th Lecture. Last updated: 08-Mar-2026)
 
-[Notes](/PDE.pdf) (Up to the 8th Lecture. Last updated: 08-Mar-2026)
+### Prof Baddredine Benhellal
+
+- _Lecture 01 (10-Mar-2026)_: Motivation for the course, some preilminaries, test functions and molifiers, some properties, convolution of continuous functions and some properties, density of $C_c^{\infty}(\mathbb{R}^d)$ in $L^p(\mathbb{R}^d)$, density of $C_c^{\infty}(\Omega)$ in $L^p(\Omega)$, definition of $D_K(\Omega)$, definitions of Distribution, some remarks, definition of order of distribution, some examples of distribution and their orders(including Dirac Delta $(\delta_x)$).
 
 {{% notice note "Maintainer's Note" %}}
 **This is an individual initiative.**
