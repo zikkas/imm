@@ -8,15 +8,10 @@ weight = 20
 ### Prof Mehdi Belraouti
 
 - _Lecture 01 (04-Feb-2026)_: Quotient topology, some basic properties and topological groups.
-
-- _Lecture 02 (11-Feb-2026)_: Group actions on topological space, Homotopy definition, some properties including contractibility, reparameterization, Fundemantel Group and Concatenation of maps.
-
-- _Lecture 03 (18-Feb-2026)_: Fundemantel groups, simply connected space, Lebesgue lemma and induced homomorphisms.
-
+- _Lecture 02 (11-Feb-2026)_: Group actions on topological space, Homotopy definition, some properties including contractibility, reparameterization, Fundamental Group and Concatenation of maps.
+- _Lecture 03 (18-Feb-2026)_: Fundamental groups, simply connected space, Lebesgue lemma and induced homomorphisms.
 - _Lecture 04 (25-Feb-2026)_: Covering spaces, some properties, local homomorphisms and degree of a covering.
-
 - _Lecture 05 (01-Mar-2026)_: Lifting properties, topological group homomorphisms, existence and uniqueness of lifts.
-
 - _Lecture 06 (04-Mar-2026)_: Path lifting, homotpoy lifts, path lifting theorem and induced map on fundamental groups.
 
 {{% notice note "Maintainer's Note" %}}
