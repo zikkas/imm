@@ -13,6 +13,8 @@ weight = 20
 - _Lecture 04 (25-Feb-2026)_: Covering spaces, some properties, local homomorphisms and degree of a covering.
 - _Lecture 05 (01-Mar-2026)_: Lifting properties, topological group homomorphisms, existence and uniqueness of lifts.
 - _Lecture 06 (04-Mar-2026)_: Path lifting, homotpoy lifts, path lifting theorem and induced map on fundamental groups.
+- _Lecture 07 (10-Mar-2026)_: Action of $\pi_1$ on fibers, Deck Transformation definition and properties.
+- _Lecture 08 (11-Mar-2026)_: Galois Coverings definition and properties, extra examples using Galois coverings.
 
 {{% notice note "Maintainer's Note" %}}
 **This is an individual initiative.**
