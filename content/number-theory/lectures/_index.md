@@ -13,6 +13,7 @@ weight = 20
 - _Lecture 04 (24-Feb-2026)_: Exercises, Dirichlet series of Dirichlet convolution of arithmetic functions, examples.
 - [_Lecture 05 (03-Mar-2026)_](/nt_26-03-03.pdf): Summatory functions, Bernoulli Polynomials and Numbers, properties and formulas of Bernoulli Polynomials and Numbers, Bernoulli Functions, Euler-Maclaurin Summation Formula, Euler's Summation Formula, examples and exercises, analytical extension of Riemann Zeta to the whole complex plane through Euler-Maclaurin summation. Notes last updated at: 08-03-2026
 - [_Lecture 06 (08-Mar-2026)_](/nt_26-03-08.pdf): Dirichlet Hyperbolic method, exercises. Notes last updated at: 08-03-2026
+- _Lecture 07 (09-April-2026)_: Chebychev Functions of the first (Theta $\theta(x)$) and second (Psi $\psi(x)$) kind, definitions and some asymptotic relations, the prime counting function $\pi(x)$ asymptotic relation with Chebychev functions, Legandre's Formula for p-adic evaluation of $n!$, Bertrand's Theorem, Merten's 3 Theorems.
 
   _**Note:**_ Solutions to exercises will be posted later.
 
