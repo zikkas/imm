@@ -1,0 +1,391 @@
+\documentclass[a4paper]{article}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{hyperref}
+\usepackage{geometry}
+\geometry{margin=1in}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+
+\title{Chebyshev Functions}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section{Definitions and Basic Properties}
+
+\begin{definition}[Prime Counting Function]
+  The prime counting function, denoted by $\pi(x)$, counts the number
+  of primes less than or equal to the real number $x$:
+  \[ \pi(x) = \sum_{p \le x} 1 \]
+\end{definition}
+
+\begin{definition}[First Chebyshev Function]
+  The Chebyshev Theta function, or First Chebyshev function, denoted
+  by $\theta(x)$, is defined as:
+  \[ \theta(x) = \sum_{p \le x} \log p \]
+  where the sum is over all primes $p \le x$.
+\end{definition}
+
+\begin{theorem}
+  For any real positive number $x$, one has:
+  \[ \theta(x) \le x \log 4 \]
+  In particular, $\theta(x) = O(x)$ as $x \to \infty$.
+\end{theorem}
+
+\begin{proof}
+  We first prove the inequality for any positive integer $n$ by
+  strong induction.
+  Clearly, $\theta(1) = 0 < \log 4$ and $\theta(2) = \log 2 < 2 \log
+  4$, so the property is satisfied for $n=1$ and $n=2$.
+  Assume the inequality holds for all integers $k < n$. We consider
+  two cases for $n$:
+
+  \textbf{Case 1:} $n$ is even.
+  Let $n = 2m$ for some integer $m \ge 1$. Since $2m$ is not a prime
+  for $m > 1$, we have $\theta(2m) = \theta(2m-1)$. By our induction
+  hypothesis, we get:
+  \[ \theta(2m) = \theta(2m-1) < (2m-1) \log 4 \le 2m \log 4 \]
+
+  \textbf{Case 2:} $n$ is odd.
+  Let $n = 2m+1$ for some integer $m \ge 1$. Consider the binomial
+  coefficient $\binom{2m+1}{m}$. Since $\binom{2m+1}{m} =
+  \binom{2m+1}{m+1}$, we have:
+  \[ 2^{2m+1} = \sum_{k=0}^{2m+1} \binom{2m+1}{k} \]
+  So,
+  \[ 2 \binom{2m+1}{m} \le \sum_{k=0}^{2m+1} \binom{2m+1}{k} =
+  2^{2m+1} \implies \binom{2m+1}{m} \le 2^{2m} = 4^m \]
+  On the other hand, we can write the binomial coefficient as:
+  \[ \binom{2m+1}{m} = \frac{(2m+1)!}{m!(m+1)!} = \frac{(2m+1)(2m)
+  \dots (m+2)}{1 \cdot 2 \dots m} \]
+  Any prime $p$ such that $m+1 < p \le 2m+1$ divides the numerator
+  $(2m+1)!$ but is strictly greater than any factor in the
+  denominator $m!(m+1)!$. Therefore:
+  \[ \prod_{m+1 < p \le 2m+1} p \le \binom{2m+1}{m} \le 4^m \]
+  Taking the logarithm of both sides yields:
+  \[ \theta(2m+1) - \theta(m+1) = \sum_{m+1 < p \le 2m+1} \log p \le m \log 4 \]
+  Hence, using the induction hypothesis for $m+1 < 2m+1$:
+  \[ \theta(2m+1) \le m \log 4 + \theta(m+1) \le m \log 4 + (m+1)
+  \log 4 = (2m+1) \log 4 \]
+  This completes the induction. For any real number $x > 0$, we have
+  $\theta(x) = \theta(\lfloor x \rfloor)$. Thus:
+  \[ \theta(x) = \theta(\lfloor x \rfloor) \le \lfloor x \rfloor \log
+  4 \le x \log 4 \]
+  Combining the fact that $\theta(x) \ge 0$ with $\theta(x) \le x
+  \log 4$, we get $\theta(x) = O(x)$.
+\end{proof}
+
+\begin{definition}[Second Chebyshev Function]
+  The Chebyshev Psi function, denoted by $\psi(x)$, is defined as:
+  \[ \psi(x) = \sum_{n \le x} \Lambda(n) \]
+  where $\Lambda(n)$ is the von Mangoldt function.
+\end{definition}
+
+\begin{remark}
+  We can rewrite $\psi(x)$ as:
+  \[ \psi(x) = \sum_{p^k \le x} \log p = \sum_{p \le x} \left\lfloor
+  \frac{\log x}{\log p} \right\rfloor \log p \]
+\end{remark}
+
+\section{\texorpdfstring{Relations Connecting $\theta(x)$, $\psi(x)$,
+  and $\pi(x)$}{Relations Connecting Chebyshev functions and
+Prime Counting function}}
+
+\begin{theorem}
+  The following relations hold:
+  \[ \pi(x) = \frac{\theta(x)}{\log x} + \int_{2}^{x}
+    \frac{\theta(t)}{t \log^2 t} dt = \frac{\theta(x)}{\log x} +
+  O\left(\frac{x}{\log^2 x}\right) \]
+  and
+  \[ \theta(x) = \pi(x) \log x - \int_{2}^{x} \frac{\pi(t)}{t} dt =
+  \pi(x) \log x + O\left(\frac{x}{\log x}\right) \]
+\end{theorem}
+
+\begin{proof}
+  First, we apply Abel's partial summation formula. Let $a_n = \log
+  n$ if $n$ is prime, and $0$ otherwise. Then $A(x) = \sum_{n \le x}
+  a_n = \theta(x)$. Let $f(t) = \frac{1}{\log t}$. Then:
+  \[ \pi(x) = \sum_{p \le x} 1 = \sum_{n \le x} a_n f(n) = A(x)f(x) -
+  \int_{2}^{x} A(t)f'(t)dt \]
+  \[ \pi(x) = \frac{\theta(x)}{\log x} - \int_{2}^{x} \theta(t)
+    \left( -\frac{1}{t \log^2 t} \right) dt = \frac{\theta(x)}{\log x}
+  + \int_{2}^{x} \frac{\theta(t)}{t \log^2 t} dt \]
+  Since $\theta(x) = O(x)$, the integral is bounded by $\int_{2}^{x}
+  \frac{O(t)}{t \log^2 t} dt = O\left(\frac{x}{\log^2 x}\right)$. The
+  formula for $\theta(x)$ is obtained similarly by setting $a_n = 1$
+  if $n$ is prime and $0$ otherwise, giving $A(x) = \pi(x)$, and
+  taking $f(t) = \log t$.
+\end{proof}
+
+\begin{corollary}
+  The asymptotic relation $\pi(x) \sim \frac{x}{\log x}$ as $x \to
+  \infty$ is equivalent to $\theta(x) \sim x$ as $x \to \infty$.
+\end{corollary}
+
+\begin{theorem}
+  The following relations hold:
+  \[ \psi(x) = \sum_{k \ge 1} \theta(x^{\frac{1}{k}}) = \theta(x) +
+  O(\sqrt{x} \log x) \]
+  \[ \theta(x) = \sum_{k \ge 1} \mu(k) \psi(x^{\frac{1}{k}}) \]
+\end{theorem}
+
+\begin{proof}
+  By definition,
+  \[ \psi(x) = \sum_{p^k \le x} \log p = \sum_{k \ge 1} \sum_{p \le
+  x^{\frac{1}{k}}} \log p = \sum_{k \ge 1} \theta(x^{\frac{1}{k}}) \]
+  This sum is finite. Since $x^{\frac{1}{k}} < 2$ and
+  $\theta(x^{\frac{1}{k}}) = 0$ when $k > \frac{\log x}{\log 2}$, we have:
+  \[ \psi(x) = \sum_{k=1}^{\lfloor \frac{\log x}{\log 2} \rfloor}
+    \theta(x^{\frac{1}{k}}) = \theta(x) + \sum_{k=2}^{\lfloor
+  \frac{\log x}{\log 2} \rfloor} \theta(x^{\frac{1}{k}}) \]
+  For $k \ge 2$, $\theta(x^{\frac{1}{k}}) = O(x^{\frac{1}{k}})$. The
+  number of terms in the last sum is bounded by $\lfloor \frac{\log
+  x}{\log 2} \rfloor = O(\log x)$. Furthermore, $x^{\frac{1}{k}}$ is
+  strictly decreasing with respect to $k$, so the largest term occurs
+  when $k=2$. Thus:
+  \[ \psi(x) - \theta(x) \le \left\lfloor \frac{\log x}{\log 2}
+  \right\rfloor \theta(\sqrt{x}) = O(\sqrt{x} \log x) \]
+
+  For the second relation, we apply Möbius inversion. We have:
+  \[ \psi(x^{\frac{1}{k}}) = \sum_{m \ge 1}
+    \theta\left((x^{\frac{1}{k}})^{\frac{1}{m}}\right) = \sum_{m \ge 1}
+  \theta(x^{\frac{1}{km}}) \]
+  Hence,
+  \[ \sum_{k \ge 1} \mu(k) \psi(x^{\frac{1}{k}}) = \sum_{k \ge 1}
+  \mu(k) \sum_{m \ge 1} \theta(x^{\frac{1}{km}}) \]
+  Let $n = km$. By rearranging the summation, we get:
+  \[ \sum_{n \ge 1} \theta(x^{\frac{1}{n}}) \sum_{k | n} \mu(k) \]
+  Since $\sum_{k | n} \mu(k)$ is $1$ if $n=1$ and $0$ otherwise, the
+  sum collapses entirely to $\theta(x)$.
+\end{proof}
+
+\begin{corollary}
+  The asymptotic relation $\theta(x) \sim x$ as $x \to \infty$ is
+  equivalent to $\psi(x) \sim x$ as $x \to \infty$.
+\end{corollary}
+
+\section{Legendre's Formula and Bertrand's Postulate}
+
+\begin{definition}
+  Let $n$ be a positive integer and $p$ a prime number. We denote the
+  $p$-adic valuation of $n$ by $v_p(n) = j$, where $j \in \mathbb{N}$
+  if $p^j \mid n$ and $p^{j+1} \nmid n$. Hence, $\forall n \in
+  \mathbb{N}$, $n = \prod_{p} p^{v_p(n)}$.
+\end{definition}
+
+\begin{theorem}[Legendre's Formula]
+  Let $n$ be a positive integer and let $p$ be a prime number. Then:
+  \[ v_p(n!) = \sum_{k \ge 1} \left\lfloor \frac{n}{p^k} \right\rfloor \]
+\end{theorem}
+
+\begin{proof}
+  Note that this sum is finite since if $p^k > n$ (i.e., $k >
+  \frac{\log n}{\log p}$), then $\lfloor \frac{n}{p^k} \rfloor = 0$.
+  By definition:
+  \[ v_p(n!) = v_p\left(\prod_{m=1}^{n} m\right) = \sum_{m=1}^{n} v_p(m) \]
+  To calculate $\sum v_p(m)$ for $m=1, \dots, n$, we can count the
+  number of multiples of $p, p^2, \dots$ up to $n$. For any positive
+  integer $k$, the sequence $1, 2, \dots, n$ contains exactly
+  $\lfloor \frac{n}{p^k} \rfloor$ multiples of $p^k$. The multiples
+  are $p^k, 2p^k, \dots, \lfloor \frac{n}{p^k} \rfloor p^k$.
+
+  Consider a specific integer $m$ in the range $1 \dots n$. Suppose
+  that the exact highest power of $p$ dividing $m$ is $p^j$ for some
+  $j \ge 0$, meaning $v_p(m) = j$. We must verify that this integer
+  $m$ contributes exactly $j$ to the sum $\sum_{k \ge 1} \lfloor
+  \frac{n}{p^k} \rfloor$.
+  Because $m$ is a multiple of $p$, it is counted once in $\lfloor
+  \frac{n}{p} \rfloor$. It is a multiple of $p^2$, so it is counted
+  once in $\lfloor \frac{n}{p^2} \rfloor$, and so on, up to being
+  counted once in $\lfloor \frac{n}{p^j} \rfloor$. However, because
+  $m$ is not a multiple of $p^{j+1}$ or any higher power, it is not
+  counted for any $k > j$. Thus, summing over all integers $m$ from
+  $1$ to $n$, we obtain exactly the proposed formula.
+\end{proof}
+
+\begin{theorem}[Bertrand's Postulate]
+  For every positive integer $n \ge 1$, there is at least one prime
+  $p$ such that $n < p \le 2n$.
+\end{theorem}
+
+\begin{proof}
+  (Due to Erd\H{o}s). Assume for contradiction that for some integer
+  $n \ge 1$, there is no prime $p$ such that $n < p \le 2n$. We
+  consider the central binomial coefficient $\binom{2n}{n} =
+  \frac{(2n)!}{(n!)^2}$.
+  By Legendre's formula, the prime factorization of $\binom{2n}{n}$
+  is $\prod_{p \le 2n} p^{R(p,n)}$, where:
+  \[ R(p, n) = v_p((2n)!) - 2v_p(n!) = \sum_{k \ge 1} \left(
+      \left\lfloor \frac{2n}{p^k} \right\rfloor - 2\left\lfloor
+  \frac{n}{p^k} \right\rfloor \right) \]
+  Notice that each term in the sum is either $0$ or $1$. Moreover,
+  the sum vanishes for $k > \lfloor \log_p(2n) \rfloor$. Thus, $R(p,
+  n) \le \lfloor \log_p(2n) \rfloor$, which implies $p^{R(p,n)} \le 2n$.
+
+  We can bound the prime contributions as follows:
+  \begin{itemize}
+    \item For $p > \sqrt{2n}$, we have $\lfloor \log_p(2n) \rfloor =
+      1$, so $R(p,n) \le 1$.
+    \item If $\frac{2n}{3} < p \le n$, then $2p \le 2n < 3p$, meaning
+      $\lfloor \frac{2n}{p} \rfloor = 2$ and $\lfloor \frac{n}{p}
+      \rfloor = 1$. Thus $R(p,n) = 2 - 2(1) = 0$.
+    \item By our assumption, there are no primes $n < p \le 2n$.
+  \end{itemize}
+  Consequently, $\binom{2n}{n}$ has no prime factors greater than
+  $\frac{2n}{3}$. Its prime factorization separates into primes $p
+  \le \sqrt{2n}$ and primes $\sqrt{2n} < p \le \frac{2n}{3}$.
+  Using the bound $p^{R(p,n)} \le 2n$ for the former, and $R(p,n) \le
+  1$ for the latter, we obtain:
+  \[ \binom{2n}{n} \le \prod_{p \le \sqrt{2n}} 2n \prod_{\sqrt{2n} <
+  p \le \frac{2n}{3}} p \]
+  Since there are at most $\sqrt{2n}$ primes up to $\sqrt{2n}$, the
+  first product is bounded by $(2n)^{\sqrt{2n}}$.
+  For the second product, recall that $\theta(x) = \sum_{p \le x}
+  \log p \le x \log 4$, which means $\prod_{p \le x} p \le 4^x$.
+  Thus, the second product is bounded by $4^{2n/3}$.
+  Combining these, we have:
+  \[ \binom{2n}{n} \le (2n)^{\sqrt{2n}} 4^{2n/3} \]
+  On the other hand, $4^n = (1+1)^{2n} = \sum_{k=0}^{2n}
+  \binom{2n}{k}$. The largest term in this sum of $2n+1$ elements is
+  $\binom{2n}{n}$, so:
+  \[ \frac{4^n}{2n+1} \le \binom{2n}{n} \]
+  Putting the inequalities together yields:
+  \[ \frac{4^n}{2n+1} \le (2n)^{\sqrt{2n}} 4^{2n/3} \implies 4^{n/3}
+  \le (2n+1)(2n)^{\sqrt{2n}} \le (2n)^{\sqrt{2n}+1} \]
+  Taking the logarithm, we get $\frac{n}{3} \log 4 \le (\sqrt{2n}+1)
+  \log(2n)$. This inequality fails for sufficiently large $n$
+  (specifically, for $n \ge 4000$). For $n < 4000$, we can explicitly
+  find a sequence of primes where each is less than twice the
+  previous: $2, 3, 5, 7, 13, 23, 43, 83, 163, 317, 631, 1259, 2503,
+  4001$. This sequence guarantees a prime in $(n, 2n]$ for all $n <
+  4000$. Thus, Bertrand's postulate holds for all $n \ge 1$.
+\end{proof}
+
+\section{Mertens' Theorems}
+
+\begin{theorem}[Mertens' First Theorem]
+  For any real number $x \ge 2$, we have:
+  \[ \sum_{\substack{p \le x \\ p \; prime}} \frac{\log p}{p} = \log x + O(1) \]
+\end{theorem}
+
+\textit{Note:} all mentions of $p$ in the upcoming proof is for
+\textbf{\textit{prime numbers}}.
+
+\begin{proof}
+  By Legendre's formula, $v_p(n!) = \sum_{k \ge 1} \lfloor
+  \frac{n}{p^k} \rfloor$. Taking the logarithm of $n!$:
+  \[ \log(n!) = \log\left(\prod_{p \le n} p^{v_p(n!)}\right) =
+  \sum_{p \le n} v_p(n!) \log p \]
+  \[ = \sum_{p \le n} \log p \sum_{k \ge 1} \left\lfloor
+    \frac{n}{p^k} \right\rfloor = \sum_{p \le n} \log p \left\lfloor
+    \frac{n}{p} \right\rfloor + \sum_{p \le n} \sum_{k \ge 2}
+  \left\lfloor \frac{n}{p^k} \right\rfloor \log p \]
+  We bound the second sum. Since $\lfloor y \rfloor \le y$, we have:
+  \[ \sum_{p \le n} \sum_{k \ge 2} \left\lfloor \frac{n}{p^k}
+    \right\rfloor \log p \le n \sum_{p \le n} \log p \sum_{k \ge 2}
+  \frac{1}{p^k} = n \sum_{p \le n} \frac{\log p}{p(p-1)} \]
+  Since the series $\sum_{m=2}^{\infty} \frac{\log m}{m(m-1)}$ is
+  absolutely convergent, the entire series is bounded by $O(n)$. Thus:
+  \[ \log(n!) = \sum_{p \le n} \left\lfloor \frac{n}{p} \right\rfloor
+    \log p + O(n) = \sum_{p \le n} \left( \frac{n}{p} + O(1) \right)
+  \log p + O(n) \]
+  \[ = n \sum_{p \le n} \frac{\log p}{p} + O\left(\sum_{p \le n} \log
+  p\right) + O(n) = n \sum_{p \le n} \frac{\log p}{p} + O(\theta(n)) + O(n) \]
+  Since $\theta(n) = O(n)$, this becomes:
+  \[ \log(n!) = n \sum_{p \le n} \frac{\log p}{p} + O(n) \]
+  On the other hand, by Stirling's formula, $\log(n!) = n \log n - n
+  + O(\log n) = n \log n + O(n)$. Hence:
+  \[ n \sum_{p \le n} \frac{\log p}{p} + O(n) = n \log n + O(n) \]
+  Dividing by $n$, we conclude:
+  \[ \sum_{p \le n} \frac{\log p}{p} = \log n + O(1) \]
+\end{proof}
+
+\begin{theorem}[Mertens' Second Theorem]
+  There exists a constant $M$ (known as the Meissel-Mertens
+  constant) such that:
+  \[ \sum_{p \le x} \frac{1}{p} = \log \log x + M +
+  O\left(\frac{1}{\log x}\right) \]
+\end{theorem}
+
+\textit{Note:} all mentions of $p$ in the upcoming proof is for
+\textbf{\textit{prime numbers}}.
+
+\begin{proof}
+  Let $A(x) = \sum_{p \le x} \frac{\log p}{p}$. From Mertens' First
+  Theorem, we know that $A(x) = \log x + R(x)$ where $R(x) = O(1)$.
+  Using partial summation with $a_n = \frac{\log n}{n}$ if $n$ is
+  prime and $0$ otherwise, and $f(t) = \frac{1}{\log t}$, we get:
+  \[ \sum_{p \le x} \frac{1}{p} = \frac{A(x)}{\log x} + \int_{2}^{x}
+  \frac{A(t)}{t \log^2 t} dt \]
+  \[ = \frac{\log x + R(x)}{\log x} + \int_{2}^{x} \frac{\log t +
+  R(t)}{t \log^2 t} dt \]
+  \[ = 1 + O\left(\frac{1}{\log x}\right) + \int_{2}^{x} \frac{1}{t
+  \log t} dt + \int_{2}^{x} \frac{R(t)}{t \log^2 t} dt \]
+  Evaluating the first integral:
+  \[ \int_{2}^{x} \frac{1}{t \log t} dt = \log \log x - \log \log 2 \]
+  For the second integral, let $C_0 = \int_{2}^{\infty} \frac{R(t)}{t
+  \log^2 t} dt$, which converges since $R(t) = O(1)$. We can write:
+  \[ \int_{2}^{x} \frac{R(t)}{t \log^2 t} dt = C_0 -
+    \int_{x}^{\infty} \frac{R(t)}{t \log^2 t} dt = C_0 -
+    O\left(\int_{x}^{\infty} \frac{1}{t \log^2 t} dt\right) = C_0 -
+  O\left(\frac{1}{\log x}\right) \]
+  Finally, combining these terms gives:
+  \[ \sum_{p \le x} \frac{1}{p} = \log \log x + \left(1 - \log \log 2
+  + C_0\right) + O\left(\frac{1}{\log x}\right) \]
+  Setting $M = 1 - \log \log 2 + C_0$ completes the proof.
+\end{proof}
+
+\begin{theorem}[Mertens' Third Theorem]
+  As $x \to \infty$,
+  \[ \prod_{p \le x} \left(1 - \frac{1}{p}\right) =
+    \frac{e^{-\gamma}}{\log x} \left(1 + O\left(\frac{1}{\log
+  x}\right)\right) \]
+\end{theorem}
+
+\textit{Note:} all mentions of $p$ in the upcoming proof is for
+\textbf{\textit{prime numbers}}.
+
+\begin{proof}
+  Taking the negative natural logarithm of the product gives:
+  \[ -\sum_{p \le x} \log\left(1 - \frac{1}{p}\right) = \sum_{p \le
+    x} \sum_{k=1}^{\infty} \frac{1}{k p^k} = \sum_{p \le x} \frac{1}{p}
+  + \sum_{p \le x} \sum_{k=2}^{\infty} \frac{1}{k p^k} \]
+  Let $C_1 = \sum_{p} \sum_{k=2}^{\infty} \frac{1}{k p^k}$. This
+  series converges absolutely. The tail of the series can be bounded as:
+  \[ \sum_{p > x} \sum_{k=2}^{\infty} \frac{1}{k p^k} \le \sum_{p >
+  x} \frac{1}{p(p-1)} = O\left(\frac{1}{x}\right) \]
+  Thus, the sum becomes:
+  \[ \sum_{p \le x} \frac{1}{p} + C_1 - O\left(\frac{1}{x}\right) \]
+  Applying Mertens' Second Theorem yields:
+  \[ -\sum_{p \le x} \log\left(1 - \frac{1}{p}\right) = \log \log x +
+  M + C_1 + O\left(\frac{1}{\log x}\right) \]
+  Exponentiating both sides and multiplying by $-1$, we obtain:
+  \[ \prod_{p \le x} \left(1 - \frac{1}{p}\right) = \exp\left(-\log
+  \log x - (M + C_1) + O\left(\frac{1}{\log x}\right)\right) \]
+  \[ = \frac{e^{-(M + C_1)}}{\log x} \exp\left(O\left(\frac{1}{\log
+    x}\right)\right) = \frac{e^{-(M + C_1)}}{\log x} \left(1 +
+  O\left(\frac{1}{\log x}\right)\right) \]
+  A well-known consequence of the analytic properties of the Riemann
+  zeta function links these constants, specifically establishing that
+  $M + C_1 = \gamma$, where $\gamma$ is the Euler-Mascheroni
+  constant. Therefore, the constant term $e^{-(M + C_1)}$ simplifies
+  to $e^{-\gamma}$, completing the proof.
+\end{proof}
+
+\begin{corollary}
+  $M = \lim_{x \to \infty} \left( \sum_{p \le x} \frac{1}{p} - \log
+  \log x \right)$
+\end{corollary}
+
+\begin{remark}
+  $M = \gamma + \sum_{k=2}^{\infty} \frac{\mu(k)}{k} \log \zeta(k)$
+\end{remark}
+
+\end{document}

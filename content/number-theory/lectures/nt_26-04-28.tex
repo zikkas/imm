@@ -1,0 +1,336 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{hyperref}
+\usepackage{geometry}
+\geometry{margin=1in}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+
+\title{Gamma and Zeta Functions}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\textit{Note:} $p$ is used execlusively used for
+\textit{\textbf{prime numbers}}.
+
+\begin{theorem}
+  As $x \to \infty$, we have:
+  \[ \sum_{n \le x} \omega(n) = x \log \log x + C_1 x +
+  O\left(\frac{x}{\log x}\right) \]
+  and
+  \[ \sum_{n \le x} \Omega(n) = x \log \log x + C_2 x +
+  O\left(\frac{x}{\log x}\right) \]
+  where $C_1 = \lim_{x \to \infty} \left( \sum_{p \le x} \frac{1}{p}
+  - \log \log x \right)$ is the Meissel-Mertens constant, and $C_2 =
+  C_1 + \sum_{p} \frac{1}{p(p-1)}$.
+\end{theorem}
+
+\begin{proof}
+  First, since $\omega(n) = \sum_{p|n} 1$, we can interchange the sums:
+  \[ \sum_{n \le x} \omega(n) = \sum_{n \le x} \sum_{p|n} 1 = \sum_{p
+  \le x} \left\lfloor \frac{x}{p} \right\rfloor \]
+  Using the fact that $\lfloor y \rfloor = y + O(1)$, we get:
+  \[ \sum_{p \le x} \left\lfloor \frac{x}{p} \right\rfloor = x
+    \sum_{p \le x} \frac{1}{p} + O\left(\sum_{p \le x} 1\right) = x
+  \sum_{p \le x} \frac{1}{p} + O(\pi(x)) \]
+  Using the prime number theorem bound $\pi(x) = O\left(\frac{x}{\log
+  x}\right)$ and Mertens' Second Theorem $\sum_{p \le x} \frac{1}{p}
+  = \log \log x + C_1 + O\left(\frac{1}{\log x}\right)$, we obtain:
+  \[ \sum_{n \le x} \omega(n) = x \left( \log \log x + C_1 +
+  O\left(\frac{1}{\log x}\right) \right) + O\left(\frac{x}{\log x}\right) \]
+  \[ \sum_{n \le x} \omega(n) = x \log \log x + C_1 x +
+  O\left(\frac{x}{\log x}\right) \]
+
+  On the other hand, since $\Omega(n) = \sum_{p^k | n} 1$, we have:
+  \[ \sum_{n \le x} \Omega(n) = \sum_{p^k \le x} \left\lfloor
+    \frac{x}{p^k} \right\rfloor = x \sum_{p^k \le x} \frac{1}{p^k} +
+  O\left(\sum_{p^k \le x} 1\right) \]
+  Now, we split the sum over prime powers:
+  \[ \sum_{p^k \le x} \frac{1}{p^k} = \sum_{p \le x} \frac{1}{p} +
+  \sum_{p \le x} \sum_{k \ge 2}^{\lfloor \log_p x \rfloor} \frac{1}{p^k} \]
+  We can extend the inner sum to infinity, absorbing the tail into
+  the error term. Using Mertens' Second Theorem again:
+  \[ \sum_{p^k \le x} \frac{1}{p^k} = \log \log x + C_1 +
+    O\left(\frac{1}{\log x}\right) + \sum_{p} \frac{1}{p(p-1)} +
+  O\left(\frac{1}{x}\right) \]
+  \[ = \log \log x + C_1 + \sum_{p} \frac{1}{p(p-1)} +
+  O\left(\frac{1}{\log x}\right) \]
+  Hence, defining $C_2 = C_1 + \sum_{p} \frac{1}{p(p-1)}$, we conclude:
+  \[ \sum_{n \le x} \Omega(n) = x \log \log x + C_2 x +
+  O\left(\frac{x}{\log x}\right) \]
+\end{proof}
+
+\section{The Gamma Function}
+
+\begin{definition}
+  For a complex number $z$ such that $\Re(z) > 0$, we consider the
+  improper integral:
+  \[ \Gamma(z) = \int_{0}^{+\infty} t^{z-1} e^{-t} dt \]
+\end{definition}
+
+\begin{theorem}
+  $\Gamma(z)$ is absolutely convergent in the half-open plane $\Re(z)
+  > 0$. Furthermore, $\Gamma(z)$ is analytic on $\Re(z) > 0$.
+\end{theorem}
+
+\begin{theorem}[Functional Equation]
+  For all $z \in \mathbb{C}$ such that $\Re(z) > 0$, the Gamma
+  function satisfies:
+  \[ \Gamma(z+1) = z \Gamma(z) \]
+\end{theorem}
+
+\begin{proof}
+  We proceed via integration by parts for $\Re(z) > 0$:
+  \[ \Gamma(z+1) = \int_{0}^{+\infty} t^z e^{-t} dt = \left[ -t^z
+    e^{-t} \right]_{0}^{+\infty} + z \int_{0}^{+\infty} t^{z-1} e^{-t}
+  dt = 0 + z \Gamma(z) \]
+\end{proof}
+
+\begin{corollary}
+  For any positive integer $n$, $\Gamma(n) = (n-1)!$.
+\end{corollary}
+
+\begin{proof}
+  The proof is by induction.
+
+  Base case: $\Gamma(1) =
+  \int_{0}^{\infty} e^{-t} dt = 1 = 0!$.
+
+  Assume for $k \in \mathbb{N}^*$ that $\Gamma(k) = (k-1)!$. Then:
+  \[ \Gamma(k+1) = k \Gamma(k) = k(k-1)! = k! \]
+\end{proof}
+
+\begin{theorem}[Analytic Continuation of $\Gamma(z)$]
+  The Gamma function can be analytically continued to a meromorphic
+  function on $\mathbb{C}$. Furthermore, for every non-negative
+  integer $n$, $z = -n$ is a simple pole and:
+  \[ \text{Res}(\Gamma, -n) = \frac{(-1)^n}{n!} \]
+\end{theorem}
+
+\begin{proof}
+  For $\Re(z) > 0$, we have $\Gamma(z) = \frac{\Gamma(z+1)}{z}$. The
+  right side of this identity is well-defined for $\Re(z) > -1$
+  except at $z = 0$. This extends the domain of $\Gamma(z)$ to the
+  region $\Re(z) > -1$. By iterating the functional relation, we can
+  extend $\Gamma(z)$ to $\mathbb{C} \setminus \{ -n \mid n \in \mathbb{N} \}$.
+  To find the residue at $z = -n$:
+  \[ \text{Res}(\Gamma, -n) = \lim_{z \to -n} (z+n) \Gamma(z) =
+  \lim_{z \to -n} \frac{(z+n)\Gamma(z+n+1)}{z(z+1)(z+2)\dots(z+n)} \]
+  \[ = \frac{\Gamma(-n+n+1)}{(-n)(-n-1)\dots(-1)} =
+  \frac{\Gamma(1)}{(-1)^n n!} = \frac{(-1)^n}{n!} \]
+\end{proof}
+
+\begin{lemma}
+  For any real number $0 < a < 1$, we have:
+  \[ \int_{-\infty}^{+\infty} \frac{e^{ax}}{1+e^x} dx =
+  \frac{\pi}{\sin(\pi a)} \]
+\end{lemma}
+
+\begin{proof}
+  Let $f(z) = \frac{e^{az}}{1+e^z}$. We integrate $f(z)$ over a
+  rectangular contour $C_R$ with vertices at $-R, R, R+2\pi i,$ and
+  $-R+2\pi i$. Inside this contour, $f(z)$ has a simple pole at $z =
+  \pi i$ with residue $-e^{a\pi i}$. As $R \to \infty$, the integrals
+  along the vertical segments vanish, yielding the standard
+  evaluation via the Residue Theorem.
+\end{proof}
+
+\begin{theorem}[Euler's Reflection Formula]
+  For any $z \in \mathbb{C} \setminus \mathbb{Z}$, the Gamma function satisfies:
+  \[ \Gamma(z)\Gamma(1-z) = \frac{\pi}{\sin(\pi z)} \]
+\end{theorem}
+
+\begin{proof}
+  We will show the identity for $0 < \Re(z) < 1$; then by analytic
+  continuation, we extend the identity to $\mathbb{C} \setminus
+  \mathbb{Z}$. Since $0 < \Re(z) < 1$, both integrals converge:
+  \[ \Gamma(z)\Gamma(1-z) = \left( \int_{0}^{\infty} t^{z-1} e^{-t}
+  dt \right) \left( \int_{0}^{\infty} s^{-z} e^{-s} ds \right) \]
+  \[ = \int_{0}^{\infty} \int_{0}^{\infty} t^{z-1} s^{-z} e^{-(t+s)} dt ds \]
+  Let $t = us$, so $dt = s du$. The double integral becomes:
+  \[ = \int_{0}^{\infty} \int_{0}^{\infty} (us)^{z-1} s^{-z}
+    e^{-(us+s)} s \, du ds = \int_{0}^{\infty} \int_{0}^{\infty}
+  u^{z-1} e^{-s(u+1)} du ds \]
+  By Fubini's Theorem, integrating with respect to $s$ first:
+  \[ \int_{0}^{\infty} u^{z-1} \left( \int_{0}^{\infty} e^{-s(u+1)}
+  ds \right) du = \int_{0}^{\infty} \frac{u^{z-1}}{u+1} du \]
+  Using the substitution $u = e^x$, $du = e^x dx$:
+  \[ \Gamma(z)\Gamma(1-z) = \int_{-\infty}^{\infty}
+    \frac{e^{x(z-1)}}{1+e^x} e^x dx = \int_{-\infty}^{\infty}
+  \frac{e^{zx}}{1+e^x} dx = \frac{\pi}{\sin(\pi z)} \]
+\end{proof}
+
+\begin{corollary}
+  For all $z \in \mathbb{C} \setminus \{0, -1, -2, \dots\}$, $\Gamma(z) \neq 0$.
+\end{corollary}
+
+\begin{theorem}[Euler Limit for $\Gamma(z)$]
+  For $\Re(z) > 0$:
+  \[ \Gamma(z) = \lim_{n \to \infty} \frac{n! \, n^z}{z(z+1)\dots(z+n)} \]
+\end{theorem}
+
+\begin{proof}
+  Using the Beta function representation:
+  \[ B(z, n+1) = \int_{0}^{1} t^{z-1}(1-t)^n dt =
+    \frac{\Gamma(z)\Gamma(n+1)}{\Gamma(z+n+1)} = \frac{n! \,
+  \Gamma(z)}{(z+n)(z+n-1)\dots z \Gamma(z)} \]
+  Thus,
+  \[ \frac{n! \, n^z}{z(z+1)\dots(z+n)} = n^z \int_{0}^{1} t^{z-1}(1-t)^n dt \]
+  Making the change of variable $t = \frac{u}{n}$ (so $dt =
+  \frac{du}{n}$), we obtain:
+  \[ n^z \int_{0}^{n} \left(\frac{u}{n}\right)^{z-1}
+    \left(1-\frac{u}{n}\right)^n \frac{du}{n} = \int_{0}^{n} u^{z-1}
+  \left(1-\frac{u}{n}\right)^n du \]
+  Taking the limit as $n \to \infty$, since $(1-\frac{u}{n})^n \to
+  e^{-u}$ and the integral is dominated by an absolutely convergent
+  integrable function (by DCT):
+  \[ \lim_{n \to \infty} \frac{n! \, n^z}{z(z+1)\dots(z+n)} =
+  \int_{0}^{\infty} u^{z-1} e^{-u} du = \Gamma(z) \]
+\end{proof}
+
+\begin{theorem}[Weierstrass Product]
+  We have:
+  \[ \frac{1}{\Gamma(z)} = z e^{\gamma z} \prod_{n=1}^{\infty}
+  \left(1+\frac{z}{n}\right) e^{-z/n} \]
+\end{theorem}
+
+\begin{proof}
+  Using the Euler limit:
+  \[ \frac{1}{z\Gamma(z)} = \lim_{N \to \infty}
+    \frac{(z+1)\dots(z+N)}{N! \, N^z} = \lim_{N \to \infty}
+  \prod_{n=1}^{N} \left(1+\frac{z}{n}\right) e^{-z \log N} \]
+  Inserting $e^{z/n} e^{-z/n} = 1$:
+  \[ = \lim_{N \to \infty} \prod_{n=1}^{N} \left(1+\frac{z}{n}\right)
+  e^{-z/n} \exp\left(z \sum_{n=1}^{N} \frac{1}{n} - z \log N\right) \]
+  Since $\sum_{n=1}^{N} \frac{1}{n} - \log N \to \gamma$ as $N \to
+  \infty$, the result follows directly:
+  \[ \frac{1}{z\Gamma(z)} = e^{\gamma z} \prod_{n=1}^{\infty}
+  \left(1+\frac{z}{n}\right) e^{-z/n} \]
+\end{proof}
+
+\section{The Riemann Zeta Function}
+
+\begin{definition}
+  For $\Re(s) > 1$, the Riemann Zeta function is defined as:
+  \[ \zeta(s) = \sum_{n=1}^{\infty} \frac{1}{n^s} \]
+\end{definition}
+
+\begin{theorem}[Analytic Continuation of $\zeta(s)$]
+  The Riemann Zeta function can be analytically continued to the
+  half-plane $\Re(s) > 0$ except for a simple pole at $s = 1$ with residue $1$.
+\end{theorem}
+
+\begin{proof}
+  Let $\Re(s) > 1$. Applying the first-order Euler-Maclaurin
+  summation formula to the continuously differentiable function $f(x) = x^{-s}$:
+  \[ \sum_{n=1}^{N} \frac{1}{n^s} = \int_{1}^{N} \frac{dx}{x^s} +
+  \frac{1 + N^{-s}}{2} - s \int_{1}^{N} \frac{\tilde{B}_1(x)}{x^{s+1}} dx \]
+  where $\tilde{B}_1(x) = x - \lfloor x \rfloor - \frac{1}{2}$.
+  Evaluating the first integral:
+  \[ = \frac{N^{1-s}-1}{1-s} + \frac{1 + N^{-s}}{2} - s \int_{1}^{N}
+  \frac{\tilde{B}_1(x)}{x^{s+1}} dx \]
+  Taking the limit as $N \to \infty$. Since $\Re(s) > 1$, $N^{1-s}
+  \to 0$ and $N^{-s} \to 0$. Thus:
+  \[ \zeta(s) = \frac{1}{s-1} + \frac{1}{2} - s \int_{1}^{\infty}
+  \frac{\tilde{B}_1(x)}{x^{s+1}} dx \]
+  Since $\tilde{B}_1(x)$ is uniformly bounded, the integral converges
+  absolutely for $\Re(s) > 0$ and uniformly on any compact subset.
+  Therefore, it defines an analytic function for $\Re(s) > 0$. The
+  rational term $\frac{1}{s-1}$ isolates a simple pole at $s=1$ with residue 1.
+\end{proof}
+
+\begin{corollary}
+  For $0 < \Re(s) < 1$, we have:
+  \[ \zeta(s) = -s \int_{0}^{\infty} \frac{x - \lfloor x \rfloor}{x^{s+1}} dx \]
+\end{corollary}
+
+\begin{proof}
+  From the previous theorem, for $0 < \Re(s) < 1$:
+  \[ \zeta(s) = \frac{1}{s-1} + \frac{1}{2} - s \int_{1}^{\infty}
+  \frac{x - \lfloor x \rfloor - 1/2}{x^{s+1}} dx \]
+  We split the integral:
+  \[ \zeta(s) = \frac{1}{s-1} + \frac{1}{2} - s \int_{1}^{\infty}
+    \frac{x - \lfloor x \rfloor}{x^{s+1}} dx + \frac{s}{2}
+  \int_{1}^{\infty} \frac{dx}{x^{s+1}} \]
+  Since $\frac{s}{2} \int_1^\infty x^{-s-1} dx = \frac{1}{2}$, and
+  $\frac{1}{s-1} + 1 = \frac{s}{s-1}$, we have:
+  \[ \zeta(s) = \frac{s}{s-1} - s \int_{1}^{\infty} \frac{x - \lfloor
+  x \rfloor}{x^{s+1}} dx \]
+  Notice that $-s \int_0^1 x^{-s} dx = \frac{-s}{1-s} =
+  \frac{s}{s-1}$. On the interval $(0,1)$, $\lfloor x \rfloor = 0$, giving:
+  \[ \zeta(s) = -s \int_{0}^{1} \frac{x - \lfloor x \rfloor}{x^{s+1}}
+    dx - s \int_{1}^{\infty} \frac{x - \lfloor x \rfloor}{x^{s+1}} dx =
+  -s \int_{0}^{\infty} \frac{x - \lfloor x \rfloor}{x^{s+1}} dx \]
+\end{proof}
+
+\begin{theorem}
+  For $-1 < \Re(s) < 0$, we have:
+  \[ \zeta(s) = -s \int_{0}^{\infty} \frac{\tilde{B}_1(x)}{x^{s+1}} dx \]
+\end{theorem}
+
+\begin{proof}
+  The idea is to extend the integral $\int_1^{\infty}
+  \frac{\tilde{B}_1(x)}{x^{s+1}} dx$ to the domain $\Re(s) > -1$ by
+  applying integration by parts, using the fact that $\frac{d}{dx}
+  \frac{\tilde{B}_2(x)}{2} = \tilde{B}_1(x)$ (where $\tilde{B}_2(x)$
+  is the second periodic Bernoulli polynomial).
+  \[ \int_{1}^{\infty} \frac{\tilde{B}_1(x)}{x^{s+1}} dx = \left[
+    \frac{\tilde{B}_2(x)}{2x^{s+1}} \right]_{1}^{\infty} +
+  \frac{s+1}{2} \int_{1}^{\infty} \frac{\tilde{B}_2(x)}{x^{s+2}} dx \]
+  Since $\tilde{B}_2(x)$ is bounded, this new integral converges
+  absolutely for $\Re(s+2) > 1 \implies \Re(s) > -1$.
+  Now, to verify the exact formula for $-1 < \Re(s) < 0$, evaluate
+  the segment from $0$ to $1$:
+  \[ \int_{0}^{1} \frac{\tilde{B}_1(x)}{x^{s+1}} dx = \int_{0}^{1}
+    \frac{x - 1/2}{x^{s+1}} dx = \left[ \frac{x^{1-s}}{1-s} -
+  \frac{x^{-s}}{-2s} \right]_{0}^{1} = \frac{1}{1-s} + \frac{1}{2s} \]
+  Multiplying by $-s$ gives $\frac{-s}{1-s} - \frac{1}{2} = \frac{s+1}{2(s-1)}$.
+  But from the previous analytic continuation, $\zeta(s) =
+  \frac{1}{s-1} + \frac{1}{2} - s \int_{1}^{\infty}
+  \frac{\tilde{B}_1(x)}{x^{s+1}} dx$. Notice that $\frac{1}{s-1} +
+  \frac{1}{2} = \frac{s+1}{2(s-1)}$.
+  Thus:
+  \[ \zeta(s) = -s \int_{0}^{1} \frac{\tilde{B}_1(x)}{x^{s+1}} dx - s
+    \int_{1}^{\infty} \frac{\tilde{B}_1(x)}{x^{s+1}} dx = -s
+  \int_{0}^{\infty} \frac{\tilde{B}_1(x)}{x^{s+1}} dx \]
+\end{proof}
+
+\begin{theorem}[Integral Representation]
+  For $\Re(s) > 1$:
+  \[ \zeta(s) = \frac{1}{\Gamma(s)} \int_{0}^{\infty}
+  \frac{x^{s-1}}{e^x - 1} dx \]
+\end{theorem}
+
+\begin{proof}
+  Recall the definition of the Gamma function:
+  \[ \Gamma(s) = \int_{0}^{\infty} t^{s-1} e^{-t} dt \]
+  For $n \ge 1$, perform the change of variable $t = nx$, yielding
+  $dt = n \, dx$:
+  \[ \Gamma(s) = \int_{0}^{\infty} (nx)^{s-1} e^{-nx} n \, dx = n^s
+  \int_{0}^{\infty} x^{s-1} e^{-nx} dx \]
+  Dividing by $n^s \Gamma(s)$:
+  \[ \frac{1}{n^s} = \frac{1}{\Gamma(s)} \int_{0}^{\infty} x^{s-1} e^{-nx} dx \]
+  Next, we sum both sides over all $n \ge 1$. We can interchange the
+  sum and the integral by the Monotone/Dominated Convergence Theorem
+  since all terms are positive and the result is absolutely
+  convergent for $\Re(s) > 1$:
+  \[ \zeta(s) = \sum_{n=1}^{\infty} \frac{1}{n^s} =
+    \frac{1}{\Gamma(s)} \sum_{n=1}^{\infty} \int_{0}^{\infty} x^{s-1}
+    e^{-nx} dx = \frac{1}{\Gamma(s)} \int_{0}^{\infty} x^{s-1}
+  \sum_{n=1}^{\infty} e^{-nx} dx \]
+  Recognizing the geometric series $\sum_{n=1}^{\infty} (e^{-x})^n =
+  \frac{e^{-x}}{1-e^{-x}} = \frac{1}{e^x - 1}$, we get:
+  \[ \zeta(s) = \frac{1}{\Gamma(s)} \int_{0}^{\infty}
+  \frac{x^{s-1}}{e^x - 1} dx \]
+\end{proof}
+
+\end{document}
