@@ -10,7 +10,7 @@ This site serves as a central repository for resources, lecture notes, and summa
 
 ### Course Catalog
 
-{{% children type="list" description="false" icon="fas fa-book-open" %}}
+{{< course_list >}}
 
 ---
 

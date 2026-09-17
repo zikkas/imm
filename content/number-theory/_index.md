@@ -3,6 +3,8 @@ date = '2026-02-02T07:57:40+01:00'
 draft = false
 title = 'Number Theory'
 weight = 10
+semesters = ["Semester 2"]
+tags = ["Incomplete Content", "Semester 2"]
 +++
 
 ## Course Syllabus

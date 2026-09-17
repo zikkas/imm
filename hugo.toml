@@ -1,15 +1,20 @@
 baseURL = "https://zikkas.github.io/imm/"
-languageCode = "en-us"
+locale = "en-us"
 title = "IMM 2025 Hub"
 theme = "github.com/McShelby/hugo-theme-relearn"
 enableGitInfo = true
 ignoreFiles = ["\\.tex$", "\\.aux$", "\\.log$", "\\.out$", "\\.toc$"]
 
+[taxonomies]
+tag = "tags"
+semester = "semesters"
+
 [params]
 math = true
 collapsibleMenu = true
-showVisitedLinks = true
+showVisitedLinks = false
 disableLandingPageButton = false
+disableTaxonomyNavigation = false
 themeVariant = ["auto", "zen-light", "zen-dark"]
 mathJaxInitalize = "{ \"tex\": { \"inlineMath\": [ [ \"$\", \"$\" ], [ \"\\\\(\", \"\\\\)\" ] ], \"displayMath\": [ [ \"$$\", \"$$\" ], [ \"\\\\[\", \"\\\\]\" ] ] } }"
 editURL = "https://github.com/zikkas/imm/edit/main/content/"

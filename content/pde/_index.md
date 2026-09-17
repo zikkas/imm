@@ -3,6 +3,8 @@ date = '2026-02-02T15:28:16+01:00'
 draft = false
 title = 'Partial Differential Equations'
 weight = 20
+semesters = ["Semester 2"]
+tags = ["Incomplete Content", "Semester 2"]
 +++
 
 This course tackles topics on the existence, uniqueness, and regularity of solutions for differential equations from a mathematical view-point. This will be done through 2 big topics. First through Operator Theory, specifically unbounded operators (since differentiation is unbounded) compact operators (since integration is compact). Second through Operators Semi-Groups Theory, since all differential equations have flows and those flows generate semi-groups. After finishing with those two topics, the course will cover how to use both of those topics to solve Differential Equations in general and PDEs (Partial Differential Equation) specifically.

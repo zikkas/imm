@@ -1,8 +1,10 @@
 +++
-date = '2026-02-04T08:21:16+01:00'
+date = "2026-02-04T08:21:16+01:00"
 draft = false
-title = 'Algebraic Topology'
+title = "Algebraic Topology"
 weight = 30
+semesters = ["Semester 2"]
+tags = ["Incomplete Content", "Semester 2"]
 +++
 
 ## Course Syllabus

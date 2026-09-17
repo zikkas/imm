@@ -1,0 +1,8 @@
+{{ range $term, $taxonomy := .Site.Taxonomies.semesters }}
+<h3>{{ $term | title }}</h3>
+<ul>
+  {{ range $taxonomy.Pages }}
+  <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+  {{ end }}
+</ul>
+{{ end }}
