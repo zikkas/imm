@@ -19,7 +19,7 @@ This site serves as a central repository for resources, lecture notes, and summa
 {{% notice note "Maintainer's Note" %}}
 **This is an individual initiative.**
 
-This website is currently maintained and curated by a single student. While I strive for accuracy, correctness and rigor in all notes and summaries, errors can happen. I am only human after all
+This website is currently maintained and curated by a single student. While I strive for accuracy, correctness and rigor in all notes and summaries, errors can happen. I am only human after all.
 
 **This project is open to debate and improvement.**
 
